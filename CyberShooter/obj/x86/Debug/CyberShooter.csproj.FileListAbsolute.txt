@@ -1,0 +1,78 @@
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.csprojResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.exe
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.pdb
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\MonoGame.Framework.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XInput.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.dll
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\MonoGame.Framework.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.exe
+c:\users\martin\documents\visual studio 2015\Projects\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\Martin\Documents\Visual Studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
+C:\Users\Martin\Documents\Visual Studio 2015\Projects\CyberShooter\CyberShooter\bin\Windows\Debug\Content\plattform.xnb
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.exe
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\obj\x86\Debug\CyberShooter.csprojResolveAssemblyReference.cache
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\Content\plattform.xnb
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.exe
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\CyberShooter.pdb
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Martin\Desktop\CyberShooter\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.xnb
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.pdb
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.csprojResolveAssemblyReference.cache
