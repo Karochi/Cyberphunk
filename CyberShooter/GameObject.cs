@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Cyberphunk
+namespace CyberShooter
 {
     public abstract class GameObject
     {

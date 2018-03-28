@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cyberphunk
+namespace CyberShooter
 {
 #if WINDOWS || LINUX
     /// <summary>

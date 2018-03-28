@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberphunk
+namespace CyberShooter
 {
     public enum GameStates { start, loadingLevel, gameOn, gameOver };
 

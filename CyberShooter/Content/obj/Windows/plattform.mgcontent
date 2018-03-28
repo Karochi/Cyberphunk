@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Martin/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
+  <SourceFile>C:/Users/Martin/Desktop/CyberShooter/CyberShooter/Content/plattform.bmp</SourceFile>
   <SourceTime>2017-11-14T07:58:05.2702773+01:00</SourceTime>
-  <DestFile>C:/Users/Martin/Desktop/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
-  <DestTime>2018-03-22T20:53:40.02804+01:00</DestTime>
+  <DestFile>C:/Users/Martin/Desktop/CyberShooter/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
+  <DestTime>2018-03-05T16:22:01.1917856+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

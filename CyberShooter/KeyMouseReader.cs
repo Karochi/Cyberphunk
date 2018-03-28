@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
-namespace Cyberphunk
+namespace CyberShooter
 {
     static class KeyMouseReader
     {

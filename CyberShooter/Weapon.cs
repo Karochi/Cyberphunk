@@ -5,16 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cyberphunk
+namespace CyberShooter
 {
     abstract class Weapon : GameObject
     {
         public int damage, cooldown, originCooldown;
         public Vector2 target;
 
-        public Weapon(Vector2 position) : base()
+        public Weapon() : base()
         {
-            this.position = position;
         }
         public virtual void Update(GameTime gameTime)
         {
