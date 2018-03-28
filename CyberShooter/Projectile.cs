@@ -13,8 +13,9 @@ namespace CyberShooter
         public int speed, damage;
         public float range;
 
-        public Projectile(Vector2 position, Vector2 target) : base()
+        public Projectile(Vector2 position, Vector2 target, int damage) : base()
         {
+            this.damage = damage;
             this.position = position;
             this.target = target;
             originPosition = position;

@@ -22,8 +22,10 @@ namespace CyberShooter
             damage = 1;
             //How long the projectile will travel before it becomes inactive
             range = 150;
-            //<\>
+            //How fast the projectile goes
             speed = 3;
+            //Outline projectile object to create values for texWidth/texHeight
+            projectile = new Projectile(Vector2.Zero, Vector2.Zero, 0);
             originCooldown = 500;
             base.Update();
         }
@@ -39,8 +41,7 @@ namespace CyberShooter
             {
                 if (cooldown <= 0)
                 {
-                    projectile = new Projectile(new Vector2(position.X - (projectile.texWidth / 2), position.Y - (projectile.texHeight / 2)), target);
-                    projectile.damage = damage;
+                    projectile = new Projectile(new Vector2(position.X - (projectile.texWidth / 2), position.Y - (projectile.texHeight / 2)), target, damage);
                     projectile.ProjectileDefinition(target, range, speed);
                     projectileList.Add(projectile);
                     cooldown = originCooldown;

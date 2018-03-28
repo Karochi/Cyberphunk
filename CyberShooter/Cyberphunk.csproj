@@ -42,12 +42,17 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedGameObject.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GameBoard.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="KeyMouseReader.cs" />
+    <Compile Include="MovingGameObject.cs" />
+    <Compile Include="NPC.cs" />
+    <Compile Include="Pickup.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
