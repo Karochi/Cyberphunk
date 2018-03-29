@@ -41,7 +41,7 @@ namespace CyberShooter
             {
                 if (cooldown <= 0)
                 {
-                    projectile = new Projectile(new Vector2(position.X - (projectile.texWidth / 2), position.Y - (projectile.texHeight / 2)), target, damage);
+                    projectile = new Projectile(new Vector2(position.X - (projectile.hitBoxWidth / 2), position.Y - (projectile.hitBoxHeight / 2)), target, damage);
                     projectile.ProjectileDefinition(target, range, speed);
                     projectileList.Add(projectile);
                     cooldown = originCooldown;

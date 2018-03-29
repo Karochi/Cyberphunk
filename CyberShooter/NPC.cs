@@ -12,8 +12,8 @@ namespace CyberShooter
         public NPC(Vector2 position) : base()
         {
             this.position = position;
-            texHeight = 40;
-            texWidth = 30;
+            hitBoxHeight = 30;
+            hitBoxWidth = 30;
         }
         public override void Update()
         {

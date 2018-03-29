@@ -50,6 +50,8 @@
     <Compile Include="GameState.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="KeyMouseReader.cs" />
+    <Compile Include="Layer.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="MovingGameObject.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Pickup.cs" />
@@ -78,6 +80,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Maps\" />
+    <Folder Include="Content\Textures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

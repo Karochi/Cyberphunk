@@ -19,8 +19,8 @@ namespace CyberShooter
             this.position = position;
             this.target = target;
             originPosition = position;
-            texWidth = 3;
-            texHeight = 3;
+            hitBoxWidth = 3;
+            hitBoxHeight = 3;
             base.Update();
         }
         public void ProjectileDefinition(Vector2 target, float range, int speed)

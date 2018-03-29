@@ -14,13 +14,15 @@ namespace CyberShooter
     class Player : MovingGameObject
     {
         public WeaponStates weaponState;
+        public Vector2 mapPosition;
 
-        public Player(Vector2 position) : base()
+        public Player(int screenWidth, int screenHeight) : base()
         {
             weaponState = WeaponStates.unarmed;
-            this.position = position;
-            texHeight = 40;
-            texWidth = 30;
+            hitBoxHeight = 30;
+            hitBoxWidth = 30;
+            mapPosition.X = ((float)screenWidth / 2) - (hitBoxWidth / 2);
+            mapPosition.Y = ((float)screenHeight / 2) - (hitBoxHeight / 2);
         }
         public override void Update()
         {
@@ -83,6 +85,10 @@ namespace CyberShooter
                     speed.Y += 0.2f;
                 }
             }
+        }
+        public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+        {
+            spriteBatch.Draw(texture, mapPosition, Color.White);
         }
     }
 }

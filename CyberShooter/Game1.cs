@@ -11,7 +11,7 @@ namespace CyberShooter
         SpriteBatch spriteBatch;
 
         //Can be moved to an 'initialize' class
-        Texture2D square;
+        public static Texture2D square, tileSheet;
         Camera camera;
         int screenWidth, screenHeight;
         //<\>
@@ -21,8 +21,8 @@ namespace CyberShooter
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            screenWidth = 800;
-            screenHeight = 600;
+            screenWidth = 1600;
+            screenHeight = 900;
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
         }
@@ -35,6 +35,7 @@ namespace CyberShooter
             IsMouseVisible = true;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
+            tileSheet = Content.Load<Texture2D>("path");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
 
