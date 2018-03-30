@@ -115,5 +115,20 @@ namespace CyberShooter
                 }
             }
         }
+        public void PopulateCollisionLayer()
+        {
+            collisionRects = new List<Rectangle>();
+
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (solidLayer.layer[x, y] == 1)
+                    {
+                        collisionRects.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                    }
+                }
+            }
+        }
     }
 }

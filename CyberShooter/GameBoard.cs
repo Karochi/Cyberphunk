@@ -24,6 +24,8 @@ namespace CyberShooter
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
         string loadFileName = "testest.txt";
+        Vector2 collisionDist = Vector2.Zero;
+        Vector2 normal;
 
         public GameBoard(int screenWidth, int screenHeight)
         {
@@ -44,6 +46,7 @@ namespace CyberShooter
             map.LoadMap(loadFileName);
 
             map.LoadTileSet(Game1.tileSheet);
+            map.PopulateCollisionLayer();
         }
         public void Update(GameTime gameTime)
         {
@@ -54,6 +57,14 @@ namespace CyberShooter
             {
                 gun.Update(gameTime, player.position);
                 gun.target = new Vector2(KeyMouseReader.mousePosition.X + (player.position.X - screenWidth / 2), KeyMouseReader.mousePosition.Y + (player.position.Y - screenHeight / 2));
+            }
+            for (int i = 0; i < map.collisionRects.Count(); i++)
+            {
+                if (player.hitRect.Intersects(map.collisionRects[i]))
+                {
+                    player.position = player.oldPosition;
+                    player.speed = new Vector2(0, 0);
+                }
             }
         }
         public void NPCCollision()
