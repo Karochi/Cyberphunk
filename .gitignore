@@ -70,4 +70,5 @@ Test/*.csproj
 *.ncrunchproject
 *.ncrunchsolution
 
-*.txt
+.vs/Cyberphunk/v14/.suo
+CyberShooter/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
