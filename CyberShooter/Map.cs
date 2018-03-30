@@ -78,7 +78,7 @@ namespace CyberShooter
                             bounds = tileSet[tileLayer1.layer[y, x] - 1];
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
-                        }
+                        }                        
                         if (tileLayer2.layer[y, x] != 0)
                         {
                             bounds = tileSet[tileLayer2.layer[y, x] - 1];
