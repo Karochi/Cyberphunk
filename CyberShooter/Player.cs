@@ -88,7 +88,7 @@ namespace CyberShooter
         }
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            spriteBatch.Draw(texture, mapPosition, Color.White);
+            spriteBatch.Draw(texture, hitRect, Color.White);
         }
     }
 }

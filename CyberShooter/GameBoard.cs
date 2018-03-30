@@ -13,7 +13,7 @@ namespace CyberShooter
         public Gun gun;
         public Player player;
         public NPC testNPC;
-        //public Level map;
+        public Level map;
         int screenWidth, screenHeight;
 
         Vector2 normal;
@@ -27,17 +27,17 @@ namespace CyberShooter
             gun = new Gun();
             testNPC = new NPC(new Vector2(100,100));
 
-            //map = new Level();
-            //map.LoadMap("Content/Maps/test.txt");
-            //map.LoadTileSet(Game1.tileSheet);
-            //map.PopulateCollisionLayer();
+            map = new Level();
+            map.LoadMap("test2.txt");
+            map.LoadTileSet(Game1.tileSheet);
+            map.PopulateCollisionLayer();
 
         }
         public void Update(GameTime gameTime)
         {
             player.Update();
 
-            //collisionDist = Vector2.Zero;
+            collisionDist = Vector2.Zero;
             testNPC.Update();
             NPCCollision();
             if (player.weaponState == WeaponStates.gun)
@@ -45,18 +45,18 @@ namespace CyberShooter
                 gun.Update(gameTime, player.position);
                 gun.target = new Vector2(KeyMouseReader.mousePosition.X + (player.position.X - screenWidth / 2), KeyMouseReader.mousePosition.Y + (player.position.Y - screenHeight / 2));
             }
-            //for (int i = 0; i < map.collisonRects.Count(); i++)
-            //{
-            //    if(IsColliding(player.hitRect, map.collisonRects[i]))
-            //    {
-            //        if(normal.Length() > collisionDist.Length())
-            //        {
-            //            collisionDist = normal;
-            //        }
-            //    }
-            //}
-            //player.position.X += collisionDist.X;
-            //player.position.X += collisionDist.Y;
+            for (int i = 0; i < map.collisonRects.Count(); i++)
+            {
+                if (IsColliding(player.hitRect, map.collisonRects[i]))
+                {
+                    if (normal.Length() > collisionDist.Length())
+                    {
+                        collisionDist = normal;
+                    }
+                }
+            }
+            player.position.X += collisionDist.X;
+            player.position.X += collisionDist.Y;
 
         }
         public void NPCCollision()
@@ -69,9 +69,10 @@ namespace CyberShooter
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            player.Draw(spriteBatch, Game1.square);
+            map.DrawMap(spriteBatch, player, testNPC, Game1.tileSheet);
+            //player.Draw(spriteBatch, Game1.square);
             gun.Draw(spriteBatch, texture);
-            testNPC.Draw(spriteBatch, Game1.square);
+            //testNPC.Draw(spriteBatch, Game1.square);
         }
         public bool IsColliding(Rectangle body1, Rectangle body2)
         {

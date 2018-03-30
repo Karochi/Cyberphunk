@@ -47,10 +47,9 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Sha
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CopyComplete
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\tileSheet.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\path.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache

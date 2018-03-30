@@ -52,7 +52,7 @@ namespace CyberShooter
             }
             catch(Exception ex) 
             {
-                Console.WriteLine("Map file name error");
+                Console.WriteLine("Map file name error" + ex);
             }
         }
         public void LoadTileSet(Texture2D tileTex)

@@ -35,7 +35,7 @@ namespace CyberShooter
             IsMouseVisible = true;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
-            tileSheet = Content.Load<Texture2D>("path");
+            tileSheet = Content.Load<Texture2D>("roguelikeSheet_transparent");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
 
@@ -63,7 +63,7 @@ namespace CyberShooter
         }
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             //This spriteBatch implies everything in the batch is centered on the player-plane.
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
             gameBoard.Draw(spriteBatch, square);
