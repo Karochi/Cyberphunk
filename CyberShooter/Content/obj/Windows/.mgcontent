@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Martin/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
+    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
+    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/roguelikeSheet_transparent.png</File>
   </SourceFiles>
 </SourceFileCollection>

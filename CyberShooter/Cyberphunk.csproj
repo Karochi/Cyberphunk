@@ -50,6 +50,8 @@
     <Compile Include="GameState.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="KeyMouseReader.cs" />
+    <Compile Include="Layer.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="MovingGameObject.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Pickup.cs" />

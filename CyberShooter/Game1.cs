@@ -8,10 +8,12 @@ namespace CyberShooter
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public static SpriteBatch spriteBatch;
+
 
         //Can be moved to an 'initialize' class
-        Texture2D square;
+        public static Texture2D square;
+        public static Texture2D tileSheet;
         Camera camera;
         int screenWidth, screenHeight;
         //<\>
@@ -35,6 +37,8 @@ namespace CyberShooter
             IsMouseVisible = true;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
+            tileSheet = Content.Load<Texture2D>("roguelikeSheet_transparent");
+
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
 
