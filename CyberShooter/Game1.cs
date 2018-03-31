@@ -71,6 +71,7 @@ namespace CyberShooter
 
             target = Vector2.Transform(new Vector2(KeyMouseReader.mousePosition.X, KeyMouseReader.mousePosition.Y), Matrix.Invert(camera.GetTransform()));
             crosshair = new Vector2(target.X - square.Width / 2, target.Y - square.Height / 2);
+
             //This spriteBatch implies everything in the batch is centered on the player-plane.
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
             gameBoard.Draw(spriteBatch, square);
@@ -82,7 +83,7 @@ namespace CyberShooter
         {
             if (KeyMouseReader.LeftClick())
             {
-                Console.WriteLine("target location" + gameBoard.gun.target);
+                Console.WriteLine("target location" + target);
                 Console.WriteLine("position" + gameBoard.player.position);
             }
             if (KeyMouseReader.RightClick())

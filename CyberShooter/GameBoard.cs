@@ -10,7 +10,6 @@ namespace CyberShooter
 {
     class GameBoard
     {
-        public Gun gun;
         public Player player;
         public NPC testNPC;
         int screenWidth, screenHeight;
@@ -32,7 +31,7 @@ namespace CyberShooter
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
             player = new Player(new Vector2(100, 200));
-            gun = new Gun();
+            //gun = new Gun();
             testNPC = new NPC(new Vector2(100,100));
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
             map.LoadMap(loadFileName);
@@ -50,8 +49,7 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
-            gun.Update(gameTime, target);
-            player.Update();
+            player.Update(gameTime, target);
             testNPC.Update();
             NPCCollision();
             for (int i = 0; i < map.collisionRects.Count(); i++)
@@ -75,7 +73,10 @@ namespace CyberShooter
         {
             map.DrawMap();
             player.Draw(spriteBatch, texture);
-            gun.Draw(spriteBatch, texture);
+            foreach(Projectile projectile in player.projectileList)
+            {
+                projectile.Draw(spriteBatch, texture);
+            }
             testNPC.Draw(spriteBatch, texture);
         }
     }

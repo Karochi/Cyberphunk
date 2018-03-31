@@ -13,23 +13,20 @@ namespace CyberShooter
         public int speed, damage;
         public float range;
 
-        public Projectile(Vector2 position, Vector2 target, int damage) : base()
+        public Projectile(Vector2 position, Vector2 target, int damage, float range, int speed) : base()
         {
             this.damage = damage;
             this.position = position;
             this.target = target;
-            originPosition = position;
-            texWidth = 3;
-            texHeight = 3;
-            base.Update();
-        }
-        public void ProjectileDefinition(Vector2 target, float range, int speed)
-        {
             this.range = range;
             this.speed = speed;
+            texWidth = 10;
+            texHeight = 10;
+            originPosition = position;
             direction = target - position;
             updatedDirection = Vector2.Normalize(direction);
         }
+
         public override void Update()
         {
             position += updatedDirection * speed;

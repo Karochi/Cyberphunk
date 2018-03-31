@@ -14,20 +14,34 @@ namespace CyberShooter
     class Player : MovingGameObject
     {
         public WeaponStates weaponState;
+        public List<Projectile> projectileList;
+        Projectile projectile;
+        public int damage, cooldown, originCooldown, projectileSpeed;
+        public float range;
+        public Vector2 target;
 
         public Player(Vector2 position) : base()
         {
+            projectileList = new List<Projectile>();
             weaponState = WeaponStates.unarmed;
             this.position = position;
             texHeight = 40;
             texWidth = 30;
         }
-        public override void Update()
+        public void Update(GameTime gameTime, Vector2 target)
         {
             base.Update();
+            this.target = target;
+            cooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            //you could call on this in the pickup class so that you only change the values once and not in every update
+            if(weaponState == WeaponStates.gun)
+            {
+                GunDefinition();
+            }
             Moving();
             StoppingX();
             StoppingY();
+            Shooting();
         }
         public void Moving()
         {
@@ -83,6 +97,29 @@ namespace CyberShooter
                     speed.Y += 0.2f;
                 }
             }
+        }
+        public void Shooting()
+        {
+            if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (cooldown <= 0 && weaponState != WeaponStates.unarmed)
+                {
+                    projectile = new Projectile(position, target, damage, range, projectileSpeed);
+                    projectileList.Add(projectile);
+                    cooldown = originCooldown;
+                }
+            }
+            foreach (Projectile projectile in projectileList)
+            {
+                projectile.Update();
+            }
+        }
+        public void GunDefinition()
+        {
+            damage = 1;
+            range = 150;
+            projectileSpeed = 10;
+            originCooldown = 500;
         }
     }
 }
