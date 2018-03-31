@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,34 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
+    public enum PickUpTypes{ nothing, gun };
+
     class Pickup : AnimatedGameObject
     {
-        Pickup() : base()
-        {
+        public Vector2 pickUpCenter;
+        public PickUpTypes pickUpType;
+        public float radius;
+        public bool interactable;
 
+        public Pickup(Vector2 position, PickUpTypes type) : base()
+        {
+            this.position = position;
+            this.pickUpType = type;
+            interactable = false;
+            radius = 60;
+            texHeight = 10;
+            texWidth = 60;
+            pickUpCenter = new Vector2(position.X + texWidth / 2, position.Y + texHeight / 2);
+            base.Update();
+        }
+        public void PickedUp(Player player)
+        {
+            if(pickUpType == PickUpTypes.gun)
+            {
+                player.weaponState = WeaponStates.gun;
+                player.GunDefinition();
+                isActive = false;
+            }
         }
     }
 }

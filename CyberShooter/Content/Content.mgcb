@@ -37,3 +37,10 @@
 /processorParam:TextureFormat=Color
 /build:roguelikeSheet_transparent.png
 
+#begin spriteFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:spriteFont.spritefont
+

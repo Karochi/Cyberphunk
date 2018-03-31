@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Input;
 
 namespace CyberShooter
 {
@@ -12,7 +13,9 @@ namespace CyberShooter
     {
         public Player player;
         public NPC testNPC;
+        public Pickup testPickUp;
         int screenWidth, screenHeight;
+        public List<Pickup> pickUpList;
 
         public static Map map;
 
@@ -31,8 +34,12 @@ namespace CyberShooter
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
             player = new Player(new Vector2(100, 200));
-            //gun = new Gun();
             testNPC = new NPC(new Vector2(100,100));
+
+            pickUpList = new List<Pickup>();
+            testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.gun);
+            pickUpList.Add(testPickUp);
+
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
             map.LoadMap(loadFileName);
             mapHeight = map.mapHeight;
@@ -52,6 +59,7 @@ namespace CyberShooter
             player.Update(gameTime, target);
             testNPC.Update();
             NPCCollision();
+            PickUpCollision();
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 if (player.hitRect.Intersects(map.collisionRects[i]))
@@ -69,6 +77,24 @@ namespace CyberShooter
                 player.speed = new Vector2(0,0);
             }
         }
+        public void PickUpCollision()
+        {
+            foreach(Pickup pickUp in pickUpList)
+            {
+                if (Vector2.Distance(player.playerCenter, pickUp.pickUpCenter) < pickUp.radius)
+                {
+                    pickUp.interactable = true;
+                    if (KeyMouseReader.KeyPressed(Keys.E))
+                    {
+                        pickUp.PickedUp(player);
+                    }
+                }
+                else
+                {
+                    pickUp.interactable = false;
+                }
+            }
+        }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
             map.DrawMap();
@@ -77,6 +103,7 @@ namespace CyberShooter
             {
                 projectile.Draw(spriteBatch, texture);
             }
+            testPickUp.Draw(spriteBatch, texture);
             testNPC.Draw(spriteBatch, texture);
         }
     }

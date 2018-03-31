@@ -18,7 +18,7 @@ namespace CyberShooter
         Projectile projectile;
         public int damage, cooldown, originCooldown, projectileSpeed;
         public float range;
-        public Vector2 target;
+        public Vector2 target, playerCenter;
 
         public Player(Vector2 position) : base()
         {
@@ -33,11 +33,7 @@ namespace CyberShooter
             base.Update();
             this.target = target;
             cooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            //you could call on this in the pickup class so that you only change the values once and not in every update
-            if(weaponState == WeaponStates.gun)
-            {
-                GunDefinition();
-            }
+            playerCenter = new Vector2(position.X + texWidth / 2, position.Y + texHeight / 2);
             Moving();
             StoppingX();
             StoppingY();

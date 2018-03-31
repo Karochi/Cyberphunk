@@ -12,9 +12,9 @@ namespace CyberShooter
 
         enum GameStates { start, loadingLevel, gameOn, gameOver };
         GameStates gameState;
-        //Can be moved to an 'initialize' class
         public static Texture2D square;
         public static Texture2D tileSheet;
+        SpriteFont spriteFont;
         Vector2 target, crosshair;
         Camera camera;
         int screenWidth, screenHeight;
@@ -39,7 +39,7 @@ namespace CyberShooter
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
             tileSheet = Content.Load<Texture2D>("roguelikeSheet_transparent");
-
+            spriteFont = Content.Load<SpriteFont>("spriteFont");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
 
@@ -75,6 +75,13 @@ namespace CyberShooter
             //This spriteBatch implies everything in the batch is centered on the player-plane.
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
             gameBoard.Draw(spriteBatch, square);
+            foreach(Pickup pickUp in gameBoard.pickUpList)
+            {
+                if (pickUp.interactable && pickUp.isActive)
+                {
+                    spriteBatch.DrawString(spriteFont, "E", new Vector2(gameBoard.testPickUp.position.X + gameBoard.testPickUp.texWidth / 2, gameBoard.testPickUp.position.Y - 50), Color.Black);
+                }
+            }
             spriteBatch.Draw(square, crosshair, Color.Black);
             spriteBatch.End();
             base.Draw(gameTime);
@@ -84,7 +91,7 @@ namespace CyberShooter
             if (KeyMouseReader.LeftClick())
             {
                 Console.WriteLine("target location" + target);
-                Console.WriteLine("position" + gameBoard.player.position);
+                Console.WriteLine("position" + gameBoard.testPickUp.hitRect);
             }
             if (KeyMouseReader.RightClick())
             {
