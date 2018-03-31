@@ -29,11 +29,11 @@ namespace CyberShooter
             originCooldown = 500;
             base.Update();
         }
-        public virtual void Update(GameTime gameTime, Vector2 position)
+        public virtual void Update(GameTime gameTime, Vector2 position, Vector2 target)
         {
             this.position = position;
             Shooting();
-            base.Update(gameTime);
+            base.Update(gameTime, target);
         }
         public virtual void Shooting()
         {
@@ -41,7 +41,7 @@ namespace CyberShooter
             {
                 if (cooldown <= 0)
                 {
-                    projectile = new Projectile(new Vector2(position.X - (projectile.texWidth / 2), position.Y - (projectile.texHeight / 2)), target, damage);
+                    projectile = new Projectile(new Vector2(target.X - (projectile.texWidth / 2), position.Y - (projectile.texHeight / 2)), target, damage);
                     projectile.ProjectileDefinition(target, range, speed);
                     projectileList.Add(projectile);
                     cooldown = originCooldown;

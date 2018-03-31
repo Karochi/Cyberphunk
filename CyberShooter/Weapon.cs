@@ -15,9 +15,10 @@ namespace CyberShooter
         public Weapon() : base()
         {
         }
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, Vector2 target)
         {
             //All weapons should have an attack cooldown
+            this.target = target;
             cooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             base.Update();
         }

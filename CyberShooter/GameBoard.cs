@@ -48,16 +48,12 @@ namespace CyberShooter
             map.LoadTileSet(Game1.tileSheet);
             map.PopulateCollisionLayer();
         }
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Vector2 target)
         {
+            gun.Update(gameTime, target);
             player.Update();
             testNPC.Update();
             NPCCollision();
-            if (player.weaponState == WeaponStates.gun)
-            {
-                gun.Update(gameTime, player.position);
-                gun.target = new Vector2(KeyMouseReader.mousePosition.X + (player.position.X - screenWidth / 2), KeyMouseReader.mousePosition.Y + (player.position.Y - screenHeight / 2));
-            }
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 if (player.hitRect.Intersects(map.collisionRects[i]))
