@@ -14,16 +14,16 @@ namespace CyberShooter
         public Vector2 pickUpCenter;
         public PickUpTypes pickUpType;
         public float radius;
-        public bool interactable;
+        public bool isInteractable;
 
         public Pickup(Vector2 position, PickUpTypes type) : base()
         {
             this.position = position;
             this.pickUpType = type;
-            interactable = false;
+            isInteractable = false;
             radius = 60;
             texHeight = 10;
-            texWidth = 60;
+            texWidth = 10;
             pickUpCenter = new Vector2(position.X + texWidth / 2, position.Y + texHeight / 2);
             base.Update();
         }

@@ -13,11 +13,13 @@ namespace CyberShooter
     {
         public Player player;
         public NPC testNPC;
-        public Pickup testPickUp;
         int screenWidth, screenHeight;
-        public List<Pickup> pickUpList;
-
         public static Map map;
+
+        public Pickup testPickUp;
+        public List<Pickup> pickUpList;
+        public float playerPickUpDistance, shortestPickUpDistance;
+        int pickUpIndex;
 
         public static int mapHeight = 20;
         public static int mapWidth = 20;
@@ -39,6 +41,12 @@ namespace CyberShooter
             pickUpList = new List<Pickup>();
             testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.gun);
             pickUpList.Add(testPickUp);
+            testPickUp = new Pickup(new Vector2(100, 475), PickUpTypes.gun);
+            pickUpList.Add(testPickUp);
+            testPickUp = new Pickup(new Vector2(155, 510), PickUpTypes.gun);
+            pickUpList.Add(testPickUp);
+            shortestPickUpDistance = pickUpList[0].radius;
+
 
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
             map.LoadMap(loadFileName);
@@ -59,7 +67,8 @@ namespace CyberShooter
             player.Update(gameTime, target);
             testNPC.Update();
             NPCCollision();
-            PickUpCollision();
+            PickUpSelection();
+            PickUpCollection();
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 if (player.hitRect.Intersects(map.collisionRects[i]))
@@ -77,21 +86,37 @@ namespace CyberShooter
                 player.speed = new Vector2(0,0);
             }
         }
-        public void PickUpCollision()
+        public void PickUpSelection()
         {
-            foreach(Pickup pickUp in pickUpList)
+            shortestPickUpDistance = float.MaxValue;
+            pickUpIndex = -1;
+            for (int i = 0; i < pickUpList.Count(); i++)
             {
-                if (Vector2.Distance(player.playerCenter, pickUp.pickUpCenter) < pickUp.radius)
+                pickUpList[i].isInteractable = false;
+                playerPickUpDistance = Vector2.Distance(player.playerCenter, pickUpList[i].pickUpCenter);
+                if (playerPickUpDistance < pickUpList[i].radius)
                 {
-                    pickUp.interactable = true;
-                    if (KeyMouseReader.KeyPressed(Keys.E))
+                    if (playerPickUpDistance < shortestPickUpDistance)
                     {
-                        pickUp.PickedUp(player);
+                        shortestPickUpDistance = playerPickUpDistance;
+                        pickUpIndex = i;
                     }
                 }
-                else
+            }
+            if (pickUpIndex >= 0)
+            {
+                pickUpList[pickUpIndex].isInteractable = true;
+            }
+        }
+        public void PickUpCollection()
+        {
+            foreach (Pickup pickUp in pickUpList)
+            {
+                if (pickUp.isActive && pickUp.isInteractable && KeyMouseReader.KeyPressed(Keys.E))
                 {
-                    pickUp.interactable = false;
+                    pickUp.PickedUp(player);
+                    pickUpList.Remove(pickUpList[pickUpIndex]);
+                    break;
                 }
             }
         }
@@ -103,7 +128,10 @@ namespace CyberShooter
             {
                 projectile.Draw(spriteBatch, texture);
             }
-            testPickUp.Draw(spriteBatch, texture);
+            foreach(Pickup pickup in pickUpList)
+            {
+                pickup.Draw(spriteBatch, texture);
+            }
             testNPC.Draw(spriteBatch, texture);
         }
     }

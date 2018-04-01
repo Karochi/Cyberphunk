@@ -77,9 +77,9 @@ namespace CyberShooter
             gameBoard.Draw(spriteBatch, square);
             foreach(Pickup pickUp in gameBoard.pickUpList)
             {
-                if (pickUp.interactable && pickUp.isActive)
+                if (pickUp.isInteractable && pickUp.isActive)
                 {
-                    spriteBatch.DrawString(spriteFont, "E", new Vector2(gameBoard.testPickUp.position.X + gameBoard.testPickUp.texWidth / 2, gameBoard.testPickUp.position.Y - 50), Color.Black);
+                    spriteBatch.DrawString(spriteFont, "E", new Vector2(pickUp.position.X + pickUp.texWidth / 2, pickUp.position.Y - 10), Color.Black);
                 }
             }
             spriteBatch.Draw(square, crosshair, Color.Black);
@@ -91,7 +91,6 @@ namespace CyberShooter
             if (KeyMouseReader.LeftClick())
             {
                 Console.WriteLine("target location" + target);
-                Console.WriteLine("position" + gameBoard.testPickUp.hitRect);
             }
             if (KeyMouseReader.RightClick())
             {
