@@ -47,6 +47,8 @@ namespace MapEditor
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            tileHeight = Convert.ToInt32(TileHeightBox.Value);
+            tileWidth = Convert.ToInt32(tileWidthBox.Value);
             DialogResult = DialogResult.OK;
         }
 
