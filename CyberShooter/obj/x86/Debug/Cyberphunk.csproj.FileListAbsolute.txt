@@ -55,3 +55,4 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberSh
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\roguelikeSheet_transparent.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\spriteFont.xnb
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\crosshair.xnb

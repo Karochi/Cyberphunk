@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum PickUpTypes{ nothing, gun };
+    public enum PickUpTypes{ handgun, rifle, ammo, health };
 
     class Pickup : AnimatedGameObject
     {
@@ -29,11 +29,24 @@ namespace CyberShooter
         }
         public void PickedUp(Player player)
         {
-            if(pickUpType == PickUpTypes.gun)
+            if(pickUpType == PickUpTypes.handgun)
+                WeaponManage(player, WeaponNames.handgun);
+            if (pickUpType == PickUpTypes.rifle)
+                WeaponManage(player, WeaponNames.rifle);
+        }
+        public void WeaponManage(Player player, WeaponNames weaponName)
+        {
+            if (player.firstWeapon.weaponName == WeaponNames.unarmed)
+                player.firstWeapon = new Weapon(weaponName);
+
+            else if (player.secondWeapon.weaponName == WeaponNames.unarmed)
             {
-                player.weaponState = WeaponStates.gun;
-                player.GunDefinition();
-                isActive = false;
+                player.WeaponSwap();
+                player.firstWeapon = new Weapon(weaponName);
+            }
+            else if (player.firstWeapon.weaponName != WeaponNames.unarmed && player.secondWeapon.weaponName != WeaponNames.unarmed)
+            {
+                player.firstWeapon = new Weapon(weaponName);
             }
         }
     }
