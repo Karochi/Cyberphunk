@@ -66,12 +66,8 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
-<<<<<<< HEAD
-            player.Update(gameTime, target);
-            testNPC.GetPlayerDistance(player);
-=======
             player.Update(gameTime, target, this);
->>>>>>> WeaponPickUp
+            testNPC.GetPlayerDistance(player);
             testNPC.Update();
             NPCCollision();
             PickUpSelection();
