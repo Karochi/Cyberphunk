@@ -11,14 +11,14 @@ namespace CyberShooter
 {
     class GameBoard
     {
-        public Player player;
-        public NPC testNPC;
+        Player player;
+        NPC testNPC;
         int screenWidth, screenHeight;
         public static Map map;
 
-        public Pickup testPickUp;
-        public List<Pickup> pickUpList;
-        public float playerPickUpDistance, shortestPickUpDistance;
+        Pickup testPickUp;
+        List<Pickup> pickUpList;
+        float playerPickUpDistance, shortestPickUpDistance;
         int pickUpIndex;
 
         public List<Projectile> projectileList;
@@ -33,6 +33,14 @@ namespace CyberShooter
         Vector2 collisionDist = Vector2.Zero;
         Vector2 normal;
 
+        public Player GetPlayer()
+        {
+            return this.player;
+        }
+        public List<Pickup> GetPickUpList()
+        {
+            return this.pickUpList;
+        }
         public GameBoard(int screenWidth, int screenHeight)
         {
             this.screenHeight = screenHeight;
@@ -80,20 +88,20 @@ namespace CyberShooter
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
-                if (player.hitRect.Intersects(map.collisionRects[i]))
+                if (player.GetHitRect().Intersects(map.collisionRects[i]))
                 {
-                    player.position = player.oldPosition;
-                    player.speed = new Vector2(0, 0);
+                    player.SetPosition(player.GetOldPosition());
+                    player.SetSpeed(new Vector2(0, 0));
                 }
             }
         }
         public void NPCCollision()
         {
-            if(player.hitRect.Intersects(testNPC.hitRect))
+            if(player.GetHitRect().Intersects(testNPC.GetHitRect()))
             {
-                player.position = player.oldPosition;
-                player.speed = new Vector2(0,0);
-                testNPC.speed = new Vector2(0, 0);
+                player.SetPosition(player.GetOldPosition());
+                player.SetSpeed(new Vector2(0, 0));
+                testNPC.SetSpeed(new Vector2(0, 0));
             }
         }
         public void PickUpSelection()
@@ -102,9 +110,9 @@ namespace CyberShooter
             pickUpIndex = -1;
             for (int i = 0; i < pickUpList.Count(); i++)
             {
-                pickUpList[i].isInteractable = false;
-                playerPickUpDistance = Vector2.Distance(player.playerCenter, pickUpList[i].pickUpCenter);
-                if (playerPickUpDistance < pickUpList[i].radius)
+                pickUpList[i].SetIsInteractable(false);
+                playerPickUpDistance = Vector2.Distance(player.GetPlayerCenter(), pickUpList[i].GetPickUpCenter());
+                if (playerPickUpDistance < pickUpList[i].GetRadius())
                 {
                     if (playerPickUpDistance < shortestPickUpDistance)
                     {
@@ -115,16 +123,16 @@ namespace CyberShooter
             }
             if (pickUpIndex >= 0)
             {
-                pickUpList[pickUpIndex].isInteractable = true;
+                pickUpList[pickUpIndex].SetIsInteractable(true);
             }
         }
         public void PickUpCollection()
         {
             foreach (Pickup pickUp in pickUpList)
             {
-                if (pickUp.isInteractable && KeyMouseReader.KeyPressed(Keys.E))
+                if (pickUp.GetIsInteractable() && KeyMouseReader.KeyPressed(Keys.E))
                 {
-                    if (player.firstWeapon.weaponName != WeaponNames.unarmed && player.secondWeapon.weaponName != WeaponNames.unarmed)
+                    if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
                         WeaponDrop();
                     pickUp.PickedUp(player);
                     pickUpList.Remove(pickUpList[pickUpIndex]);
@@ -134,8 +142,8 @@ namespace CyberShooter
         }
         public void WeaponDrop()
         {
-            pickUpList.Add(new Pickup(player.position, player.firstWeapon.pickUpType));
-            player.firstWeapon.weaponName = WeaponNames.unarmed;
+            pickUpList.Add(new Pickup(player.GetPosition(), player.GetFirstWeapon().GetPickUpType()));
+            player.GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {

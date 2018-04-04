@@ -9,8 +9,24 @@ namespace CyberShooter
 {
     class MovingGameObject : AnimatedGameObject
     {
-        public Vector2 speed, oldPosition;
-
+        Vector2 speed, oldPosition;
+        
+        public Vector2 GetSpeed()
+        {
+            return speed;
+        }
+        public void SetSpeed(Vector2 speed)
+        {
+            this.speed = speed;
+        }
+        public Vector2 GetOldPosition()
+        {
+            return oldPosition;
+        }
+        public void SetOldPosition(Vector2 oldPosition)
+        {
+            this.oldPosition = oldPosition;
+        }
         public MovingGameObject() : base()
         {
         }
@@ -22,8 +38,8 @@ namespace CyberShooter
         }
         public void MovementUpdate()
         {
-            oldPosition = position;
-            position = position + speed;
+            oldPosition = GetPosition();
+            SetPosition(GetPosition() + speed);
         }
     }
 }

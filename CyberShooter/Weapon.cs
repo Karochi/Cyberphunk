@@ -8,16 +8,57 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum WeaponNames { unarmed, knife, handgun, rifle };
-    public enum WeaponTypes { melee, semiAuto, auto };
+    enum WeaponNames { unarmed, knife, handgun, rifle };
+    enum WeaponTypes { melee, semiAuto, auto };
 
     class Weapon
     {
-        public int damage, cooldown, originCooldown, projectileSpeed;
-        public float range;
-        public WeaponTypes weaponType;
-        public WeaponNames weaponName;
-        public PickUpTypes pickUpType;
+        int damage, cooldown, originCooldown, projectileSpeed;
+        float range;
+        WeaponTypes weaponType;
+        WeaponNames weaponName;
+        PickUpTypes pickUpType;
+
+        public int GetDamage()
+        {
+            return damage;
+        }
+        public int GetCooldown()
+        {
+            return cooldown;
+        }
+        public void SetCooldown(int cooldown)
+        {
+            this.cooldown = cooldown;
+        }
+        public int GetOriginCooldown()
+        {
+            return originCooldown;
+        }
+        public int GetProjectileSpeed()
+        {
+            return projectileSpeed;
+        }
+        public float GetRange()
+        {
+            return range;
+        }
+        public WeaponTypes GetWeaponType()
+        {
+            return weaponType;
+        }
+        public WeaponNames GetWeaponName()
+        {
+            return weaponName;
+        }
+        public void SetWeaponName(WeaponNames weaponName)
+        {
+            this.weaponName = weaponName;
+        }
+        public PickUpTypes GetPickUpType()
+        {
+            return pickUpType;
+        }
 
         public Weapon(WeaponNames weaponName)
         {

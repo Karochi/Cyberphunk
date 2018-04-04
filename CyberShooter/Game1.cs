@@ -61,7 +61,7 @@ namespace CyberShooter
         {
             if (gameState == GameStates.start)
             {
-                camera.SetPosition(gameBoard.player.position);
+                camera.SetPosition(gameBoard.GetPlayer().GetPosition());
                 camera.GetPosition();
             }
         }
@@ -78,20 +78,19 @@ namespace CyberShooter
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
             gameBoard.Draw(spriteBatch, square);
 
-            foreach(Pickup pickUp in gameBoard.pickUpList)
+            foreach(Pickup pickUp in gameBoard.GetPickUpList())
             {
-                if (pickUp.isInteractable)
+                if (pickUp.GetIsInteractable())
                 {
-                    spriteBatch.DrawString(spriteFont, "E", new Vector2(pickUp.position.X + pickUp.texWidth / 2, pickUp.position.Y - 10), Color.Black);
+                    spriteBatch.DrawString(spriteFont, "E", new Vector2(pickUp.GetPosition().X + pickUp.GetTexWidth() / 2, pickUp.GetPosition().Y - 10), Color.Black);
                 }
             }
             spriteBatch.Draw(crosshairTex, new Rectangle((int)crosshairPos.X, (int)crosshairPos.Y, crosshairWidth, crosshairHeight), Color.White);
             spriteBatch.End();
             spriteBatch.Begin();
-            spriteBatch.DrawString(spriteFont, "firstWeapon: " + gameBoard.player.firstWeapon.weaponName, Vector2.Zero, Color.White);
-            spriteBatch.DrawString(spriteFont, "secondWeapon: " + gameBoard.player.secondWeapon.weaponName, new Vector2(0,20), Color.White);
-            spriteBatch.DrawString(spriteFont, "ammo: " + gameBoard.player.ammo, new Vector2(0, 40), Color.White);
-            spriteBatch.DrawString(spriteFont, "pickUpListCount: " + gameBoard.pickUpList.Count, new Vector2(0, 60), Color.White);
+            spriteBatch.DrawString(spriteFont, "firstWeapon: " + gameBoard.GetPlayer().GetFirstWeapon().GetWeaponName(), Vector2.Zero, Color.White);
+            spriteBatch.DrawString(spriteFont, "secondWeapon: " + gameBoard.GetPlayer().GetSecondWeapon().GetWeaponName(), new Vector2(0,20), Color.White);
+            spriteBatch.DrawString(spriteFont, "ammo: " + gameBoard.GetPlayer().GetAmmo(), new Vector2(0, 40), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }

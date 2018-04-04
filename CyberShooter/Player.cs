@@ -13,25 +13,53 @@ namespace CyberShooter
 
     class Player : MovingGameObject
     {
-        public Weapon firstWeapon, secondWeapon;
-        public Vector2 target, playerCenter;
-        public int ammo;
+        Weapon firstWeapon, secondWeapon;
+        Vector2 target, playerCenter;
+        int ammo;
         Projectile projectile;
 
+        public Weapon GetFirstWeapon()
+        {
+            return this.firstWeapon;
+        }
+        public void SetFirstWeapon(WeaponNames weapon)
+        {
+            this.firstWeapon = new Weapon(weapon);
+        }
+        public Weapon GetSecondWeapon()
+        {
+            return this.secondWeapon;
+        }
+        public void SetSecondWeapon(WeaponNames weapon)
+        {
+            this.secondWeapon = new Weapon(weapon);
+        }
+        public Vector2 GetTarget()
+        {
+            return this.target;
+        }
+        public Vector2 GetPlayerCenter()
+        {
+            return this.playerCenter;
+        }
+        public int GetAmmo()
+        {
+            return this.ammo;
+        }
         public Player(Vector2 position) : base()
         {
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
-            this.position = position;
-            texHeight = 40;
-            texWidth = 30;
+            SetPosition(position);
+            SetTexHeight(40);
+            SetTexWidth(30);
             ammo = 60;
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
             base.Update();
             this.target = target;
-            playerCenter = new Vector2(position.X + texWidth / 2, position.Y + texHeight / 2);
+            playerCenter = new Vector2(GetPosition().X + GetTexWidth() / 2, GetPosition().Y + GetTexHeight() / 2);
 
             firstWeapon.Update(gameTime, gameBoard);
             secondWeapon.Update(gameTime, gameBoard);
@@ -43,43 +71,43 @@ namespace CyberShooter
             StoppingY();
             if (KeyMouseReader.KeyPressed(Keys.Space))
                 WeaponSwap();
-            if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.weaponName != WeaponNames.unarmed)
+            if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
                 gameBoard.WeaponDrop();
         }
         public void Moving()
         {
-            if (speed.X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
+            if (GetSpeed().X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
-                speed.X -= 0.2f;
+                SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
             }
-            else if (speed.X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
+            else if (GetSpeed().X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
-                speed.X += 0.2f;
+                SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
             }
-            else if (speed.Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
+            else if (GetSpeed().Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
-                speed.Y -= 0.2f;
+                SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
             }
-            else if (speed.Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
+            else if (GetSpeed().Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
-                speed.Y += 0.2f;
+                SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
             }
         }
         public void StoppingX()
         {
             if (!KeyMouseReader.KeyHeld(Keys.D) && !KeyMouseReader.KeyHeld(Keys.A))
             {
-                if (speed.X < 0.2f && speed.X > (-0.2f))
+                if (GetSpeed().X < 0.2f && GetSpeed().X > (-0.2f))
                 {
-                    speed.X = 0;
+                    SetSpeed(new Vector2(0, GetSpeed().Y));
                 }
-                if (speed.X > 0)
+                if (GetSpeed().X > 0)
                 {
-                    speed.X -= 0.2f;
+                    SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
                 }
-                if (speed.X < 0)
+                if (GetSpeed().X < 0)
                 {
-                    speed.X += 0.2f;
+                    SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
                 }
             }
         }
@@ -87,23 +115,23 @@ namespace CyberShooter
         {
             if(!KeyMouseReader.KeyHeld(Keys.W) && !KeyMouseReader.KeyHeld(Keys.S))
             {
-                if (speed.Y < 0.2f && speed.Y > (-0.2f))
+                if (GetSpeed().Y < 0.2f && GetSpeed().Y > (-0.2f))
                 {
-                    speed.Y = 0;
+                    SetSpeed(new Vector2(GetSpeed().X, 0));
                 }
-                if (speed.Y > 0)
+                if (GetSpeed().Y > 0)
                 {
-                    speed.Y -= 0.2f;
+                    SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
                 }
-                if (speed.Y < 0)
+                if (GetSpeed().Y < 0)
                 {
-                    speed.Y += 0.2f;
+                    SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
                 }
             }
         }
         public void Shooting(GameBoard gameBoard)
         {
-            if(ammo > 0 && firstWeapon.weaponName != WeaponNames.unarmed)
+            if(ammo > 0 && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
             {
                 SemiAuto(gameBoard);
                 Auto(gameBoard);
@@ -111,26 +139,26 @@ namespace CyberShooter
         }
         public void SemiAuto(GameBoard gameBoard)
         {
-            if (KeyMouseReader.LeftClick() && firstWeapon.weaponType == WeaponTypes.semiAuto)
+            if (KeyMouseReader.LeftClick() && firstWeapon.GetWeaponType() == WeaponTypes.semiAuto)
             {
-                if (firstWeapon.cooldown <= 0)
+                if (firstWeapon.GetCooldown() <= 0)
                 {
-                    projectile = new Projectile(gameBoard.player.playerCenter, gameBoard.player.target, firstWeapon.damage, firstWeapon.range, firstWeapon.projectileSpeed);
+                    projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     gameBoard.projectileList.Add(projectile);
-                    firstWeapon.cooldown = firstWeapon.originCooldown;
+                    firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     ammo--;
                 }
             }
         }
         public void Auto(GameBoard gameBoard)
         {
-            if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed && firstWeapon.weaponType == WeaponTypes.auto)
+            if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed && firstWeapon.GetWeaponType() == WeaponTypes.auto)
             {
-                if (firstWeapon.cooldown <= 0)
+                if (firstWeapon.GetCooldown() <= 0)
                 {
-                    projectile = new Projectile(gameBoard.player.playerCenter, gameBoard.player.target, firstWeapon.damage, firstWeapon.range, firstWeapon.projectileSpeed);
+                    projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     gameBoard.projectileList.Add(projectile);
-                    firstWeapon.cooldown = firstWeapon.originCooldown;
+                    firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     ammo--;
                 }
             }

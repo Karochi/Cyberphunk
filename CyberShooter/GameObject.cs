@@ -9,31 +9,50 @@ namespace CyberShooter
 {
     public abstract class GameObject
     {
-        public Vector2 position;
-        public Rectangle hitRect;
+        Vector2 position;
+        Rectangle hitRect;
         //texWidth && texHeight is used to resize the current single square used for testing. It will need to be reworked for actual use of textures.
-        public int texWidth, texHeight;
-        //isActive is a low-effort way of de-spawning objects while they still remain in lists.
-        public bool isActive;
+        int texWidth, texHeight;
 
+        public Vector2 GetPosition()
+        {
+            return this.position;
+        }
+        public void SetPosition(Vector2 position)
+        {
+            this.position = position;
+        }
+        public Rectangle GetHitRect()
+        {
+            return this.hitRect;
+        }
+        public int GetTexWidth()
+        {
+            return this.texWidth;
+        }
+        public void SetTexWidth(int texWidth)
+        {
+            this.texWidth = texWidth;
+        }
+        public int GetTexHeight()
+        {
+            return this.texHeight;
+        }
+        public void SetTexHeight(int texHeight)
+        {
+            this.texHeight = texHeight;
+        }
         protected GameObject()
         {
-            isActive = true;
             hitRect = new Rectangle((int)position.X, (int)position.Y, texWidth, texHeight);
         }
         public virtual void Update()
         {
-            if (isActive)
-            {
-                hitRect = new Rectangle((int)position.X, (int)position.Y, texWidth, texHeight);
-            }
+            hitRect = new Rectangle((int)position.X, (int)position.Y, texWidth, texHeight);
         }
         public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            if (isActive)
-            {
-                spriteBatch.Draw(texture, position, new Rectangle((int)position.X, (int)position.Y, texWidth, texHeight), Color.White);
-            }
+            spriteBatch.Draw(texture, position, new Rectangle((int)position.X, (int)position.Y, texWidth, texHeight), Color.White);
         }
     }
 }

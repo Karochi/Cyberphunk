@@ -17,11 +17,11 @@ namespace CyberShooter
 
         public NPC(Vector2 position, float newDistanceX, float newDistanceY) : base()
         {
-            this.position = position;
+            SetPosition(position);
             distanceX = newDistanceX;
             distanceY = newDistanceY;
-            texHeight = 40;
-            texWidth = 30;
+            SetTexHeight(40);
+            SetTexWidth(30);
 
             oldDistanceX = distanceX;
             oldDistanceY = distanceY;
@@ -30,7 +30,7 @@ namespace CyberShooter
         {
             hostile = true;
 
-            if (hostile = true)
+            if (hostile == true)
                 HostileMove();
 
 
@@ -38,8 +38,8 @@ namespace CyberShooter
         }
         public void GetPlayerDistance(Player p)
         {
-            playerDistanceX = p.position.X - position.X;
-            playerDistanceY = p.position.Y - position.Y;
+            playerDistanceX = p.GetPosition().X - GetPosition().X;
+            playerDistanceY = p.GetPosition().Y - GetPosition().Y;
         }
 
         public void HostileMove()
@@ -47,23 +47,27 @@ namespace CyberShooter
             if (distanceX >= 0)
             {
                 right = true;
-                speed.X = 1;
+                //speed.X = 1;
+                SetSpeed(new Vector2(1, GetSpeed().Y));
             }
             else if (distanceX <= oldDistanceX)
             {
                 right = false;
-                speed.X = -1f;
+                //speed.X = -1f;
+                SetSpeed(new Vector2(-1f, GetSpeed().Y));
             }
 
             if (distanceY >= 0)
             {
                 up = true;
-                speed.Y = 1f;
+                //speed.Y = 1f;
+                SetSpeed(new Vector2(GetSpeed().X, 1f));
             }
             if (distanceY <= oldDistanceY)
             {
                 up = false;
-                speed.Y = -1f;
+                //speed.Y = -1f;
+                SetSpeed(new Vector2(GetSpeed().X, -1f));
             }
 
             if (right)
@@ -79,21 +83,21 @@ namespace CyberShooter
             if (playerDistanceX >= -200 && playerDistanceX <= 200)
             {
                 if (playerDistanceX < -1)
-                    speed.X = -1f;
+                    SetSpeed(new Vector2(-1f, GetSpeed().Y));
                 else if (playerDistanceX > 1)
-                    speed.X = 1f;
+                    SetSpeed(new Vector2(1f, GetSpeed().Y));
                 else if (playerDistanceX == 0)
-                    speed.X = 0f;
+                    SetSpeed(new Vector2(0, GetSpeed().Y));
             }
 
             if (playerDistanceY >= -200 && playerDistanceY <= 200)
             {
                 if (playerDistanceY < -1)
-                    speed.Y = -1f;
+                    SetSpeed(new Vector2(GetSpeed().X, -1f));
                 else if (playerDistanceY > 1)
-                    speed.Y = 1f;
+                    SetSpeed(new Vector2(GetSpeed().X, 1f));
                 else if (playerDistanceY == 0)
-                    speed.Y = 0f;
+                    SetSpeed(new Vector2(GetSpeed().X, 0));
             }
         }
     }
