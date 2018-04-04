@@ -9,35 +9,42 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum WeaponStates { unarmed, gun };
+    public enum WeaponStates { unarmed, melee, semiAuto, auto };
 
     class Player : MovingGameObject
     {
-        public WeaponStates weaponState;
-        public List<Projectile> projectileList;
-        Projectile projectile;
-        public int damage, cooldown, originCooldown, projectileSpeed;
-        public float range;
+        public Weapon firstWeapon, secondWeapon;
         public Vector2 target, playerCenter;
+        public int ammo;
+        Projectile projectile;
 
         public Player(Vector2 position) : base()
         {
-            projectileList = new List<Projectile>();
-            weaponState = WeaponStates.unarmed;
+            firstWeapon = new Weapon(WeaponNames.unarmed);
+            secondWeapon = new Weapon(WeaponNames.unarmed);
             this.position = position;
             texHeight = 40;
             texWidth = 30;
+            ammo = 60;
         }
-        public void Update(GameTime gameTime, Vector2 target)
+        public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
             base.Update();
             this.target = target;
-            cooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             playerCenter = new Vector2(position.X + texWidth / 2, position.Y + texHeight / 2);
+
+            firstWeapon.Update(gameTime, gameBoard);
+            secondWeapon.Update(gameTime, gameBoard);
+
+            Shooting(gameBoard);
+
             Moving();
             StoppingX();
             StoppingY();
-            Shooting();
+            if (KeyMouseReader.KeyPressed(Keys.Space))
+                WeaponSwap();
+            if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.weaponName != WeaponNames.unarmed)
+                gameBoard.WeaponDrop();
         }
         public void Moving()
         {
@@ -94,28 +101,46 @@ namespace CyberShooter
                 }
             }
         }
-        public void Shooting()
+        public void Shooting(GameBoard gameBoard)
         {
-            if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed)
+            if(ammo > 0 && firstWeapon.weaponName != WeaponNames.unarmed)
             {
-                if (cooldown <= 0 && weaponState != WeaponStates.unarmed)
-                {
-                    projectile = new Projectile(position, target, damage, range, projectileSpeed);
-                    projectileList.Add(projectile);
-                    cooldown = originCooldown;
-                }
-            }
-            foreach (Projectile projectile in projectileList)
-            {
-                projectile.Update();
+                SemiAuto(gameBoard);
+                Auto(gameBoard);
             }
         }
-        public void GunDefinition()
+        public void SemiAuto(GameBoard gameBoard)
         {
-            damage = 1;
-            range = 150;
-            projectileSpeed = 10;
-            originCooldown = 500;
+            if (KeyMouseReader.LeftClick() && firstWeapon.weaponType == WeaponTypes.semiAuto)
+            {
+                if (firstWeapon.cooldown <= 0)
+                {
+                    projectile = new Projectile(gameBoard.player.playerCenter, gameBoard.player.target, firstWeapon.damage, firstWeapon.range, firstWeapon.projectileSpeed);
+                    gameBoard.projectileList.Add(projectile);
+                    firstWeapon.cooldown = firstWeapon.originCooldown;
+                    ammo--;
+                }
+            }
+        }
+        public void Auto(GameBoard gameBoard)
+        {
+            if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed && firstWeapon.weaponType == WeaponTypes.auto)
+            {
+                if (firstWeapon.cooldown <= 0)
+                {
+                    projectile = new Projectile(gameBoard.player.playerCenter, gameBoard.player.target, firstWeapon.damage, firstWeapon.range, firstWeapon.projectileSpeed);
+                    gameBoard.projectileList.Add(projectile);
+                    firstWeapon.cooldown = firstWeapon.originCooldown;
+                    ammo--;
+                }
+            }
+        }
+        public void WeaponSwap()
+        {
+            Weapon swapWeapon;
+            swapWeapon = firstWeapon;
+            firstWeapon = secondWeapon;
+            secondWeapon = swapWeapon;
         }
     }
 }
