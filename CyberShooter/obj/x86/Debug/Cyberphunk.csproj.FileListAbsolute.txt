@@ -55,7 +55,6 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberSh
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\roguelikeSheet_transparent.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\spriteFont.xnb
-<<<<<<< HEAD
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
@@ -87,6 +86,3 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
-=======
-C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\crosshair.xnb
->>>>>>> WeaponPickUp

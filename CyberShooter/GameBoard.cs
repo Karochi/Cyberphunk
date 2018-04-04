@@ -21,8 +21,6 @@ namespace CyberShooter
         public float playerPickUpDistance, shortestPickUpDistance;
         int pickUpIndex;
 
-        public List<Projectile> projectileList;
-
         public static int mapHeight = 20;
         public static int mapWidth = 20;
         public static int tileHeight = 32;
@@ -41,14 +39,14 @@ namespace CyberShooter
             testNPC = new NPC(new Vector2(100,100), 100,100);
 
             pickUpList = new List<Pickup>();
-            testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.handgun);
+            testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.gun);
             pickUpList.Add(testPickUp);
-            testPickUp = new Pickup(new Vector2(100, 475), PickUpTypes.handgun);
+            testPickUp = new Pickup(new Vector2(100, 475), PickUpTypes.gun);
             pickUpList.Add(testPickUp);
-            testPickUp = new Pickup(new Vector2(155, 510), PickUpTypes.rifle);
+            testPickUp = new Pickup(new Vector2(155, 510), PickUpTypes.gun);
             pickUpList.Add(testPickUp);
+            shortestPickUpDistance = pickUpList[0].radius;
 
-            projectileList = new List<Projectile>();
 
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
             map.LoadMap(loadFileName);
@@ -66,22 +64,12 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
-<<<<<<< HEAD
             player.Update(gameTime, target);
             testNPC.GetPlayerDistance(player);
-=======
-            player.Update(gameTime, target, this);
->>>>>>> WeaponPickUp
             testNPC.Update();
             NPCCollision();
             PickUpSelection();
             PickUpCollection();
-
-            foreach (Projectile projectile in projectileList)
-            {
-                projectile.Update();
-            }
-
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 if (player.hitRect.Intersects(map.collisionRects[i]))
@@ -126,26 +114,19 @@ namespace CyberShooter
         {
             foreach (Pickup pickUp in pickUpList)
             {
-                if (pickUp.isInteractable && KeyMouseReader.KeyPressed(Keys.E))
+                if (pickUp.isActive && pickUp.isInteractable && KeyMouseReader.KeyPressed(Keys.E))
                 {
-                    if (player.firstWeapon.weaponName != WeaponNames.unarmed && player.secondWeapon.weaponName != WeaponNames.unarmed)
-                        WeaponDrop();
                     pickUp.PickedUp(player);
                     pickUpList.Remove(pickUpList[pickUpIndex]);
-                    return;
+                    break;
                 }
             }
-        }
-        public void WeaponDrop()
-        {
-            pickUpList.Add(new Pickup(player.position, player.firstWeapon.pickUpType));
-            player.firstWeapon.weaponName = WeaponNames.unarmed;
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
             map.DrawMap();
             player.Draw(spriteBatch, texture);
-            foreach(Projectile projectile in projectileList)
+            foreach(Projectile projectile in player.projectileList)
             {
                 projectile.Draw(spriteBatch, texture);
             }
