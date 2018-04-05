@@ -22,17 +22,17 @@ namespace CyberShooter
         {
             return this.firstWeapon;
         }
-        public void SetFirstWeapon(WeaponNames weapon)
+        public void SetFirstWeapon(Weapon weapon)
         {
-            this.firstWeapon = new Weapon(weapon);
+            this.firstWeapon = weapon;
         }
         public Weapon GetSecondWeapon()
         {
             return this.secondWeapon;
         }
-        public void SetSecondWeapon(WeaponNames weapon)
+        public void SetSecondWeapon(Weapon weapon)
         {
-            this.secondWeapon = new Weapon(weapon);
+            this.secondWeapon = weapon;
         }
         public Vector2 GetTarget()
         {

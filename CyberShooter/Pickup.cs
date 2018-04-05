@@ -54,16 +54,16 @@ namespace CyberShooter
         public void WeaponManage(Player player, WeaponNames weaponName)
         {
             if (player.GetFirstWeapon().GetWeaponName() == WeaponNames.unarmed)
-                player.SetFirstWeapon(weaponName);
+                player.SetFirstWeapon(new Weapon(weaponName));
 
             else if (player.GetSecondWeapon().GetWeaponName() == WeaponNames.unarmed)
             {
                 player.WeaponSwap();
-                player.SetFirstWeapon(weaponName);
+                player.SetFirstWeapon(new Weapon(weaponName));
             }
             else if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
             {
-                player.SetFirstWeapon(weaponName);
+                player.SetFirstWeapon(new Weapon(weaponName));
             }
         }
     }
