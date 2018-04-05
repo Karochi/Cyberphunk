@@ -9,96 +9,51 @@ namespace CyberShooter
 {
     class NPC : MovingGameObject
     {
-        Vector2 origin;
-        bool hostile, right, up;
-        float distanceX, distanceY, 
-            oldDistanceX, oldDistanceY, playerDistanceX, playerDistanceY;
+        public float stoppingDistance;
+        public float retreatDistance;
+        Vector2 playerPos, direction, stop;
+        float velocity;
+        bool hostile;
 
-
-        public NPC(Vector2 position, float newDistanceX, float newDistanceY) : base()
+        public NPC(Vector2 position) : base()
         {
             SetPosition(position);
-            distanceX = newDistanceX;
-            distanceY = newDistanceY;
             SetTexHeight(40);
             SetTexWidth(30);
-
-            oldDistanceX = distanceX;
-            oldDistanceY = distanceY;
+            stoppingDistance = 220;
+            retreatDistance = 150;
+            stop = Vector2.Zero;
+            hostile = true;
         }
         public override void Update()
         {
-            hostile = true;
-
-            if (hostile == true)
+            if (hostile)
                 HostileMove();
-
 
             base.Update();
         }
-        public void GetPlayerDistance(Player p)
-        {
-            playerDistanceX = p.GetPosition().X - GetPosition().X;
-            playerDistanceY = p.GetPosition().Y - GetPosition().Y;
-        }
-
         public void HostileMove()
         {
-            if (distanceX >= 0)
+            if (Vector2.Distance(GetPosition(), playerPos) > stoppingDistance)
             {
-                right = true;
-                //speed.X = 1;
-                SetSpeed(new Vector2(1, GetSpeed().Y));
+                direction = playerPos - GetPosition();
+                velocity = 0.02f;
+                SetSpeed(direction * velocity);
             }
-            else if (distanceX <= oldDistanceX)
+            else if (Vector2.Distance(GetPosition(), playerPos) < stoppingDistance && Vector2.Distance(GetPosition(), playerPos) > retreatDistance)
             {
-                right = false;
-                //speed.X = -1f;
-                SetSpeed(new Vector2(-1f, GetSpeed().Y));
+                SetSpeed(stop);
             }
-
-            if (distanceY >= 0)
+            else if (Vector2.Distance(GetPosition(), playerPos) < retreatDistance)
             {
-                up = true;
-                //speed.Y = 1f;
-                SetSpeed(new Vector2(GetSpeed().X, 1f));
+                direction = playerPos - GetPosition();
+                velocity = -0.03f;
+                SetSpeed(direction * velocity);
             }
-            if (distanceY <= oldDistanceY)
-            {
-                up = false;
-                //speed.Y = -1f;
-                SetSpeed(new Vector2(GetSpeed().X, -1f));
-            }
-
-            if (right)
-                distanceX += 1;
-            else
-                distanceX -= 1;
-
-            if (up)
-                distanceY += 1;
-            else
-                distanceY -= 1;
-
-            if (playerDistanceX >= -200 && playerDistanceX <= 200)
-            {
-                if (playerDistanceX < -1)
-                    SetSpeed(new Vector2(-1f, GetSpeed().Y));
-                else if (playerDistanceX > 1)
-                    SetSpeed(new Vector2(1f, GetSpeed().Y));
-                else if (playerDistanceX == 0)
-                    SetSpeed(new Vector2(0, GetSpeed().Y));
-            }
-
-            if (playerDistanceY >= -200 && playerDistanceY <= 200)
-            {
-                if (playerDistanceY < -1)
-                    SetSpeed(new Vector2(GetSpeed().X, -1f));
-                else if (playerDistanceY > 1)
-                    SetSpeed(new Vector2(GetSpeed().X, 1f));
-                else if (playerDistanceY == 0)
-                    SetSpeed(new Vector2(GetSpeed().X, 0));
-            }
+        }
+        public void GetPlayerPos(Player p)
+        {
+            playerPos = p.GetPosition();
         }
     }
 }

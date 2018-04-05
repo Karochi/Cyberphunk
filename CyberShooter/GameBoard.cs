@@ -46,7 +46,7 @@ namespace CyberShooter
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
             player = new Player(new Vector2(100, 200));
-            testNPC = new NPC(new Vector2(100,100), 100,100);
+            testNPC = new NPC(new Vector2(100,100));
 
             pickUpList = new List<Pickup>();
             testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.handgun);
@@ -74,7 +74,6 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
-            testNPC.GetPlayerDistance(player);
             player.Update(gameTime, target, this);
             testNPC.Update();
             NPCCollision();
@@ -94,6 +93,8 @@ namespace CyberShooter
                     player.SetSpeed(new Vector2(0, 0));
                 }
             }
+            testNPC.GetPlayerPos(player);
+
         }
         public void NPCCollision()
         {
