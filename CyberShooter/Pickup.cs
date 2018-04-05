@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum PickUpTypes{ handgun, rifle, ammo, health };
+    enum PickUpTypes{ handgun, rifle, ammo, health };
 
     class Pickup : AnimatedGameObject
     {
@@ -15,6 +15,7 @@ namespace CyberShooter
         PickUpTypes pickUpType;
         float radius;
         bool isInteractable;
+        int ammoPickUpAmount;
 
         public bool GetIsInteractable()
         {
@@ -36,9 +37,10 @@ namespace CyberShooter
         public Pickup(Vector2 position, PickUpTypes type) : base()
         {
             SetPosition(position);
-            this.pickUpType = type;
+            pickUpType = type;
             isInteractable = false;
             radius = 60;
+            ammoPickUpAmount = 10;
             SetTexHeight(10);
             SetTexWidth(10);
             pickUpCenter = new Vector2(position.X + GetTexWidth() / 2, position.Y + GetTexHeight() / 2);
@@ -50,6 +52,8 @@ namespace CyberShooter
                 WeaponManage(player, WeaponNames.handgun);
             if (pickUpType == PickUpTypes.rifle)
                 WeaponManage(player, WeaponNames.rifle);
+            if (pickUpType == PickUpTypes.ammo)
+                player.SetAmmo(player.GetAmmo()+ammoPickUpAmount);
         }
         public void WeaponManage(Player player, WeaponNames weaponName)
         {

@@ -20,31 +20,35 @@ namespace CyberShooter
 
         public Weapon GetFirstWeapon()
         {
-            return this.firstWeapon;
+            return firstWeapon;
         }
         public void SetFirstWeapon(Weapon weapon)
         {
-            this.firstWeapon = weapon;
+            firstWeapon = weapon;
         }
         public Weapon GetSecondWeapon()
         {
-            return this.secondWeapon;
+            return secondWeapon;
         }
         public void SetSecondWeapon(Weapon weapon)
         {
-            this.secondWeapon = weapon;
+            secondWeapon = weapon;
         }
         public Vector2 GetTarget()
         {
-            return this.target;
+            return target;
         }
         public Vector2 GetPlayerCenter()
         {
-            return this.playerCenter;
+            return playerCenter;
         }
         public int GetAmmo()
         {
-            return this.ammo;
+            return ammo;
+        }
+        public void SetAmmo(int ammo)
+        {
+            this.ammo = ammo;
         }
         public Player(Vector2 position) : base()
         {

@@ -48,6 +48,7 @@ namespace CyberShooter
             player = new Player(new Vector2(100, 200));
             testNPC = new NPC(new Vector2(100,100));
 
+            //Should be spawned through the map/other system later.
             pickUpList = new List<Pickup>();
             testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.handgun);
             pickUpList.Add(testPickUp);
@@ -55,7 +56,8 @@ namespace CyberShooter
             pickUpList.Add(testPickUp);
             testPickUp = new Pickup(new Vector2(155, 510), PickUpTypes.rifle);
             pickUpList.Add(testPickUp);
-
+            testPickUp = new Pickup(new Vector2(500, 50), PickUpTypes.ammo);
+            pickUpList.Add(testPickUp);
             projectileList = new List<Projectile>();
 
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
@@ -78,11 +80,7 @@ namespace CyberShooter
             NPCCollision();
             PickUpSelection();
             PickUpCollection();
-
-            foreach (Projectile projectile in projectileList)
-            {
-                projectile.Update();
-            }
+            ProjectileUpdate();
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
@@ -92,9 +90,41 @@ namespace CyberShooter
                     player.SetPosition(player.GetOldPosition());
                     player.SetSpeed(new Vector2(0, 0));
                 }
+                ProjectileWallCollision(i);
+                ProjectileNPCCollision(i);
             }
             testNPC.GetPlayerPos(player);
             testNPC.Update();
+        }
+        public void ProjectileUpdate()
+        {
+            foreach (Projectile projectile in projectileList)
+                projectile.Update();
+
+            foreach (Projectile projectile in projectileList)
+            {
+                if (Vector2.Distance(projectile.GetOriginPosition(), projectile.GetPosition()) >= projectile.GetRange())
+                    projectileList.Remove(projectile);
+                return;
+            }
+        }
+        public void ProjectileWallCollision(int i)
+        {
+            foreach(Projectile projectile in projectileList)
+            {
+                if (projectile.GetHitRect().Intersects(map.collisionRects[i]))
+                    projectileList.Remove(projectile);
+                return;
+            }
+        }
+        public void ProjectileNPCCollision(int i)
+        {
+            foreach(Projectile projectile in projectileList)
+            {
+                if (projectile.GetHitRect().Intersects(testNPC.GetHitRect()))
+                    projectileList.Remove(projectile);
+                return;
+            }
         }
         public void NPCCollision()
         {
