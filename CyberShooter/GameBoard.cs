@@ -75,7 +75,6 @@ namespace CyberShooter
         public void Update(GameTime gameTime, Vector2 target)
         {
             player.Update(gameTime, target, this);
-            testNPC.Update();
             NPCCollision();
             PickUpSelection();
             PickUpCollection();
@@ -87,6 +86,7 @@ namespace CyberShooter
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
+                testNPC.CollisionCheck(map.collisionRects[i]);
                 if (player.GetHitRect().Intersects(map.collisionRects[i]))
                 {
                     player.SetPosition(player.GetOldPosition());
@@ -94,7 +94,7 @@ namespace CyberShooter
                 }
             }
             testNPC.GetPlayerPos(player);
-
+            testNPC.Update();
         }
         public void NPCCollision()
         {
