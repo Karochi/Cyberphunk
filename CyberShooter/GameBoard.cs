@@ -81,6 +81,7 @@ namespace CyberShooter
             PickUpSelection();
             PickUpCollection();
             ProjectileUpdate();
+            ProjectileNPCCollision();
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
@@ -91,7 +92,6 @@ namespace CyberShooter
                     player.SetSpeed(new Vector2(0, 0));
                 }
                 ProjectileWallCollision(i);
-                ProjectileNPCCollision(i);
             }
             testNPC.GetPlayerPos(player);
             testNPC.Update();
@@ -104,8 +104,10 @@ namespace CyberShooter
             foreach (Projectile projectile in projectileList)
             {
                 if (Vector2.Distance(projectile.GetOriginPosition(), projectile.GetPosition()) >= projectile.GetRange())
+                {
                     projectileList.Remove(projectile);
-                return;
+                    return;
+                }
             }
         }
         public void ProjectileWallCollision(int i)
@@ -113,17 +115,21 @@ namespace CyberShooter
             foreach(Projectile projectile in projectileList)
             {
                 if (projectile.GetHitRect().Intersects(map.collisionRects[i]))
+                {
                     projectileList.Remove(projectile);
-                return;
+                    return;
+                }
             }
         }
-        public void ProjectileNPCCollision(int i)
+        public void ProjectileNPCCollision()
         {
             foreach(Projectile projectile in projectileList)
             {
                 if (projectile.GetHitRect().Intersects(testNPC.GetHitRect()))
+                {
                     projectileList.Remove(projectile);
-                return;
+                    return;
+                }
             }
         }
         public void NPCCollision()
@@ -163,18 +169,26 @@ namespace CyberShooter
             {
                 if (pickUp.GetIsInteractable() && KeyMouseReader.KeyPressed(Keys.E))
                 {
-                    if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
+                    if (WeaponFullCheck() && pickUp.GetIsWeapon())
+                    {
                         WeaponDrop();
+                    }
                     pickUp.PickedUp(player);
                     pickUpList.Remove(pickUpList[pickUpIndex]);
                     return;
                 }
             }
         }
+        public bool WeaponFullCheck()
+        {
+            if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
+                return true;
+            else return false;
+        }
         public void WeaponDrop()
         {
-            pickUpList.Add(new Pickup(player.GetPosition(), player.GetFirstWeapon().GetPickUpType()));
-            player.GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
+            GetPickUpList().Add(new Pickup(GetPlayer().GetPosition(), GetPlayer().GetFirstWeapon().GetPickUpType()));
+            GetPlayer().GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {

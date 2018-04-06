@@ -39,10 +39,6 @@ namespace CyberShooter
         public override void Update()
         {
             SetPosition(GetPosition() + updatedDirection * speed);
-            //if (Vector2.Distance(originPosition, GetPosition()) >= range)
-            //{
-            //    isActive = false;
-            //}
             base.Update();
         }
     }
