@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    enum WeaponNames { unarmed, knife, handgun, rifle };
-    enum WeaponTypes { melee, semiAuto, auto };
+    public enum WeaponNames { unarmed, knife, handgun, rifle };
+    public enum WeaponTypes { melee, semiAuto, auto };
 
-    class Weapon
+    public class Weapon
     {
         int damage, cooldown, originCooldown, projectileSpeed;
         float range;

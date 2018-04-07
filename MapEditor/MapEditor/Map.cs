@@ -17,7 +17,10 @@ namespace MapEditor
         public int tileWidth { get; set; }
         public int tileHeight { get; set; }
 
+        int npcSize = 40;
+
         public Layer tileLayer1;
+        public Layer hostileHumanLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
 
@@ -33,8 +36,10 @@ namespace MapEditor
             this.tileHeight = tileHeight;
 
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            
         }
         public void UpdateUserInput()
         {
@@ -82,6 +87,7 @@ namespace MapEditor
                 objWriter.WriteLine(tileWidth);
 
                 tileLayer1.SaveLayer(objWriter);
+                hostileHumanLayer.SaveLayer(objWriter);
                 tileLayer2.SaveLayer(objWriter);
                 solidLayer.SaveLayer(objWriter);
 
@@ -106,10 +112,12 @@ namespace MapEditor
                 tileWidth = Convert.ToInt32(objReader.ReadLine());
 
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
 
                 tileLayer1.LoadLayer(objReader);
+                hostileHumanLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
 
@@ -134,6 +142,11 @@ namespace MapEditor
                             bounds = tileSet[tileLayer1.layer[y, x] - 1];
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
+                        if (hostileHumanLayer.layer[y, x] != 0)
+                        {
+                            Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(255, 0, 0, 100));
+                            Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
                         }
                         if (tileLayer2.layer[y, x] != 0)
                         {

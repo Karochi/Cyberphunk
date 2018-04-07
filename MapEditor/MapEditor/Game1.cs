@@ -38,6 +38,8 @@ namespace MapEditor
 
         public static Texture2D tileSheet;
         public static Texture2D solid;
+        public static Texture2D humanTex;
+
         Texture2D pixel;
 
         MouseState curState;
@@ -69,6 +71,7 @@ namespace MapEditor
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            humanTex = Content.Load<Texture2D>("humanTex");
             solid = Content.Load<Texture2D>("plattform");
             pixel = Content.Load<Texture2D>("plattform");
 
@@ -107,6 +110,8 @@ namespace MapEditor
                     map.tileLayer2.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 2)
                     map.solidLayer.SetTiles(1);
+                else if (drawableLayer == 3)
+                    map.hostileHumanLayer.SetTiles(1);
             }
 
             curState = Mouse.GetState();
@@ -129,7 +134,7 @@ namespace MapEditor
             map.DrawMap();
             hud.Draw();
 
-            if (tileSheet != null && drawableLayer != 2)
+            if (tileSheet != null && drawableLayer < 2)
                 spriteBatch.Draw(tileSheet, new Vector2(curState.X - tileWidth / 2, curState.Y - tileHeight / 2), map.tileSet[selectedTileNumb], Color.White);
 
             string layerText = "";
@@ -140,6 +145,8 @@ namespace MapEditor
                 layerText = "Layer 2";
             else if (drawableLayer == 2)
                 layerText = "Collision Layer";
+            else if (drawableLayer == 3)
+                layerText = "Hostile Human";
 
             spriteBatch.DrawString(basic, layerText, new Vector2(5, 5), Color.White);
 

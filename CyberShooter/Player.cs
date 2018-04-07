@@ -11,7 +11,7 @@ namespace CyberShooter
 {
     public enum WeaponStates { unarmed, melee, semiAuto, auto };
 
-    class Player : MovingGameObject
+    public class Player : MovingGameObject
     {
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;

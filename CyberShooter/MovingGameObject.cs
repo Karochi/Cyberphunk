@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    class MovingGameObject : AnimatedGameObject
+    public class MovingGameObject : AnimatedGameObject
     {
         Vector2 speed, oldPosition;
         

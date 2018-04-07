@@ -17,7 +17,7 @@ namespace MapEditor
         Texture2D texture;
         public Vector2 position;
         Rectangle collisionRect;
-        int width, height;
+        public int width, height;
 
         public Button(Texture2D tex, Vector2 pos)
         {

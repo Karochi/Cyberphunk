@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    class NPC : MovingGameObject
+    public class NPC : MovingGameObject
     {
         Vector2 playerPos, direction, stop;
         float velocity, retreatDistance, stoppingDistance;

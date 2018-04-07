@@ -10,7 +10,7 @@ namespace CyberShooter
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
 
-        enum GameStates { start, loadingLevel, gameOn, gameOver };
+        public enum GameStates { start, loadingLevel, gameOn, gameOver };
         GameStates gameState;
         public static Texture2D square, crosshairTex;
         public static Texture2D tileSheet;
@@ -38,7 +38,7 @@ namespace CyberShooter
             //IsMouseVisible = true;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
-            tileSheet = Content.Load<Texture2D>("roguelikeSheet_transparent");
+            tileSheet = Content.Load<Texture2D>("32tilesheet");
             spriteFont = Content.Load<SpriteFont>("spriteFont");
             crosshairTex = Content.Load<Texture2D>("crosshair");
             Viewport view = GraphicsDevice.Viewport;

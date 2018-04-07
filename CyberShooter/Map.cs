@@ -17,14 +17,17 @@ namespace CyberShooter
         public int tileHeight { get; set; }
 
         public Layer tileLayer1;
+        public Layer hostileHumanLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
 
         public List<Rectangle> tileSet = new List<Rectangle>();
         public List<Rectangle> collisionRects = new List<Rectangle>();
+        public List<NPC> NPCs = new List<NPC>(); 
 
         Rectangle bounds;
         Rectangle collisionRect;
+        NPC hostileHuman;
 
         public Map(int mapWidth, int mapHeight, int tileWidth, int tileHeight)
         {
@@ -34,6 +37,7 @@ namespace CyberShooter
             this.tileHeight = tileHeight;
 
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
         }
@@ -50,10 +54,12 @@ namespace CyberShooter
                 tileWidth = Convert.ToInt32(objReader.ReadLine());
 
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
 
                 tileLayer1.LoadLayer(objReader);
+                hostileHumanLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
 
@@ -65,7 +71,7 @@ namespace CyberShooter
                 Console.WriteLine("There was an error loading the map, is the file a valid map file?/nError:" + ex);
             }
         }
-        public void DrawMap()
+        public void DrawMap(Player p)
         {
             try
             {
@@ -78,7 +84,18 @@ namespace CyberShooter
                             bounds = tileSet[tileLayer1.layer[y, x] - 1];
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
-                        }                        
+                        }
+                    }
+                }
+                p.Draw(Game1.spriteBatch, Game1.square);
+                foreach (NPC npc in NPCs)
+                {
+                    npc.Draw(Game1.spriteBatch, Game1.square);
+                }
+                for (int x = 0; x < mapWidth; ++x)
+                {
+                    for (int y = 0; y < mapHeight; ++y)
+                    {
                         if (tileLayer2.layer[y, x] != 0)
                         {
                             bounds = tileSet[tileLayer2.layer[y, x] - 1];
@@ -87,9 +104,9 @@ namespace CyberShooter
                         }
                         if (solidLayer.layer[y, x] != 0)
                         {
-                            //Draw Collision Layer
+                           //Draw Collision Layer
 
-                            //Game1.spriteBatch.Draw(Game1.square, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(255, 0, 0, 100));
+                           //Game1.spriteBatch.Draw(Game1.square, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(255, 0, 0, 100));
                         }
                     }
                 }
@@ -126,6 +143,21 @@ namespace CyberShooter
                     if (solidLayer.layer[x, y] == 1)
                     {
                         collisionRects.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                    }
+                }
+            }
+        }
+        public void PopulateHostileHumanLayer()
+        {
+            NPCs = new List<NPC>();
+
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (hostileHumanLayer.layer[x, y] == 1)
+                    {
+                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight)));
                     }
                 }
             }

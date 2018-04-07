@@ -9,10 +9,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberShooter
 {
-    class GameBoard
+    public class GameBoard
     {
         Player player;
-        NPC testNPC;
         int screenWidth, screenHeight;
         public static Map map;
 
@@ -29,7 +28,7 @@ namespace CyberShooter
         public static int tileWidth = 32;
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
-        string loadFileName = "testest.txt";
+        string loadFileName = "humanTest.txt";
         Vector2 collisionDist = Vector2.Zero;
         Vector2 normal;
 
@@ -39,14 +38,13 @@ namespace CyberShooter
         }
         public List<Pickup> GetPickUpList()
         {
-            return this.pickUpList;
+            return pickUpList;
         }
         public GameBoard(int screenWidth, int screenHeight)
         {
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
-            player = new Player(new Vector2(100, 200));
-            testNPC = new NPC(new Vector2(100,100));
+            player = new Player(new Vector2(100, 100));
 
             //Should be spawned through the map/other system later.
             pickUpList = new List<Pickup>();
@@ -72,7 +70,9 @@ namespace CyberShooter
             map.LoadMap(loadFileName);
 
             map.LoadTileSet(Game1.tileSheet);
+            map.PopulateHostileHumanLayer();
             map.PopulateCollisionLayer();
+
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
@@ -85,7 +85,11 @@ namespace CyberShooter
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
-                testNPC.CollisionCheck(map.collisionRects[i]);
+                for (int j = 0; j < map.NPCs.Count(); j++)
+                {
+                    map.NPCs[j].CollisionCheck(map.collisionRects[i]);
+
+                }
                 if (player.GetHitRect().Intersects(map.collisionRects[i]))
                 {
                     player.SetPosition(player.GetOldPosition());
@@ -93,8 +97,12 @@ namespace CyberShooter
                 }
                 ProjectileWallCollision(i);
             }
-            testNPC.GetPlayerPos(player);
-            testNPC.Update();
+            for (int k = 0; k < map.NPCs.Count(); k++)
+            {
+                map.NPCs[k].GetPlayerPos(player);
+                map.NPCs[k].Update();
+            }
+
         }
         public void ProjectileUpdate()
         {
@@ -125,20 +133,26 @@ namespace CyberShooter
         {
             foreach(Projectile projectile in projectileList)
             {
-                if (projectile.GetHitRect().Intersects(testNPC.GetHitRect()))
+                foreach(NPC npc in map.NPCs)
                 {
-                    projectileList.Remove(projectile);
-                    return;
+                    if (projectile.GetHitRect().Intersects(npc.GetHitRect()))
+                    {
+                        projectileList.Remove(projectile);
+                        return;
+                    }
                 }
             }
         }
         public void NPCCollision()
         {
-            if(player.GetHitRect().Intersects(testNPC.GetHitRect()))
+            foreach(NPC npc in map.NPCs)
             {
-                player.SetPosition(player.GetOldPosition());
-                player.SetSpeed(new Vector2(0, 0));
-                testNPC.SetSpeed(new Vector2(0, 0));
+                if (player.GetHitRect().Intersects(npc.GetHitRect()))
+                {
+                    player.SetPosition(player.GetOldPosition());
+                    player.SetSpeed(new Vector2(0, 0));
+                    npc.SetSpeed(new Vector2(0, 0));
+                }
             }
         }
         public void PickUpSelection()
@@ -192,8 +206,7 @@ namespace CyberShooter
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            map.DrawMap();
-            player.Draw(spriteBatch, texture);
+            map.DrawMap(player);
             foreach(Projectile projectile in projectileList)
             {
                 projectile.Draw(spriteBatch, texture);
@@ -202,7 +215,6 @@ namespace CyberShooter
             {
                 pickup.Draw(spriteBatch, texture);
             }
-            testNPC.Draw(spriteBatch, texture);
         }
     }
 }

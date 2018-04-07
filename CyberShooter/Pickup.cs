@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    enum PickUpTypes { ammo, health, handgun, rifle };
+    public enum PickUpTypes { ammo, health, handgun, rifle };
 
-    class Pickup : AnimatedGameObject
+    public class Pickup : AnimatedGameObject
     {
         Vector2 pickUpCenter;
         PickUpTypes pickUpType;

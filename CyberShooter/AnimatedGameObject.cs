@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    class AnimatedGameObject : GameObject
+    public class AnimatedGameObject : GameObject
     {
         public AnimatedGameObject() : base()
         {
