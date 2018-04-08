@@ -17,10 +17,9 @@ namespace MapEditor
         public int tileWidth { get; set; }
         public int tileHeight { get; set; }
 
-        int npcSize = 40;
-
         public Layer tileLayer1;
         public Layer hostileHumanLayer;
+        public Layer friendlyHumanLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
 
@@ -37,6 +36,7 @@ namespace MapEditor
 
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             
@@ -88,6 +88,7 @@ namespace MapEditor
 
                 tileLayer1.SaveLayer(objWriter);
                 hostileHumanLayer.SaveLayer(objWriter);
+                friendlyHumanLayer.SaveLayer(objWriter);
                 tileLayer2.SaveLayer(objWriter);
                 solidLayer.SaveLayer(objWriter);
 
@@ -113,11 +114,13 @@ namespace MapEditor
 
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
 
                 tileLayer1.LoadLayer(objReader);
                 hostileHumanLayer.LoadLayer(objReader);
+                friendlyHumanLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
 
@@ -146,6 +149,11 @@ namespace MapEditor
                         if (hostileHumanLayer.layer[y, x] != 0)
                         {
                             Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(255, 0, 0, 100));
+                            Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
+                        }
+                        if (friendlyHumanLayer.layer[y, x] != 0)
+                        {
+                            Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(0, 255, 0, 100));
                             Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
                         }
                         if (tileLayer2.layer[y, x] != 0)

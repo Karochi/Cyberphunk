@@ -112,6 +112,8 @@ namespace MapEditor
                     map.solidLayer.SetTiles(1);
                 else if (drawableLayer == 3)
                     map.hostileHumanLayer.SetTiles(1);
+                else if (drawableLayer == 4)
+                    map.friendlyHumanLayer.SetTiles(1);
             }
 
             curState = Mouse.GetState();
@@ -147,6 +149,8 @@ namespace MapEditor
                 layerText = "Collision Layer";
             else if (drawableLayer == 3)
                 layerText = "Hostile Human";
+            else if (drawableLayer == 4)
+                layerText = "Friendly Human";
 
             spriteBatch.DrawString(basic, layerText, new Vector2(5, 5), Color.White);
 

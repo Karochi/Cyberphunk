@@ -50,6 +50,7 @@
     <Compile Include="Content\NewMapForm.Designer.cs">
       <DependentUpon>NewMapForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FriendlyHumanLayerButton.cs" />
     <Compile Include="FrontLayerButton.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="HostileHumanLayerButton.cs" />

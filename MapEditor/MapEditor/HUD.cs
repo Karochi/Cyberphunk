@@ -20,6 +20,7 @@ namespace MapEditor
         Texture2D frontLayer; 
         Texture2D collisionLayer;
         Texture2D hostileHumanLayer;
+        Texture2D friendlyHumanLayer;
 
         Vector2 position;
         Rectangle horizontalPanelRect;
@@ -40,7 +41,8 @@ namespace MapEditor
             backLayer = content.Load<Texture2D>("backLayer");
             frontLayer = content.Load<Texture2D>("frontLayer");
             collisionLayer = content.Load<Texture2D>("collisionLayerButton");
-            hostileHumanLayer = content.Load<Texture2D>("hostileHButton");  
+            hostileHumanLayer = content.Load<Texture2D>("hostileHButton");
+            friendlyHumanLayer = content.Load<Texture2D>("friendlyHButton");
 
             position = new Vector2(0, (int)Game1.clientBounds.Y - panel.Height);
 
@@ -55,6 +57,7 @@ namespace MapEditor
             buttons.Add(new FrontLayerButton(frontLayer, new Vector2(position.X + 575, position.Y - 25)));
             buttons.Add(new CollisionLayerButton(collisionLayer, new Vector2(position.X + 690, position.Y - 25)));
             buttons.Add(new HostileHumanLayerButton(hostileHumanLayer, new Vector2(Game1.clientBounds.X - 55,5)));
+            buttons.Add(new FriendlyHumanLayerButton(friendlyHumanLayer, new Vector2(Game1.clientBounds.X - 55, 60)));
         }
         public void Update()
         {
