@@ -93,3 +93,6 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt

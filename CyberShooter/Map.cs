@@ -18,6 +18,7 @@ namespace CyberShooter
 
         public Layer tileLayer1;
         public Layer hostileHumanLayer;
+        public Layer friendlyHumanLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
 
@@ -26,8 +27,6 @@ namespace CyberShooter
         public List<NPC> NPCs = new List<NPC>(); 
 
         Rectangle bounds;
-        Rectangle collisionRect;
-        NPC hostileHuman;
 
         public Map(int mapWidth, int mapHeight, int tileWidth, int tileHeight)
         {
@@ -38,6 +37,7 @@ namespace CyberShooter
 
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
         }
@@ -55,11 +55,13 @@ namespace CyberShooter
 
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
 
                 tileLayer1.LoadLayer(objReader);
                 hostileHumanLayer.LoadLayer(objReader);
+                friendlyHumanLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
 
@@ -149,15 +151,26 @@ namespace CyberShooter
         }
         public void PopulateHostileHumanLayer()
         {
-            NPCs = new List<NPC>();
-
             for (int x = 0; x < mapWidth; x++)
             {
                 for (int y = 0; y < mapHeight; y++)
                 {
                     if (hostileHumanLayer.layer[x, y] == 1)
                     {
-                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight)));
+                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight), true));
+                    }
+                }
+            }
+        }
+        public void PopulateFriendlyHumanLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (friendlyHumanLayer.layer[x, y] == 1)
+                    {
+                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight), false));
                     }
                 }
             }

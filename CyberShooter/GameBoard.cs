@@ -28,7 +28,7 @@ namespace CyberShooter
         public static int tileWidth = 32;
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
-        string loadFileName = "Text Files\\humanTest.txt";
+        string loadFileName = "Text Files\\allHumanTest.txt";
         Vector2 collisionDist = Vector2.Zero;
         Vector2 normal;
 
@@ -71,8 +71,8 @@ namespace CyberShooter
 
             map.LoadTileSet(Game1.tileSheet);
             map.PopulateHostileHumanLayer();
+            map.PopulateFriendlyHumanLayer();
             map.PopulateCollisionLayer();
-
         }
         public void Update(GameTime gameTime, Vector2 target)
         {

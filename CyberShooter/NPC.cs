@@ -15,7 +15,7 @@ namespace CyberShooter
         bool hostile;
         Rectangle leftRect, rightRect, topRect, bottomRect;
 
-        public NPC(Vector2 position) : base()
+        public NPC(Vector2 position, bool hostile) : base()
         {
             SetPosition(position);
             SetTexHeight(40);
@@ -23,7 +23,7 @@ namespace CyberShooter
             stoppingDistance = 220;
             retreatDistance = 150;
             stop = Vector2.Zero;
-            hostile = true;
+            this.hostile = hostile;
         }
         public override void Update()
         {
