@@ -32,6 +32,8 @@ namespace CyberShooter
         Vector2 collisionDist = Vector2.Zero;
         Vector2 normal;
 
+        Random rnd = new Random();
+
         public Player GetPlayer()
         {
             return this.player;
@@ -77,18 +79,37 @@ namespace CyberShooter
         public void Update(GameTime gameTime, Vector2 target)
         {
             player.Update(gameTime, target, this);
-            NPCCollision();
+            PlayerNPCCollision(gameTime);
             PickUpSelection();
             PickUpCollection();
             ProjectileUpdate();
             ProjectileNPCCollision();
+
+            for (int i = 0; i < map.NPCs.Count(); i++)
+            {
+                //map.NPCs[i].GetPlayerPos(player);
+                if(map.NPCs[i].GetDirectionChangeCooldown() <= 0)
+                {
+                    map.NPCs[i].SetDirectionX(rnd.Next(map.NPCs[i].GetMinDirectionX(), map.NPCs[i].GetMaxDirectionX()));
+                    map.NPCs[i].SetDirectionY(rnd.Next(map.NPCs[i].GetMinDirectionY(), map.NPCs[i].GetMaxDirectionY()));
+                    map.NPCs[i].NormalizeDirection();
+                    map.NPCs[i].SetDirectionChangeCooldown(rnd.Next(1000, 2000));
+                    map.NPCs[i].SetMovementCooldown(rnd.Next(200,2000));
+                    map.NPCs[i].SetVelocity(1f);
+                }
+                map.NPCs[i].Update(gameTime);
+            }
 
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 for (int j = 0; j < map.NPCs.Count(); j++)
                 {
                     map.NPCs[j].CollisionCheck(map.collisionRects[i]);
-
+                    if (map.NPCs[j].GetHitRect().Intersects(map.collisionRects[i]))
+                    {
+                        map.NPCs[j].SetVelocity(0);
+                        map.NPCs[j].SetPosition(map.NPCs[j].GetOldPosition());
+                    }
                 }
                 if (player.GetHitRect().Intersects(map.collisionRects[i]))
                 {
@@ -97,13 +118,8 @@ namespace CyberShooter
                 }
                 ProjectileWallCollision(i);
             }
-            for (int i = 0; i < map.NPCs.Count(); i++)
-            {
-                map.NPCs[i].GetPlayerPos(player);
-                map.NPCs[i].Update();
-            }
-
         }
+
         public void ProjectileUpdate()
         {
             foreach (Projectile projectile in projectileList)
@@ -143,15 +159,16 @@ namespace CyberShooter
                 }
             }
         }
-        public void NPCCollision()
+        public void PlayerNPCCollision(GameTime gameTime)
         {
             foreach(NPC npc in map.NPCs)
             {
-                if (player.GetHitRect().Intersects(npc.GetHitRect()))
+                if (player.GetHitRect().Intersects(npc.GetHitRect()) && !player.GetDamaged())
                 {
-                    player.SetPosition(player.GetOldPosition());
-                    player.SetSpeed(new Vector2(0, 0));
-                    npc.SetSpeed(new Vector2(0, 0));
+                    player.Damage(gameTime);
+                    //player.SetPosition(player.GetOldPosition());
+                    //player.SetSpeed(new Vector2(0, 0));
+                    //npc.SetSpeed(new Vector2(0, 0));
                 }
             }
         }

@@ -88,9 +88,10 @@ namespace CyberShooter
             spriteBatch.Draw(crosshairTex, new Rectangle((int)crosshairPos.X, (int)crosshairPos.Y, crosshairWidth, crosshairHeight), Color.White);
             spriteBatch.End();
             spriteBatch.Begin();
-            spriteBatch.DrawString(spriteFont, "firstWeapon: " + gameBoard.GetPlayer().GetFirstWeapon().GetWeaponName(), Vector2.Zero, Color.White);
-            spriteBatch.DrawString(spriteFont, "secondWeapon: " + gameBoard.GetPlayer().GetSecondWeapon().GetWeaponName(), new Vector2(0,20), Color.White);
-            spriteBatch.DrawString(spriteFont, "ammo: " + gameBoard.GetPlayer().GetAmmo(), new Vector2(0, 40), Color.White);
+            spriteBatch.DrawString(spriteFont, "First Weapon: " + gameBoard.GetPlayer().GetFirstWeapon().GetWeaponName(), Vector2.Zero, Color.White);
+            spriteBatch.DrawString(spriteFont, "Second Weapon: " + gameBoard.GetPlayer().GetSecondWeapon().GetWeaponName(), new Vector2(0,20), Color.White);
+            spriteBatch.DrawString(spriteFont, "Ammo: " + gameBoard.GetPlayer().GetAmmo(), new Vector2(0, 40), Color.White);
+            spriteBatch.DrawString(spriteFont, "Health: " + gameBoard.GetPlayer().GetHealth(), new Vector2(0, 60), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }

@@ -10,7 +10,9 @@ namespace CyberShooter
     public class MovingGameObject : AnimatedGameObject
     {
         Vector2 speed, oldPosition;
-        
+        int health;
+        bool damaged;
+
         public Vector2 GetSpeed()
         {
             return speed;
@@ -26,6 +28,22 @@ namespace CyberShooter
         public void SetOldPosition(Vector2 oldPosition)
         {
             this.oldPosition = oldPosition;
+        }
+        public int GetHealth()
+        {
+            return health;
+        }
+        public void SetHealth(int health)
+        {
+            this.health = health;
+        }
+        public bool GetDamaged()
+        {
+            return damaged;
+        }
+        public void SetDamaged(bool damaged)
+        {
+            this.damaged = damaged;
         }
         public MovingGameObject() : base()
         {

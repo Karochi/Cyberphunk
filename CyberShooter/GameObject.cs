@@ -16,7 +16,7 @@ namespace CyberShooter
 
         public Vector2 GetPosition()
         {
-            return this.position;
+            return position;
         }
         public void SetPosition(Vector2 position)
         {
@@ -24,11 +24,11 @@ namespace CyberShooter
         }
         public Rectangle GetHitRect()
         {
-            return this.hitRect;
+            return hitRect;
         }
         public int GetTexWidth()
         {
-            return this.texWidth;
+            return texWidth;
         }
         public void SetTexWidth(int texWidth)
         {
@@ -36,7 +36,7 @@ namespace CyberShooter
         }
         public int GetTexHeight()
         {
-            return this.texHeight;
+            return texHeight;
         }
         public void SetTexHeight(int texHeight)
         {

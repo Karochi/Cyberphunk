@@ -16,6 +16,7 @@ namespace CyberShooter
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
         int ammo;
+        float damageCooldown;
         Projectile projectile;
 
         public Weapon GetFirstWeapon()
@@ -50,6 +51,7 @@ namespace CyberShooter
         {
             this.ammo = ammo;
         }
+
         public Player(Vector2 position) : base()
         {
             firstWeapon = new Weapon(WeaponNames.unarmed);
@@ -58,12 +60,15 @@ namespace CyberShooter
             SetTexHeight(40);
             SetTexWidth(30);
             ammo = 60;
+            SetHealth(8);
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
             base.Update();
             this.target = target;
             playerCenter = new Vector2(GetPosition().X + GetTexWidth() / 2, GetPosition().Y + GetTexHeight() / 2);
+
+            damageCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             firstWeapon.Update(gameTime, gameBoard);
             secondWeapon.Update(gameTime, gameBoard);
@@ -77,6 +82,15 @@ namespace CyberShooter
                 WeaponSwap();
             if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
                 gameBoard.WeaponDrop();
+        }
+        public void Damage(GameTime gameTime)
+        {
+            if (damageCooldown <= 0)
+            {
+                SetHealth(GetHealth()-1);
+                damageCooldown = 1000;
+                SetDamaged(false);
+            }
         }
         public void Moving()
         {
