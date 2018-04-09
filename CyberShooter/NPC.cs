@@ -11,9 +11,9 @@ namespace CyberShooter
     public class NPC : MovingGameObject
     {
         Vector2 playerPos, direction, stop;
-        int directionX, directionY, maxDirectionX, maxDirectionY, minDirectionX, minDirectionY;
+        int directionX, directionY, maxDirectionX, maxDirectionY, minDirectionX, minDirectionY, radius, range, damage, projectileSpeed;
         float velocity, retreatDistance, stoppingDistance;
-        float movementCooldown, directionChangeCooldown;
+        float movementCooldown, directionChangeCooldown, shootingCooldown;
         bool hostile;
         Rectangle leftRect, rightRect, topRect, bottomRect;
 
@@ -57,12 +57,42 @@ namespace CyberShooter
         {
             return minDirectionY;
         }
+        public int GetRadius()
+        {
+            return radius;
+        }
+        public int GetDamage()
+        {
+            return damage;
+        }
+        public int GetRange()
+        {
+            return range;
+        }
+        public int GetProjectileSpeed()
+        {
+            return projectileSpeed;
+        }
+        public float GetShootingCooldown()
+        {
+            return shootingCooldown;
+        }
+        public void SetShootingCooldown(float shootingCooldown)
+        {
+            this.shootingCooldown = shootingCooldown;
+        }
         public NPC(Vector2 position, bool hostile) : base()
         {
             SetPosition(position);
             SetTexHeight(40);
             SetTexWidth(30);
             SetHealth(50);
+
+            radius = 220;
+            projectileSpeed = 1;
+            range = 200;
+            damage = 1;
+
             stoppingDistance = 220;
             retreatDistance = 150;
             stop = Vector2.Zero;
@@ -73,10 +103,16 @@ namespace CyberShooter
             minDirectionY = -180;
             maxDirectionY = 180;
         }
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             movementCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             directionChangeCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            shootingCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if(GetDamageCooldown() <= 0)
+            {
+                SetIsDamaged(false);
+            }
             Movement();
 
             leftRect = new Rectangle((int)GetPosition().X - 10, (int)GetPosition().Y, 10, GetTexHeight());
@@ -84,7 +120,7 @@ namespace CyberShooter
             topRect = new Rectangle((int)GetPosition().X, (int)GetPosition().Y - 10, GetTexWidth(), 10);
             bottomRect = new Rectangle((int)GetPosition().X, (int)GetPosition().Y + GetTexHeight(), GetTexWidth(), 10);
 
-            base.Update();
+            base.Update(gameTime);
         }
         public void NormalizeDirection()
         {
@@ -125,7 +161,6 @@ namespace CyberShooter
             if (topRect.Intersects(collisionRect))
             {
                 //velocity = 0f;
-                //movementCooldown = 10;
                 minDirectionY = 0;
             }
             if (bottomRect.Intersects(collisionRect))
@@ -153,12 +188,22 @@ namespace CyberShooter
         }
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            spriteBatch.Draw(texture, leftRect, Color.Red);
-            spriteBatch.Draw(texture, rightRect, Color.Red);
-            spriteBatch.Draw(texture, topRect, Color.Red);
-            spriteBatch.Draw(texture, bottomRect, Color.Red);
-
-            base.Draw(spriteBatch, texture);
+            if (GetIsDead())
+            {
+                spriteBatch.Draw(texture, GetHitRect(), Color.Gray);
+            }
+            else if (GetIsDamaged())
+            {
+                spriteBatch.Draw(texture, GetHitRect(), Color.Red);
+            }
+            else
+            {
+                base.Draw(spriteBatch, texture);
+            }
+            //spriteBatch.Draw(texture, leftRect, Color.Red);
+            //spriteBatch.Draw(texture, rightRect, Color.Red);
+            //spriteBatch.Draw(texture, topRect, Color.Red);
+            //spriteBatch.Draw(texture, bottomRect, Color.Red);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace CyberShooter
     {
         Vector2 speed, oldPosition;
         int health;
-        bool damaged;
+        float damageCooldown;
+        bool isDamaged, isDead;
 
         public Vector2 GetSpeed()
         {
@@ -37,22 +38,49 @@ namespace CyberShooter
         {
             this.health = health;
         }
-        public bool GetDamaged()
+        public bool GetIsDamaged()
         {
-            return damaged;
+            return isDamaged;
         }
-        public void SetDamaged(bool damaged)
+        public void SetIsDamaged(bool damaged)
         {
-            this.damaged = damaged;
+            isDamaged = damaged;
+        }
+        public bool GetIsDead()
+        {
+            return isDead;
+        }
+        public void SetIsDead(bool isDead)
+        {
+            this.isDead = isDead;
+        }
+        public float GetDamageCooldown()
+        {
+            return damageCooldown;
+        }
+        public void SetDamageCooldown(float damageCooldown)
+        {
+            this.damageCooldown = damageCooldown;
         }
         public MovingGameObject() : base()
         {
+            isDead = false;
+            isDamaged = false;
         }
 
-        public override void Update()
+        public virtual void Update(GameTime gameTime)
         {
+            if (GetHealth() <= 0)
+            {
+                SetIsDead(true);
+            }
+            damageCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             MovementUpdate();
             base.Update();
+            if (GetIsDead())
+            {
+
+            }
         }
         public void MovementUpdate()
         {

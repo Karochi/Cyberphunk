@@ -16,7 +16,7 @@ namespace CyberShooter
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
         int ammo;
-        float damageCooldown;
+
         Projectile projectile;
 
         public Weapon GetFirstWeapon()
@@ -64,11 +64,9 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
-            base.Update();
+            base.Update(gameTime);
             this.target = target;
             playerCenter = new Vector2(GetPosition().X + GetTexWidth() / 2, GetPosition().Y + GetTexHeight() / 2);
-
-            damageCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             firstWeapon.Update(gameTime, gameBoard);
             secondWeapon.Update(gameTime, gameBoard);
@@ -83,14 +81,15 @@ namespace CyberShooter
             if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
                 gameBoard.WeaponDrop();
         }
-        public void Damage(GameTime gameTime)
+        public bool Damage()
         {
-            if (damageCooldown <= 0)
+            if (GetDamageCooldown() <= 0)
             {
-                SetHealth(GetHealth()-1);
-                damageCooldown = 1000;
-                SetDamaged(false);
+                SetDamageCooldown(2000);
+                SetIsDamaged(false);
+                return true;
             }
+            else return false;
         }
         public void Moving()
         {
@@ -187,6 +186,21 @@ namespace CyberShooter
             swapWeapon = firstWeapon;
             firstWeapon = secondWeapon;
             secondWeapon = swapWeapon;
+        }
+        public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+        {
+            if (GetIsDead())
+            {
+                spriteBatch.Draw(texture, GetHitRect(), Color.Gray);
+            }
+            else if (GetDamageCooldown() > 0)
+            {
+                spriteBatch.Draw(texture, GetHitRect(), Color.LightYellow);
+            }
+            else
+            {
+                base.Draw(spriteBatch, texture);
+            }
         }
     }
 }

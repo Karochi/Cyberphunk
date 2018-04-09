@@ -35,7 +35,6 @@ namespace CyberShooter
         }
         protected override void LoadContent()
         {
-            //IsMouseVisible = true;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             square = Content.Load<Texture2D>("plattform");
             tileSheet = Content.Load<Texture2D>("32tilesheet");
@@ -52,14 +51,27 @@ namespace CyberShooter
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             KeyMouseReader.Update();
-            gameBoard.Update(gameTime, target);
-
+            if(gameState == GameStates.start)
+            {
+                if (KeyMouseReader.KeyPressed(Keys.Enter))
+                {
+                    gameState = GameStates.gameOn;
+                }
+            }
+            if (gameBoard.GetPlayer().GetIsDead())
+            {
+                gameState = GameStates.gameOver;
+            }
+            if(gameState == GameStates.gameOn)
+            {
+                gameBoard.Update(gameTime, target);
+            }
             CameraUpdate();
             base.Update(gameTime);
         }
         protected void CameraUpdate()
         {
-            if (gameState == GameStates.start)
+            if (gameState == GameStates.gameOn)
             {
                 camera.SetPosition(gameBoard.GetPlayer().GetPosition());
                 camera.GetPosition();
@@ -92,6 +104,15 @@ namespace CyberShooter
             spriteBatch.DrawString(spriteFont, "Second Weapon: " + gameBoard.GetPlayer().GetSecondWeapon().GetWeaponName(), new Vector2(0,20), Color.White);
             spriteBatch.DrawString(spriteFont, "Ammo: " + gameBoard.GetPlayer().GetAmmo(), new Vector2(0, 40), Color.White);
             spriteBatch.DrawString(spriteFont, "Health: " + gameBoard.GetPlayer().GetHealth(), new Vector2(0, 60), Color.White);
+            if (gameState == GameStates.start)
+            {
+                spriteBatch.DrawString(spriteFont, "PRESS ENTER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
+            }
+            if (gameState == GameStates.gameOver)
+            {
+                spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
+            }
+
             spriteBatch.End();
             base.Draw(gameTime);
         }

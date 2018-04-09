@@ -11,7 +11,6 @@ namespace CyberShooter
     {
         Vector2 position;
         Rectangle hitRect;
-        //texWidth && texHeight is used to resize the current single square used for testing. It will need to be reworked for actual use of textures.
         int texWidth, texHeight;
 
         public Vector2 GetPosition()
