@@ -83,8 +83,8 @@ namespace CyberShooter
             PlayerNPCCollision(gameTime);
             PickUpSelection();
             PickUpCollection();
-            ProjectileUpdate();
-            EnemyProjectileUpdate();
+            ProjectileUpdate(projectileList);
+            ProjectileUpdate(enemyProjectileList);
             ProjectileNPCCollision();
             NPC(gameTime);
             NPCCollision();
@@ -129,8 +129,8 @@ namespace CyberShooter
                     player.SetPosition(player.GetOldPosition());
                     player.SetSpeed(Vector2.Zero);
                 }
-                ProjectileWallCollision(i);
-                EnemyProjectileWallCollision(i);
+                ProjectileWallCollision(i, projectileList);
+                ProjectileWallCollision(i, enemyProjectileList);
             }
         }
         public void NPCShooting()
@@ -145,7 +145,7 @@ namespace CyberShooter
                 }
             }
         }
-        public void ProjectileUpdate()
+        public void ProjectileUpdate(List<Projectile> projectileList)
         {
             foreach (Projectile projectile in projectileList)
                 projectile.Update();
@@ -159,38 +159,13 @@ namespace CyberShooter
                 }
             }
         }
-        public void EnemyProjectileUpdate()
-        {
-            foreach (Projectile projectile in enemyProjectileList)
-                projectile.Update();
-
-            foreach (Projectile projectile in enemyProjectileList)
-            {
-                if (Vector2.Distance(projectile.GetOriginPosition(), projectile.GetPosition()) >= projectile.GetRange())
-                {
-                    enemyProjectileList.Remove(projectile);
-                    return;
-                }
-            }
-        }
-        public void ProjectileWallCollision(int i)
+        public void ProjectileWallCollision(int i, List<Projectile> projectileList)
         {
             foreach(Projectile projectile in projectileList)
             {
                 if (projectile.GetHitRect().Intersects(map.collisionRects[i]))
                 {
                     projectileList.Remove(projectile);
-                    return;
-                }
-            }
-        }
-        public void EnemyProjectileWallCollision(int i)
-        {
-            foreach (Projectile projectile in enemyProjectileList)
-            {
-                if (projectile.GetHitRect().Intersects(map.collisionRects[i]))
-                {
-                    enemyProjectileList.Remove(projectile);
                     return;
                 }
             }
