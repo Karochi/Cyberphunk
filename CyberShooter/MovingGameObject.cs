@@ -10,7 +10,7 @@ namespace CyberShooter
     public class MovingGameObject : AnimatedGameObject
     {
         Vector2 speed, oldPosition;
-        int health;
+        int currHealth, maxHealth;
         float damageCooldown;
         bool isDamaged, isDead;
 
@@ -30,13 +30,21 @@ namespace CyberShooter
         {
             this.oldPosition = oldPosition;
         }
-        public int GetHealth()
+        public int GetMaxHealth()
         {
-            return health;
+            return maxHealth;
         }
-        public void SetHealth(int health)
+        public void SetMaxHealth(int maxHealth)
         {
-            this.health = health;
+            this.maxHealth = maxHealth;
+        }
+        public int GetCurrHealth()
+        {
+            return currHealth;
+        }
+        public void SetCurrHealth(int currHealth)
+        {
+            this.currHealth = currHealth;
         }
         public bool GetIsDamaged()
         {
@@ -70,7 +78,7 @@ namespace CyberShooter
 
         public virtual void Update(GameTime gameTime)
         {
-            if (GetHealth() <= 0)
+            if (GetCurrHealth() <= 0)
             {
                 SetIsDead(true);
             }

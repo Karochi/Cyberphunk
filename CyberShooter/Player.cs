@@ -60,7 +60,8 @@ namespace CyberShooter
             SetTexHeight(40);
             SetTexWidth(30);
             ammo = 60;
-            SetHealth(8);
+            SetMaxHealth(8);
+            SetCurrHealth(GetMaxHealth());
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {

@@ -97,3 +97,7 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Tex
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\healthbartex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\handgunTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\rifleTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\unarmedTex.xnb

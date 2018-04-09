@@ -86,7 +86,8 @@ namespace CyberShooter
             SetPosition(position);
             SetTexHeight(40);
             SetTexWidth(30);
-            SetHealth(50);
+            SetMaxHealth(50);
+            SetCurrHealth(GetMaxHealth());
 
             radius = 220;
             projectileSpeed = 1;

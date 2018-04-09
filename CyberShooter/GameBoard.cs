@@ -178,7 +178,7 @@ namespace CyberShooter
                 {
                     if (projectile.GetHitRect().Intersects(npc.GetHitRect()))
                     {
-                        npc.SetHealth(npc.GetHealth() - projectile.GetDamage());
+                        npc.SetCurrHealth(npc.GetCurrHealth() - projectile.GetDamage());
                         npc.SetIsDamaged(true);
                         npc.SetDamageCooldown(100);
                         projectileList.Remove(projectile);
@@ -195,7 +195,7 @@ namespace CyberShooter
                 {
                     if (GetPlayer().Damage())
                     {
-                        GetPlayer().SetHealth(GetPlayer().GetHealth() - projectile.GetDamage());
+                        GetPlayer().SetCurrHealth(GetPlayer().GetCurrHealth() - projectile.GetDamage());
                     }
                     enemyProjectileList.Remove(projectile);
                     return;
