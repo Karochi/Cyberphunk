@@ -266,19 +266,7 @@ namespace CyberShooter
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            map.DrawMap(player);
-            foreach(Projectile projectile in projectileList)
-            {
-                projectile.Draw(spriteBatch, texture);
-            }
-            foreach(Projectile projectile in enemyProjectileList)
-            {
-                projectile.Draw(spriteBatch, texture);
-            }
-            foreach(Pickup pickup in pickUpList)
-            {
-                pickup.Draw(spriteBatch, texture);
-            }
+            map.DrawMap(player, projectileList , enemyProjectileList, pickUpList);
         }
     }
 }
