@@ -12,9 +12,10 @@ namespace CyberShooter
 
         public enum GameStates { start, loadingLevel, gameOn, gameOver };
         GameStates gameState;
-        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex;
+        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, dialoghitbox;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
+        Rectangle target_rect, dialoghitbox_rect;
         Camera camera;
         HUD hud; 
         int screenWidth, screenHeight;
@@ -44,9 +45,9 @@ namespace CyberShooter
             rifleTex = Content.Load<Texture2D>("rifleTex");
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
+            dialoghitbox = Content.Load<Texture2D>("dialoghitbox");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
-
             gameState = GameStates.start;
             gameBoard = new GameBoard(screenWidth, screenHeight);
             hud = new HUD(gameBoard.GetPlayer());
@@ -73,6 +74,9 @@ namespace CyberShooter
             }
             CameraUpdate();
             hud.Update(gameBoard.GetPlayer());
+
+            target_rect = new Rectangle((int)target.X, (int)target.Y, 1, 1);
+            dialoghitbox_rect = new Rectangle(40, 30, 100, 100);
             base.Update(gameTime);
         }
         protected void CameraUpdate()
@@ -103,7 +107,14 @@ namespace CyberShooter
                     spriteBatch.DrawString(spriteFont, "E", new Vector2(pickUp.GetPosition().X + pickUp.GetTexWidth() / 2, pickUp.GetPosition().Y - 10), Color.Black);
                 }
             }
+            spriteBatch.Draw(dialoghitbox, dialoghitbox_rect, Color.Red);
             spriteBatch.Draw(crosshairTex, new Rectangle((int)crosshairPos.X, (int)crosshairPos.Y, crosshairWidth, crosshairHeight), Color.White);
+            
+            if (target_rect.Intersects(dialoghitbox_rect))
+            {
+                spriteBatch.DrawString(spriteFont, "HEY THERE!", new Vector2(50, 50), Color.Black);
+
+            }
             spriteBatch.End();
 
             spriteBatch.Begin();

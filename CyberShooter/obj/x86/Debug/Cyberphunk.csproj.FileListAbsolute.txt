@@ -101,3 +101,42 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Con
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\handgunTex.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\rifleTex.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\unarmedTex.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\crosshair.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\handgunTex.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\healthbartex.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\rifleTex.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\spriteFont.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\unarmedTex.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.pdb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\dialoghitbox.xnb

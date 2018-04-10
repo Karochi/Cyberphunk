@@ -4,14 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/roguelikeSheet_transparent.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/spriteFont.spritefont</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/crosshair.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/32tilesheet.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/healthbartex.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/handgunTex.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/rifleTex.png</File>
-    <File>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/unarmedTex.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/roguelikeSheet_transparent.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/spriteFont.spritefont</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/crosshair.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/32tilesheet.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/healthbartex.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/handgunTex.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/rifleTex.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/unarmedTex.png</File>
+    <File>C:/Users/Nagy Dániel/Documents/GitHub/Cyberphunk/CyberShooter/Content/dialoghitbox.png</File>
   </SourceFiles>
 </SourceFileCollection>
