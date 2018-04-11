@@ -22,8 +22,17 @@ namespace CyberShooter
         public void SetPosition(Vector2 position)
         {
             this.position = position;
-            transform = Matrix.CreateTranslation(-position.X + view.Width / 2 - KeyMouseReader.mousePosition.X/4 + view.Width/8,
-                -position.Y + (view.Height / 2) - KeyMouseReader.mousePosition.Y/4 +view.Height/8, 0);
+            Vector2 lockedMousePosition = KeyMouseReader.mousePosition;
+            if (KeyMouseReader.mousePosition.X > view.Width)
+                lockedMousePosition.X = view.Width;
+            if(KeyMouseReader.mousePosition.X < 0)
+                lockedMousePosition.X = 0;
+            if (KeyMouseReader.mousePosition.Y > view.Height)
+                lockedMousePosition.Y = view.Height;
+            if (KeyMouseReader.mousePosition.Y < 0)
+                lockedMousePosition.Y = 0;
+            transform = Matrix.CreateTranslation(-position.X + view.Width / 2 - lockedMousePosition.X / 4 + view.Width / 8,
+                -position.Y + (view.Height / 2) - lockedMousePosition.Y / 4 + view.Height / 8, 0);
         }
         public Vector2 GetPosition()
         {

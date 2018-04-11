@@ -100,7 +100,6 @@ namespace CyberShooter
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-
             if (gameState == GameStates.gameOn)
             {
                 target = Vector2.Transform(new Vector2(KeyMouseReader.mousePosition.X, KeyMouseReader.mousePosition.Y), Matrix.Invert(camera.GetTransform()));
@@ -108,7 +107,6 @@ namespace CyberShooter
                 int crosshairHeight = 32;
                 crosshairPos = new Vector2(target.X - crosshairWidth / 2, target.Y - crosshairHeight / 2);
 
-                //This spriteBatch implies everything in the batch is centered on the player-plane.
                 spriteBatch.End();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
                 gameBoard.Draw(spriteBatch, square);
