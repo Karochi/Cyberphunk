@@ -16,21 +16,55 @@ namespace CyberShooter
         public string Text, FontName, Path;
         public Vector2 Position, Scale;
         public Rectangle SrcRect;
+        public bool IsActive;
+        public string Effects;
+        public FadeEffect FadeEffect;
         [XmlIgnore]
         public Texture2D Texture;
         Vector2 origin;
         ContentManager content;
         RenderTarget2D renderTarget;
         SpriteFont font;
+        Dictionary<string, ImageEffect> effectList;
 
+        void SetEffect<T>(ref T effect)
+        {
+            if (effect == null)
+                effect = (T)Activator.CreateInstance(typeof(T));
+            else
+            {
+                (effect as ImageEffect).IsActive = true;
+                var obj = this;
+                (effect as ImageEffect).LoadContent(ref obj);
+            }
+            effectList.Add(effect.GetType().ToString().Replace("CyberShooter.", ""), (effect as ImageEffect));
+        }
+        public void ActivateEffect(string effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = true;
+                var obj = this;
+                effectList[effect].LoadContent(ref obj);
+            }
+        }
+        public void DeactivateEffect(string effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = false;
+                effectList[effect].UnloadContent();
+            }
+        }
         public Image()
         {
-            Path = Text = String.Empty;
+            Path = Text = Effects = String.Empty;
             FontName = "spriteFont";
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Alpha = 1.0f;
             SrcRect = Rectangle.Empty;
+            effectList = new Dictionary<string, ImageEffect>();
         }
         public void LoadContent()
         {
@@ -58,7 +92,6 @@ namespace CyberShooter
             renderTarget = new RenderTarget2D(ScreenManager.Instance.GraphicsDevice, (int)dimensions.X, (int)dimensions.Y);
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(renderTarget);
             ScreenManager.Instance.GraphicsDevice.Clear(Color.Transparent);
-
             ScreenManager.Instance.SpriteBatch.Begin();
 
             if (Texture != null)
@@ -70,14 +103,29 @@ namespace CyberShooter
             Texture = renderTarget;
 
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+
+            SetEffect<FadeEffect>(ref FadeEffect);
+
+            if(Effects != String.Empty)
+            {
+                string[] split = Effects.Split(':');
+                foreach (string item in split)
+                    ActivateEffect(item);
+            }
         }
         public void UnloadContent()
         {
             content.Unload();
+            foreach (var effect in effectList)
+                DeactivateEffect(effect.Key);
         }
         public void Update(GameTime gameTime)
         {
-
+            foreach (var effect in effectList)
+            {
+                if (effect.Value.IsActive)
+                    effect.Value.Update(gameTime);
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
