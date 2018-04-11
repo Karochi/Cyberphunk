@@ -10,25 +10,26 @@ namespace CyberShooter
 {
     public class SplashScreen : GameScreen
     {
-        SpriteFont splashFont;
-        public string Path;
+        public Image Image;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            splashFont = content.Load<SpriteFont>(Path);
+            Image.LoadContent();
         }
         public override void UnLoadContent()
         {
             base.UnLoadContent();
+            Image.UnloadContent();
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Image.Update(gameTime);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(splashFont,"CYBERPHUNK", new Vector2((int)ScreenManager.Instance.Dimensions.X/2 - 200, (int)ScreenManager.Instance.Dimensions.Y / 2 - 40), Color.Purple);
+            Image.Draw(spriteBatch);
         }
     }
 }

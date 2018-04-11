@@ -36,9 +36,10 @@ namespace CyberShooter
         }
         protected override void LoadContent()
         {
-            ScreenManager.Instance.LoadContent(Content);
-
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            ScreenManager.Instance.SpriteBatch = spriteBatch;
+            ScreenManager.Instance.LoadContent(Content);
             square = Content.Load<Texture2D>("plattform");
             tileSheet = Content.Load<Texture2D>("32tilesheet");
             spriteFont = Content.Load<SpriteFont>("spriteFont");
