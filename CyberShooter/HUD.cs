@@ -16,13 +16,11 @@ namespace CyberShooter
         Vector2 firstWeaponPos = new Vector2(10, 50);
         Vector2 secondWeaponPos = new Vector2(100, 50);
         int currHealth, maxHealth, ammo;
-        int ampHealthSize = 20;
         string currHealthText, maxHealthText, ammoText;
-
+        int ampHealthSize = 20;
         int hudWeaponHeight = 30;
         int hudWeaponWidth = 30;
         int shrink = 10; 
-
 
         public HUD(Player player)
         {

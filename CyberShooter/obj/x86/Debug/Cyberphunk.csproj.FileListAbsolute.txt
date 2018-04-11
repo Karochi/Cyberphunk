@@ -27,32 +27,6 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\roguelikeSheet_transparent.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\crosshair.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\spriteFont.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe.config
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.exe
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\CyberShooter.pdb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.dll
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\MonoGame.Framework.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.MediaFoundation.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XAudio2.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.DXGI.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D11.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct2D1.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.XInput.xml
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CopyComplete
@@ -93,14 +67,7 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\32tilesheet.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\healthbartex.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\handgunTex.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\rifleTex.xnb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\unarmedTex.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\plattform.bmp
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\allHumanTest.txt
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Text Files\humanTest.txt
@@ -140,3 +107,76 @@ C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\Cyb
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\Nagy Dániel\Documents\GitHub\Cyberphunk\CyberShooter\bin\Windows\Debug\Content\dialoghitbox.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\plattform.bmp
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Text Files\allHumanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Text Files\humanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\32tilesheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\crosshair.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\dialoghitbox.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\fpro.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\handgunTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\healthbartex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\plattform.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\rifleTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\roguelikeSheet_transparent.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\splashFont.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\spriteFont.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\Content\unarmedTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\CyberShooter.exe.config
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\CyberShooter.exe
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\CyberShooter.pdb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\MonoGame.Framework.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.MediaFoundation.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.XAudio2.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.DXGI.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct3D11.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct2D1.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.XInput.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct3D9.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\MonoGame.Framework.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.MediaFoundation.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.XAudio2.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.DXGI.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct3D11.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct2D1.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.XInput.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\SharpDX.Direct3D9.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.bmp
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\allHumanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\humanTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe.config
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.pdb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.dll
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Load\SplashScreen.xml
