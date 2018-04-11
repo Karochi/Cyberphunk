@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 namespace CyberShooter
@@ -31,6 +32,8 @@ namespace CyberShooter
         {
             base.Update(gameTime);
             Image.Update(gameTime);
+            if (KeyMouseReader.KeyPressed(Keys.Enter))
+                MediaPlayer.Stop();
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
