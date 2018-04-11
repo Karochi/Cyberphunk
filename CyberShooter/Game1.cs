@@ -11,7 +11,7 @@ namespace CyberShooter
         public static SpriteBatch spriteBatch;
 
         public enum GameStates { start, loadingLevel, gameOn, gameOver };
-        GameStates gameState;
+        public static GameStates gameState;
         public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, dialoghitbox, friendlyProTex,enemyProTex;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
@@ -66,13 +66,7 @@ namespace CyberShooter
                 Exit();
             KeyMouseReader.Update();
             ScreenManager.Instance.Update(gameTime);
-            if(gameState == GameStates.start)
-            {
-                if (KeyMouseReader.KeyPressed(Keys.Enter))
-                {
-                    gameState = GameStates.gameOn;
-                }
-            }
+
             if (gameBoard.GetPlayer().GetIsDead())
             {
                 gameState = GameStates.gameOver;

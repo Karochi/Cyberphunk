@@ -16,11 +16,13 @@ namespace CyberShooter
         [XmlIgnore]
         public Type Type;
 
+        public string XmlPath;
+
         public GameScreen()
         {
             Type = this.GetType();
+            XmlPath ="Load/" +  Type.ToString().Replace("CyberShooter.","") + ".xml";
         }
-
         public virtual void LoadContent()
         {
             content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");

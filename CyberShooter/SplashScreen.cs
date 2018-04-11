@@ -18,10 +18,10 @@ namespace CyberShooter
         public override void LoadContent()
         {
             base.LoadContent();
+            Image.LoadContent();
             MenuSong = content.Load<Song>("Electro Zombies");
             MediaPlayer.Play(MenuSong);
             MediaPlayer.IsRepeating = true;
-            Image.LoadContent();
         }
         public override void UnLoadContent()
         {
@@ -32,8 +32,13 @@ namespace CyberShooter
         {
             base.Update(gameTime);
             Image.Update(gameTime);
-            if (KeyMouseReader.KeyPressed(Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !ScreenManager.Instance.IsTransitioning)
+            {
+                ScreenManager.Instance.ChangeScreens("SplashScreen");
                 MediaPlayer.Stop();
+                Game1.gameState = Game1.GameStates.gameOn;
+            }
+
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
