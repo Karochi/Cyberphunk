@@ -159,3 +159,9 @@
 /processorParam:TextureFormat=Color
 /build:splashScreen.png
 
+#begin Electro Zombies.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Electro Zombies.mp3
+

@@ -5,16 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace CyberShooter
 {
     public class SplashScreen : GameScreen
     {
-        public Image Image;
+        Song MenuSong;
+        public Image Image;       
 
         public override void LoadContent()
         {
             base.LoadContent();
+            MenuSong = content.Load<Song>("Electro Zombies");
+            MediaPlayer.Play(MenuSong);
+            MediaPlayer.IsRepeating = true;
             Image.LoadContent();
         }
         public override void UnLoadContent()
