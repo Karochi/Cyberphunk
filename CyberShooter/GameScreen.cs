@@ -14,16 +14,16 @@ namespace CyberShooter
     {
         protected ContentManager content;
         [XmlIgnore]
-        public Type Type;
+        public Type type;
 
         public GameScreen()
         {
-            Type = this.GetType();
+            type = this.GetType();
         }
 
         public virtual void LoadContent()
         {
-            content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
+            content = new ContentManager(ScreenManager.Instance.content.ServiceProvider, "Content");
         }
         public virtual void UnLoadContent()
         {

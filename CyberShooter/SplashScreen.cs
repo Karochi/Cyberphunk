@@ -12,32 +12,32 @@ namespace CyberShooter
 {
     public class SplashScreen : GameScreen
     {
-        Song MenuSong;
-        public Image Image;       
+        Song menuSong;
+        public Image image;       
 
         public override void LoadContent()
         {
             base.LoadContent();
-            MenuSong = content.Load<Song>("Electro Zombies");
-            MediaPlayer.Play(MenuSong);
+            menuSong = content.Load<Song>("Electro Zombies");
+            MediaPlayer.Play(menuSong);
             MediaPlayer.IsRepeating = true;
-            Image.LoadContent();
+            image.LoadContent();
         }
         public override void UnLoadContent()
         {
             base.UnLoadContent();
-            Image.UnloadContent();
+            image.UnloadContent();
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Image.Update(gameTime);
+            image.Update(gameTime);
             if (KeyMouseReader.KeyPressed(Keys.Enter))
                 MediaPlayer.Stop();
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Image.Draw(spriteBatch);
+            image.Draw(spriteBatch);
         }
     }
 }

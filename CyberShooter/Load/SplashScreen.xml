@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
-  <Image>
-    <Path>splashScreen</Path>
-    <Effects>FadeEffect</Effects>
-    <IsActive>true</IsActive>
-    <Position>
+  <image>
+    <path>splashScreen</path>
+    <effects>FadeEffect</effects>
+    <isActive>true</isActive>
+    <position>
       <X>0</X>
       <Y>10</Y>
-    </Position>
-  </Image>
+    </position>
+  </image>
 </SplashScreen>

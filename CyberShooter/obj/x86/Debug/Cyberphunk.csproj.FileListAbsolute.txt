@@ -223,3 +223,4 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.xml
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\fadeImage.xnb

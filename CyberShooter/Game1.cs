@@ -25,8 +25,8 @@ namespace CyberShooter
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            screenWidth = (int)ScreenManager.Instance.Dimensions.X;
-            screenHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            screenWidth = (int)ScreenManager.Instance.dimensions.X;
+            screenHeight = (int)ScreenManager.Instance.dimensions.Y;
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
         }
@@ -37,8 +37,8 @@ namespace CyberShooter
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
-            ScreenManager.Instance.SpriteBatch = spriteBatch;
+            ScreenManager.Instance.graphicsDevice = GraphicsDevice;
+            ScreenManager.Instance.spriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
             square = Content.Load<Texture2D>("plattform");
             tileSheet = Content.Load<Texture2D>("32tilesheet");

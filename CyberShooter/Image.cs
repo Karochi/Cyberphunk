@@ -12,15 +12,15 @@ namespace CyberShooter
 {
      public class Image
     {
-        public float Alpha;
-        public string Text, FontName, Path;
-        public Vector2 Position, Scale;
-        public Rectangle SrcRect;
-        public bool IsActive;
-        public string Effects;
-        public FadeEffect FadeEffect;
+        public float alpha;
+        public string text, fontName, path;
+        public Vector2 position, scale;
+        public Rectangle srcRect;
+        public bool isActive;
+        public string effects;
+        public FadeEffect fadeEffect;
         [XmlIgnore]
-        public Texture2D Texture;
+        public Texture2D texture;
         Vector2 origin;
         ContentManager content;
         RenderTarget2D renderTarget;
@@ -33,7 +33,7 @@ namespace CyberShooter
                 effect = (T)Activator.CreateInstance(typeof(T));
             else
             {
-                (effect as ImageEffect).IsActive = true;
+                (effect as ImageEffect).isActive = true;
                 var obj = this;
                 (effect as ImageEffect).LoadContent(ref obj);
             }
@@ -43,7 +43,7 @@ namespace CyberShooter
         {
             if (effectList.ContainsKey(effect))
             {
-                effectList[effect].IsActive = true;
+                effectList[effect].isActive = true;
                 var obj = this;
                 effectList[effect].LoadContent(ref obj);
             }
@@ -52,63 +52,63 @@ namespace CyberShooter
         {
             if (effectList.ContainsKey(effect))
             {
-                effectList[effect].IsActive = false;
+                effectList[effect].isActive = false;
                 effectList[effect].UnloadContent();
             }
         }
         public Image()
         {
-            Path = Text = Effects = String.Empty;
-            FontName = "spriteFont";
-            Position = Vector2.Zero;
-            Scale = Vector2.One;
-            Alpha = 1.0f;
-            SrcRect = Rectangle.Empty;
+            path = text = effects = String.Empty;
+            fontName = "spriteFont";
+            position = Vector2.Zero;
+            scale = Vector2.One;
+            alpha = 1.0f;
+            srcRect = Rectangle.Empty;
             effectList = new Dictionary<string, ImageEffect>();
         }
         public void LoadContent()
         {
-            content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
+            content = new ContentManager(ScreenManager.Instance.content.ServiceProvider, "Content");
 
-            if (Path != String.Empty)
-                Texture = content.Load<Texture2D>(Path);
+            if (path != String.Empty)
+                texture = content.Load<Texture2D>(path);
 
-            font = content.Load<SpriteFont>(FontName);
+            font = content.Load<SpriteFont>(fontName);
 
             Vector2 dimensions = Vector2.Zero;
 
-            if (Texture != null) 
-                dimensions.X += Texture.Width;
-            dimensions.X += font.MeasureString(Text).X;
+            if (texture != null) 
+                dimensions.X += texture.Width;
+            dimensions.X += font.MeasureString(text).X;
 
-            if (Texture != null)
-                dimensions.Y = Math.Max(Texture.Height, font.MeasureString(Text).Y);
+            if (texture != null)
+                dimensions.Y = Math.Max(texture.Height, font.MeasureString(text).Y);
             else
-                dimensions.Y = font.MeasureString(Text).Y;
+                dimensions.Y = font.MeasureString(text).Y;
 
-            if (SrcRect == Rectangle.Empty)
-                SrcRect = new Rectangle(0, 0, (int)dimensions.X, (int)dimensions.Y);
+            if (srcRect == Rectangle.Empty)
+                srcRect = new Rectangle(0, 0, (int)dimensions.X, (int)dimensions.Y);
 
-            renderTarget = new RenderTarget2D(ScreenManager.Instance.GraphicsDevice, (int)dimensions.X, (int)dimensions.Y);
-            ScreenManager.Instance.GraphicsDevice.SetRenderTarget(renderTarget);
-            ScreenManager.Instance.GraphicsDevice.Clear(Color.Transparent);
-            ScreenManager.Instance.SpriteBatch.Begin();
+            renderTarget = new RenderTarget2D(ScreenManager.Instance.graphicsDevice, (int)dimensions.X, (int)dimensions.Y);
+            ScreenManager.Instance.graphicsDevice.SetRenderTarget(renderTarget);
+            ScreenManager.Instance.graphicsDevice.Clear(Color.Transparent);
+            ScreenManager.Instance.spriteBatch.Begin();
 
-            if (Texture != null)
-                ScreenManager.Instance.SpriteBatch.Draw(Texture, Vector2.Zero, Color.White);
-            ScreenManager.Instance.SpriteBatch.DrawString(font, Text, Vector2.Zero, Color.White);
+            if (texture != null)
+                ScreenManager.Instance.spriteBatch.Draw(texture, Vector2.Zero, Color.White);
+            ScreenManager.Instance.spriteBatch.DrawString(font, text, Vector2.Zero, Color.White);
 
-            ScreenManager.Instance.SpriteBatch.End();
+            ScreenManager.Instance.spriteBatch.End();
 
-            Texture = renderTarget;
+            texture = renderTarget;
 
-            ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+            ScreenManager.Instance.graphicsDevice.SetRenderTarget(null);
 
-            SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect<FadeEffect>(ref fadeEffect);
 
-            if(Effects != String.Empty)
+            if(effects != String.Empty)
             {
-                string[] split = Effects.Split(':');
+                string[] split = effects.Split(':');
                 foreach (string item in split)
                     ActivateEffect(item);
             }
@@ -123,15 +123,15 @@ namespace CyberShooter
         {
             foreach (var effect in effectList)
             {
-                if (effect.Value.IsActive)
+                if (effect.Value.isActive)
                     effect.Value.Update(gameTime);
             }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            origin = new Vector2(SrcRect.Width / 2, SrcRect.Height / 2);
+            origin = new Vector2(srcRect.Width / 2, srcRect.Height / 2);
 
-            spriteBatch.Draw(Texture, Position + origin, SrcRect, Color.White * Alpha, 0.0f, origin, Scale, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(texture, position + origin, srcRect, Color.White * alpha, 0.0f, origin, scale, SpriteEffects.None, 0.0f);
         }
     }
 }

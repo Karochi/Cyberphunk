@@ -10,14 +10,14 @@ namespace CyberShooter
 {
     public class XmlManager<T>
     {
-        public Type Type;
+        public Type type;
 
         public T Load(string path)
         {
             T instance;
             using (TextReader reader = new StreamReader(path))
             {
-                XmlSerializer xml = new XmlSerializer(Type);
+                XmlSerializer xml = new XmlSerializer(type);
                 instance = (T)xml.Deserialize(reader);
             }
             return instance;
@@ -26,7 +26,7 @@ namespace CyberShooter
         {
             using (TextWriter writer = new StreamWriter(path))
             {
-                XmlSerializer xml = new XmlSerializer(Type);
+                XmlSerializer xml = new XmlSerializer(type);
                 xml.Serialize(writer, objWriter);
             }
         }

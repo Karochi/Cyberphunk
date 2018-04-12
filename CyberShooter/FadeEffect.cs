@@ -9,18 +9,18 @@ namespace CyberShooter
 {
     public class FadeEffect : ImageEffect
     {
-        public float FadeSpeed;
-        public bool Increase;
+        public float fadeSpeed;
+        public bool increase;
 
         public FadeEffect()
         {
-            FadeSpeed = 1;
-            Increase = false;
+            fadeSpeed = 1;
+            increase = false;
         }
 
-        public override void LoadContent(ref Image Image)
+        public override void LoadContent(ref Image image)
         {
-            base.LoadContent(ref Image);
+            base.LoadContent(ref image);
         }
         public override void UnloadContent()
         {
@@ -29,26 +29,26 @@ namespace CyberShooter
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (image.IsActive)
+            if (image.isActive)
             {
-                if (!Increase)
-                    image.Alpha -= FadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (!increase)
+                    image.alpha -= fadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 else
-                    image.Alpha += FadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    image.alpha += fadeSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (image.Alpha < 0.0f)
+                if (image.alpha < 0.0f)
                 {
-                    Increase = true;
-                    image.Alpha = 0.0f;
+                    increase = true;
+                    image.alpha = 0.0f;
                 }
-                else if (image.Alpha > 1.0f)
+                else if (image.alpha > 1.0f)
                 {
-                    Increase = false;
-                    image.Alpha = 1.0f;
+                    increase = false;
+                    image.alpha = 1.0f;
                 }
             }
             else
-                image.Alpha = 1.0f;
+                image.alpha = 1.0f;
         }
     }
 }

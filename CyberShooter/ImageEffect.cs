@@ -10,11 +10,11 @@ namespace CyberShooter
     public class ImageEffect
     {
         protected Image image;
-        public bool IsActive;
+        public bool isActive;
 
         public ImageEffect()
         {
-            IsActive = true;
+            isActive = true;
         }
         public virtual void LoadContent(ref Image Image)
         {

@@ -12,13 +12,13 @@ namespace CyberShooter
     public class ScreenManager
     {
         private static ScreenManager instance;
-        public Vector2 Dimensions { private set; get; }
-        public ContentManager Content { private set; get; }
+        public Vector2 dimensions { private set; get; }
+        public ContentManager content { private set; get; }
         XmlManager<GameScreen> xmlGameScreenManager;
 
         GameScreen currentScreen;
-        public GraphicsDevice GraphicsDevice;
-        public SpriteBatch SpriteBatch;
+        public GraphicsDevice graphicsDevice;
+        public SpriteBatch spriteBatch;
 
         public static ScreenManager Instance
         {
@@ -32,15 +32,15 @@ namespace CyberShooter
         }
         public ScreenManager()
         {
-            Dimensions = new Vector2(800, 600);
+            dimensions = new Vector2(800, 600);
             currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
-            xmlGameScreenManager.Type = currentScreen.Type;
+            xmlGameScreenManager.type = currentScreen.type;
             currentScreen = xmlGameScreenManager.Load("Load/SplashScreen.xml");
         }
         public void LoadContent (ContentManager Content)
         {
-            this.Content = new ContentManager(Content.ServiceProvider, "Content");
+            this.content = new ContentManager(Content.ServiceProvider, "Content");
             currentScreen.LoadContent();
 
         }
