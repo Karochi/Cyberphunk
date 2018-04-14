@@ -73,7 +73,7 @@ namespace CyberShooter
                 Console.WriteLine("There was an error loading the map, is the file a valid map file?/nError:" + ex);
             }
         }
-        public void DrawMap(Player p, List<Projectile> projectileList, List<Projectile> enemyProjectileList, List<Pickup> pickUpList)
+        public void DrawMap(Player p, List<Projectile> projectileList, List<Projectile> enemyProjectileList, List<WeaponPickup> weaponPickUpList, List<ResourcePickup> resourcePickUpList)
         {
             try
             {
@@ -97,7 +97,11 @@ namespace CyberShooter
                 {
                     projectile.Draw(Game1.spriteBatch, Game1.square);
                 }
-                foreach (Pickup pickup in pickUpList)
+                foreach (WeaponPickup pickup in weaponPickUpList)
+                {
+                    pickup.Draw(Game1.spriteBatch, Game1.square);
+                }
+                foreach (ResourcePickup pickup in resourcePickUpList)
                 {
                     pickup.Draw(Game1.spriteBatch, Game1.square);
                 }

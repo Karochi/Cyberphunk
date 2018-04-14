@@ -15,8 +15,10 @@ namespace CyberShooter
         int screenWidth, screenHeight;
         public static Map map;
 
-        Pickup testPickUp;
-        List<Pickup> pickUpList;
+        WeaponPickup weaponPickUp;
+        ResourcePickup resourcePickUp;
+        List<WeaponPickup> weaponPickUpList;
+        List<ResourcePickup> resourcePickUpList;
         float playerPickUpDistance, shortestPickUpDistance;
         int pickUpIndex;
 
@@ -36,11 +38,15 @@ namespace CyberShooter
 
         public Player GetPlayer()
         {
-            return this.player;
+            return player;
         }
-        public List<Pickup> GetPickUpList()
+        public List<WeaponPickup> GetWeaponPickUpList()
         {
-            return pickUpList;
+            return weaponPickUpList;
+        }
+        public List<ResourcePickup> GetResourcePickUpList()
+        {
+            return resourcePickUpList;
         }
         public GameBoard(int screenWidth, int screenHeight)
         {
@@ -49,15 +55,20 @@ namespace CyberShooter
             player = new Player(new Vector2(100, 100));
 
             //Should be spawned through the map/other system later.
-            pickUpList = new List<Pickup>();
-            testPickUp = new Pickup(new Vector2(100, 500), PickUpTypes.handgun);
-            pickUpList.Add(testPickUp);
-            testPickUp = new Pickup(new Vector2(100, 475), PickUpTypes.handgun);
-            pickUpList.Add(testPickUp);
-            testPickUp = new Pickup(new Vector2(155, 510), PickUpTypes.rifle);
-            pickUpList.Add(testPickUp);
-            testPickUp = new Pickup(new Vector2(500, 50), PickUpTypes.ammo);
-            pickUpList.Add(testPickUp);
+            weaponPickUpList = new List<WeaponPickup>();
+            weaponPickUp = new WeaponPickup(new Vector2(100, 500), PickUpTypes.handgun);
+            weaponPickUpList.Add(weaponPickUp);
+            weaponPickUp = new WeaponPickup(new Vector2(100, 475), PickUpTypes.handgun);
+            weaponPickUpList.Add(weaponPickUp);
+            weaponPickUp = new WeaponPickup(new Vector2(155, 510), PickUpTypes.rifle);
+            weaponPickUpList.Add(weaponPickUp);
+
+            resourcePickUpList = new List<ResourcePickup>();
+            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickUpTypes.ammo);
+            resourcePickUpList.Add(resourcePickUp);
+            resourcePickUp = new ResourcePickup(new Vector2(500, 400), PickUpTypes.health);
+            resourcePickUpList.Add(resourcePickUp);
+
             projectileList = new List<Projectile>();
             enemyProjectileList = new List<Projectile>();
 
@@ -81,8 +92,9 @@ namespace CyberShooter
         {
             player.Update(gameTime, target, this);
             PlayerNPCCollision(gameTime);
-            PickUpSelection();
-            PickUpCollection();
+            WeaponPickUpSelection();
+            WeaponPickupCollection();
+            ResourcePickupCollection();
             ProjectileUpdate(projectileList);
             ProjectileUpdate(enemyProjectileList);
             ProjectileNPCCollision();
@@ -215,15 +227,15 @@ namespace CyberShooter
                 }
             }
         }
-        public void PickUpSelection()
+        public void WeaponPickUpSelection()
         {
             shortestPickUpDistance = float.MaxValue;
             pickUpIndex = -1;
-            for (int i = 0; i < pickUpList.Count(); i++)
+            for (int i = 0; i < weaponPickUpList.Count(); i++)
             {
-                pickUpList[i].SetIsInteractable(false);
-                playerPickUpDistance = Vector2.Distance(player.GetPlayerCenter(), pickUpList[i].GetPickUpCenter());
-                if (playerPickUpDistance < pickUpList[i].GetRadius())
+                weaponPickUpList[i].SetIsInteractable(false);
+                playerPickUpDistance = Vector2.Distance(player.GetPlayerCenter(), weaponPickUpList[i].GetPickUpCenter());
+                if (playerPickUpDistance < weaponPickUpList[i].GetRadius())
                 {
                     if (playerPickUpDistance < shortestPickUpDistance)
                     {
@@ -234,21 +246,33 @@ namespace CyberShooter
             }
             if (pickUpIndex >= 0)
             {
-                pickUpList[pickUpIndex].SetIsInteractable(true);
+                weaponPickUpList[pickUpIndex].SetIsInteractable(true);
             }
         }
-        public void PickUpCollection()
+        public void WeaponPickupCollection()
         {
-            foreach (Pickup pickUp in pickUpList)
+            foreach (WeaponPickup pickUp in weaponPickUpList)
             {
                 if (pickUp.GetIsInteractable() && KeyMouseReader.KeyPressed(Keys.E))
                 {
-                    if (WeaponFullCheck() && pickUp.GetIsWeapon())
+                    if (WeaponFullCheck())
                     {
                         WeaponDrop();
                     }
                     pickUp.PickedUp(player);
-                    pickUpList.Remove(pickUpList[pickUpIndex]);
+                    weaponPickUpList.Remove(weaponPickUpList[pickUpIndex]);
+                    return;
+                }
+            }
+        }
+        public void ResourcePickupCollection()
+        {
+            foreach (ResourcePickup pickUp in resourcePickUpList)
+            {
+                if (pickUp.GetHitRect().Intersects(player.GetHitRect()))
+                {
+                    pickUp.PickedUp(player);
+                    resourcePickUpList.Remove(pickUp);
                     return;
                 }
             }
@@ -261,12 +285,12 @@ namespace CyberShooter
         }
         public void WeaponDrop()
         {
-            GetPickUpList().Add(new Pickup(GetPlayer().GetPosition(), GetPlayer().GetFirstWeapon().GetPickUpType()));
+            weaponPickUpList.Add(new WeaponPickup(GetPlayer().GetPosition(), GetPlayer().GetFirstWeapon().GetPickUpType()));
             GetPlayer().GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            map.DrawMap(player, projectileList , enemyProjectileList, pickUpList);
+            map.DrawMap(player, projectileList , enemyProjectileList, weaponPickUpList, resourcePickUpList);
         }
     }
 }

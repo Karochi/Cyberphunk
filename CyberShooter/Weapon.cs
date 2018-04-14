@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum WeaponNames { unarmed, knife, handgun, rifle };
+    public enum WeaponNames { unarmed, handgun, rifle};
     public enum WeaponTypes { melee, semiAuto, auto };
 
     public class Weapon
@@ -89,6 +89,14 @@ namespace CyberShooter
             projectileSpeed = 15;
             originCooldown = 200;
             pickUpType = PickUpTypes.rifle;
+        }
+        public void ShotgunDefinition()
+        {
+            weaponType = WeaponTypes.semiAuto;
+            damage = 4;
+            range = 200;
+            projectileSpeed = 1;
+            originCooldown = 500;
         }
     }
 }

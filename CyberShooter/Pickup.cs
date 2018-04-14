@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 
 namespace CyberShooter
 {
-    public enum PickUpTypes { ammo, health, handgun, rifle };
+    public enum PickUpTypes { ammo, health, handgun, rifle};
 
-    public class Pickup : AnimatedGameObject
+    abstract public class Pickup : AnimatedGameObject
     {
         Vector2 pickUpCenter;
-        PickUpTypes pickUpType;
-        float radius;
-        bool isInteractable, isWeapon;
-        int ammoPickUpAmount;
+        protected PickUpTypes pickUpType;
+        protected float radius;
+        bool isInteractable;
 
         public bool GetIsInteractable()
         {
@@ -24,10 +23,6 @@ namespace CyberShooter
         public void SetIsInteractable(bool isInteractable)
         {
             this.isInteractable = isInteractable;
-        }
-        public bool GetIsWeapon()
-        {
-            return isWeapon;
         }
         public Vector2 GetPickUpCenter()
         {
@@ -43,45 +38,12 @@ namespace CyberShooter
             SetPosition(position);
             pickUpType = type;
             isInteractable = false;
-            radius = 60;
-            ammoPickUpAmount = 10;
             SetTexHeight(10);
             SetTexWidth(10);
             pickUpCenter = new Vector2(position.X + GetTexWidth() / 2, position.Y + GetTexHeight() / 2);
             base.Update();
         }
-        public void PickedUp(Player player)
-        {
-            if(pickUpType == PickUpTypes.handgun)
-            {
-                WeaponManage(player, WeaponNames.handgun);
-                isWeapon = true;
-            }
-            if (pickUpType == PickUpTypes.rifle)
-            {
-                WeaponManage(player, WeaponNames.rifle);
-                isWeapon = true;
-            }
-            if (pickUpType == PickUpTypes.ammo)
-            {
-                player.SetAmmo(player.GetAmmo() + ammoPickUpAmount);
-                isWeapon = false;
-            }
-        }
-        public void WeaponManage(Player player, WeaponNames weaponName)
-        {
-            if (player.GetFirstWeapon().GetWeaponName() == WeaponNames.unarmed)
-                player.SetFirstWeapon(new Weapon(weaponName));
 
-            else if (player.GetSecondWeapon().GetWeaponName() == WeaponNames.unarmed)
-            {
-                player.WeaponSwap();
-                player.SetFirstWeapon(new Weapon(weaponName));
-            }
-            else if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
-            {
-                player.SetFirstWeapon(new Weapon(weaponName));
-            }
-        }
+
     }
 }

@@ -25,7 +25,6 @@ namespace CyberShooter
         {
             return damage;
         }
-
         public Projectile(Vector2 position, Vector2 target, int damage, float range, int speed) : base()
         {
             this.damage = damage;

@@ -18,7 +18,7 @@ namespace CyberShooter
         Rectangle target_rect, dialoghitbox_rect;
         Camera camera;
         HUD hud; 
-        int screenWidth, screenHeight;
+        int screenWidth, screenHeight, crosshairWidth, crosshairHeight;
         GameBoard gameBoard;
 
         public Game1()
@@ -102,16 +102,10 @@ namespace CyberShooter
             spriteBatch.Begin();
             if (gameState == GameStates.gameOn)
             {
-                target = Vector2.Transform(new Vector2(KeyMouseReader.mousePosition.X, KeyMouseReader.mousePosition.Y), Matrix.Invert(camera.GetTransform()));
-                int crosshairWidth = 32;
-                int crosshairHeight = 32;
-                crosshairPos = new Vector2(target.X - crosshairWidth / 2, target.Y - crosshairHeight / 2);
-
-                spriteBatch.End();
+                Crosshair();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
                 gameBoard.Draw(spriteBatch, square);
-
-                foreach (Pickup pickUp in gameBoard.GetPickUpList())
+                foreach (WeaponPickup pickUp in gameBoard.GetWeaponPickUpList())
                 {
                     if (pickUp.GetIsInteractable())
                     {
@@ -139,9 +133,22 @@ namespace CyberShooter
             {
                 spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
             }
-
+            Tests();
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+        private void Crosshair()
+        {
+            target = Vector2.Transform(new Vector2(KeyMouseReader.mousePosition.X, KeyMouseReader.mousePosition.Y), Matrix.Invert(camera.GetTransform()));
+            crosshairWidth = 32;
+            crosshairHeight = 32;
+            crosshairPos = new Vector2(target.X - crosshairWidth / 2, target.Y - crosshairHeight / 2);
+            spriteBatch.End();
+        }
+        private void Tests()
+        {
+            spriteBatch.DrawString(spriteFont, "WPL"+gameBoard.GetWeaponPickUpList().Count , new Vector2(20, 120), Color.Green);
+            spriteBatch.DrawString(spriteFont, "RPL" + gameBoard.GetResourcePickUpList().Count, new Vector2(20, 140), Color.Green);
         }
     }
 }
