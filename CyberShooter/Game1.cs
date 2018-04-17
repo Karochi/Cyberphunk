@@ -16,13 +16,21 @@ namespace CyberShooter
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Rectangle target_rect, dialoghitbox_rect;
+      
+       
         Camera camera;
-        HUD hud; 
+        HUD hud;
+     
+
+       
+
         int screenWidth, screenHeight;
         GameBoard gameBoard;
 
         public Game1()
         {
+            
+           
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             screenWidth = (int)ScreenManager.Instance.dimensions.X;
@@ -36,6 +44,7 @@ namespace CyberShooter
         }
         protected override void LoadContent()
         {
+           
             spriteBatch = new SpriteBatch(GraphicsDevice);
             ScreenManager.Instance.graphicsDevice = GraphicsDevice;
             ScreenManager.Instance.spriteBatch = spriteBatch;
@@ -55,6 +64,9 @@ namespace CyberShooter
             gameState = GameStates.start;
             gameBoard = new GameBoard(screenWidth, screenHeight);
             hud = new HUD(gameBoard.GetPlayer());
+            
+
+            
         }
         protected override void UnloadContent()
         {
@@ -62,6 +74,8 @@ namespace CyberShooter
         }
         protected override void Update(GameTime gameTime)
         {
+           
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             KeyMouseReader.Update();

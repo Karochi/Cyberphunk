@@ -13,6 +13,15 @@ namespace CyberShooter
 
     public class Player : MovingGameObject
     {
+
+        protected double frameTimer;
+        protected double frameInterval;
+        protected int frame;
+        protected int numberOfFrames;
+        protected int frameWidth;
+        protected Rectangle sourceRect;
+        Texture2D spriteChar;
+        SpriteBatch spriteChars;
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
         int ammo;
@@ -54,6 +63,7 @@ namespace CyberShooter
 
         public Player(Vector2 position) : base()
         {
+
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
             SetPosition(position);
@@ -62,6 +72,12 @@ namespace CyberShooter
             ammo = 60;
             SetMaxHealth(8);
             SetCurrHealth(GetMaxHealth());
+            frameTimer = 100;
+            frameInterval = 100;
+            frame = 0;
+            numberOfFrames = 3;
+            frameWidth = 30;
+            sourceRect = new Rectangle(0, 0, 30, 38);
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
@@ -82,6 +98,24 @@ namespace CyberShooter
             if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
                 gameBoard.WeaponDrop();
         }
+
+        private void Animation(GameTime gameTime)
+
+        {
+
+            if (frameTimer <= 0)
+            {
+                frameTimer = frameInterval;
+                frame++;
+                sourceRect.X = (frame % numberOfFrames) * frameWidth;
+
+
+
+            }
+
+
+
+        }
         public bool Damage()
         {
             if (GetDamageCooldown() <= 0)
@@ -96,18 +130,23 @@ namespace CyberShooter
         {
             if (GetSpeed().X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
+                sourceRect.X = 30;
                 SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
+               
             }
             else if (GetSpeed().X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
+                sourceRect.X = 30;
                 SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
             }
             else if (GetSpeed().Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
+                sourceRect.Y = 38;
                 SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
             }
             else if (GetSpeed().Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
+                sourceRect.Y = 38;
                 SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
             }
         }

@@ -224,3 +224,48 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\fadeImage.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.bmp
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Load\SplashScreen.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\allHumanTest.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\humanTest.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashScreen.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe.config
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.pdb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.dll
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
