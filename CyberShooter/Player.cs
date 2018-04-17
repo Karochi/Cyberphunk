@@ -20,8 +20,7 @@ namespace CyberShooter
         protected int numberOfFrames;
         protected int frameWidth;
         protected Rectangle sourceRect;
-        Texture2D spriteChar;
-        SpriteBatch spriteChars;
+        
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
         int ammo;
@@ -63,7 +62,7 @@ namespace CyberShooter
 
         public Player(Vector2 position) : base()
         {
-
+           
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
             SetPosition(position);
@@ -130,23 +129,24 @@ namespace CyberShooter
         {
             if (GetSpeed().X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
-                sourceRect.X = 30;
+                
                 SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
+                
                
             }
             else if (GetSpeed().X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
-                sourceRect.X = 30;
+             
                 SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
             }
             else if (GetSpeed().Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
-                sourceRect.Y = 38;
+           
                 SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
             }
             else if (GetSpeed().Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
-                sourceRect.Y = 38;
+                
                 SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
             }
         }
