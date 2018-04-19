@@ -54,7 +54,7 @@ namespace CyberShooter
             camera = new Camera(view);
             gameState = GameStates.start;
             gameBoard = new GameBoard(screenWidth, screenHeight);
-            hud = new HUD(gameBoard.GetPlayer());
+            hud = new HUD(gameBoard.Player);
         }
         protected override void UnloadContent()
         {
@@ -66,33 +66,37 @@ namespace CyberShooter
                 Exit();
             KeyMouseReader.Update();
             ScreenManager.Instance.Update(gameTime);
-            if(gameState == GameStates.start)
+            GameStateUpdate(gameTime);
+            CameraUpdate();
+            hud.Update(gameBoard.Player);
+
+            target_rect = new Rectangle((int)target.X, (int)target.Y, 1, 1);
+            dialoghitbox_rect = new Rectangle(40, 30, 100, 100);
+            base.Update(gameTime);
+        }
+        protected void GameStateUpdate(GameTime gameTime)
+        {
+            if (gameState == GameStates.start)
             {
                 if (KeyMouseReader.KeyPressed(Keys.Enter))
                 {
                     gameState = GameStates.gameOn;
                 }
             }
-            if (gameBoard.GetPlayer().GetIsDead())
+            if (gameBoard.Player.IsDead)
             {
                 gameState = GameStates.gameOver;
             }
-            if(gameState == GameStates.gameOn)
+            if (gameState == GameStates.gameOn)
             {
                 gameBoard.Update(gameTime, target);
             }
-            CameraUpdate();
-            hud.Update(gameBoard.GetPlayer());
-
-            target_rect = new Rectangle((int)target.X, (int)target.Y, 1, 1);
-            dialoghitbox_rect = new Rectangle(40, 30, 100, 100);
-            base.Update(gameTime);
         }
         protected void CameraUpdate()
         {
             if (gameState == GameStates.gameOn)
             {
-                camera.SetPosition(gameBoard.GetPlayer().GetPosition());
+                camera.SetPosition(gameBoard.Player.Position);
                 camera.GetPosition();
             }
         }
@@ -105,13 +109,6 @@ namespace CyberShooter
                 Crosshair();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
                 gameBoard.Draw(spriteBatch, square);
-                foreach (WeaponPickup pickUp in gameBoard.GetWeaponPickUpList())
-                {
-                    if (pickUp.GetIsInteractable())
-                    {
-                        spriteBatch.DrawString(spriteFont, "E", new Vector2(pickUp.GetPosition().X + pickUp.GetTexWidth() / 2, pickUp.GetPosition().Y - 10), Color.Black);
-                    }
-                }
                 spriteBatch.Draw(dialoghitbox, dialoghitbox_rect, Color.Red);
                 spriteBatch.Draw(crosshairTex, new Rectangle((int)crosshairPos.X, (int)crosshairPos.Y, crosshairWidth, crosshairHeight), Color.White);
 
@@ -122,7 +119,7 @@ namespace CyberShooter
                 }
                 spriteBatch.End();
                 spriteBatch.Begin();
-                hud.Draw(gameBoard.GetPlayer());
+                hud.Draw(gameBoard.Player);
             }
             if (gameState == GameStates.start)
             {
@@ -133,7 +130,6 @@ namespace CyberShooter
             {
                 spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
             }
-            Tests();
             spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -144,11 +140,6 @@ namespace CyberShooter
             crosshairHeight = 32;
             crosshairPos = new Vector2(target.X - crosshairWidth / 2, target.Y - crosshairHeight / 2);
             spriteBatch.End();
-        }
-        private void Tests()
-        {
-            spriteBatch.DrawString(spriteFont, "WPL"+gameBoard.GetWeaponPickUpList().Count , new Vector2(20, 120), Color.Green);
-            spriteBatch.DrawString(spriteFont, "RPL" + gameBoard.GetResourcePickUpList().Count, new Vector2(20, 140), Color.Green);
         }
     }
 }

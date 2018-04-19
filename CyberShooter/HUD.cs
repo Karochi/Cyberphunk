@@ -15,8 +15,8 @@ namespace CyberShooter
         Vector2 healthTextPos = new Vector2(70, 10);
         Vector2 firstWeaponPos = new Vector2(10, 50);
         Vector2 secondWeaponPos = new Vector2(100, 50);
-        int currHealth, maxHealth, ammo;
-        string currHealthText, maxHealthText, ammoText;
+        int currHealth, maxHealth, handgunAmmo, rifleAmmo;
+        string currHealthText, maxHealthText, handgunAmmoText, rifleAmmoText;
         int ampHealthSize = 20;
         int hudWeaponHeight = 30;
         int hudWeaponWidth = 30;
@@ -24,21 +24,23 @@ namespace CyberShooter
 
         public HUD(Player player)
         {
-            maxHealth = player.GetMaxHealth();
-            currHealth = player.GetCurrHealth();
+            maxHealth = player.MaxHealth;
+            currHealth = player.CurrHealth;
         }
         public void Update(Player player)
         {
-            maxHealth = player.GetMaxHealth();
-            currHealth = player.GetCurrHealth();
-            ammo = player.GetAmmo();
+            maxHealth = player.MaxHealth;
+            currHealth = player.CurrHealth;
+            handgunAmmo = player.handgunAmmo;
+            rifleAmmo = player.rifleAmmo;
 
             maxHealthRect = new Rectangle((int)maxHealthBarPos.X, (int)maxHealthBarPos.Y,maxHealth * ampHealthSize, 30);
             currHealthRect = new Rectangle((int)currHealthBarPos.X, (int)currHealthBarPos.Y, currHealth * ampHealthSize - 9, 17);
 
             maxHealthText = maxHealth.ToString();
             currHealthText = currHealth.ToString();
-            ammoText = ammo.ToString();
+            handgunAmmoText = handgunAmmo.ToString();
+            rifleAmmoText = rifleAmmo.ToString();
 
         }
         public void Draw(Player player)
@@ -68,10 +70,14 @@ namespace CyberShooter
                     Game1.spriteBatch.Draw(Game1.rifleTex, new Rectangle((int)secondWeaponPos.X, (int)secondWeaponPos.Y, hudWeaponWidth - shrink, hudWeaponHeight - shrink), Color.White);
 
                 //Draw ammo
-                if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed)
-                    Game1.spriteBatch.DrawString(Game1.spriteFont, ammoText, new Vector2(firstWeaponPos.X +50, firstWeaponPos.Y), Color.White);
-                if(player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
-                    Game1.spriteBatch.DrawString(Game1.spriteFont, ammoText, new Vector2(secondWeaponPos.X + 30, secondWeaponPos.Y-5), Color.White);
+                if (player.GetFirstWeapon().GetWeaponName() == WeaponNames.handgun)
+                    Game1.spriteBatch.DrawString(Game1.spriteFont, handgunAmmoText, new Vector2(firstWeaponPos.X +50, firstWeaponPos.Y), Color.White);
+                if(player.GetSecondWeapon().GetWeaponName() == WeaponNames.handgun)
+                    Game1.spriteBatch.DrawString(Game1.spriteFont, handgunAmmoText, new Vector2(secondWeaponPos.X + 30, secondWeaponPos.Y-5), Color.White);
+                if(player.GetFirstWeapon().GetWeaponName() == WeaponNames.rifle)
+                    Game1.spriteBatch.DrawString(Game1.spriteFont, rifleAmmoText, new Vector2(firstWeaponPos.X + 50, firstWeaponPos.Y), Color.White);
+                if (player.GetSecondWeapon().GetWeaponName() == WeaponNames.rifle)
+                    Game1.spriteBatch.DrawString(Game1.spriteFont, rifleAmmoText, new Vector2(secondWeaponPos.X + 30, secondWeaponPos.Y - 5), Color.White);
             }
         }
     }

@@ -15,7 +15,8 @@ namespace CyberShooter
     {
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
-        int ammo;
+        public int handgunAmmo { get; set; }
+        public int rifleAmmo { get; set; }
 
         Projectile projectile;
 
@@ -43,31 +44,24 @@ namespace CyberShooter
         {
             return playerCenter;
         }
-        public int GetAmmo()
-        {
-            return ammo;
-        }
-        public void SetAmmo(int ammo)
-        {
-            this.ammo = ammo;
-        }
 
         public Player(Vector2 position) : base()
         {
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
-            SetPosition(position);
-            SetTexHeight(40);
-            SetTexWidth(30);
-            ammo = 60;
-            SetMaxHealth(8);
-            SetCurrHealth(GetMaxHealth());
+            this.Position = (position);
+            TexWidth = 30;
+            TexHeight = 40;
+            handgunAmmo = 60;
+            rifleAmmo = 30;
+            MaxHealth = 8;
+            CurrHealth = MaxHealth;
         }
         public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
         {
             base.Update(gameTime);
             this.target = target;
-            playerCenter = new Vector2(GetPosition().X + GetTexWidth() / 2, GetPosition().Y + GetTexHeight() / 2);
+            playerCenter = new Vector2(Position.X + TexWidth / 2, Position.Y + TexHeight / 2);
 
             firstWeapon.Update(gameTime, gameBoard);
             secondWeapon.Update(gameTime, gameBoard);
@@ -84,48 +78,48 @@ namespace CyberShooter
         }
         public bool Damage()
         {
-            if (GetDamageCooldown() <= 0)
+            if (DamageCooldown <= 0)
             {
-                SetDamageCooldown(2000);
-                SetIsDamaged(false);
+                DamageCooldown = 200;
+                IsDamaged = false;
                 return true;
             }
             else return false;
         }
         public void Moving()
         {
-            if (GetSpeed().X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
+            if (Speed.X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
-                SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
+                Speed = new Vector2(Speed.X - 0.2f, Speed.Y);
             }
-            else if (GetSpeed().X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
+            else if (Speed.X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
-                SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
+                Speed = new Vector2(Speed.X + 0.2f, Speed.Y);
             }
-            else if (GetSpeed().Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
+            else if (Speed.Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
-                SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
+                Speed = new Vector2(Speed.X, Speed.Y - 0.2f);
             }
-            else if (GetSpeed().Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
+            else if (Speed.Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
-                SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
+                Speed = new Vector2(Speed.X, Speed.Y + 0.2f);
             }
         }
         public void StoppingX()
         {
             if (!KeyMouseReader.KeyHeld(Keys.D) && !KeyMouseReader.KeyHeld(Keys.A))
             {
-                if (GetSpeed().X < 0.2f && GetSpeed().X > (-0.2f))
+                if (Speed.X < 0.2f && Speed.X > (-0.2f))
                 {
-                    SetSpeed(new Vector2(0, GetSpeed().Y));
+                    Speed = new Vector2(0, Speed.Y);
                 }
-                if (GetSpeed().X > 0)
+                if (Speed.X > 0)
                 {
-                    SetSpeed(new Vector2(GetSpeed().X - 0.2f, GetSpeed().Y));
+                    Speed = new Vector2(Speed.X - 0.2f, Speed.Y);
                 }
-                if (GetSpeed().X < 0)
+                if (Speed.X < 0)
                 {
-                    SetSpeed(new Vector2(GetSpeed().X + 0.2f, GetSpeed().Y));
+                    Speed = new Vector2(Speed.X + 0.2f, Speed.Y);
                 }
             }
         }
@@ -133,29 +127,40 @@ namespace CyberShooter
         {
             if(!KeyMouseReader.KeyHeld(Keys.W) && !KeyMouseReader.KeyHeld(Keys.S))
             {
-                if (GetSpeed().Y < 0.2f && GetSpeed().Y > (-0.2f))
+                if (Speed.Y < 0.2f && Speed.Y > (-0.2f))
                 {
-                    SetSpeed(new Vector2(GetSpeed().X, 0));
+                    Speed = new Vector2(Speed.X, 0);
                 }
-                if (GetSpeed().Y > 0)
+                if (Speed.Y > 0)
                 {
-                    SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y - 0.2f));
+                    Speed = new Vector2(Speed.X, Speed.Y - 0.2f);
                 }
-                if (GetSpeed().Y < 0)
+                if (Speed.Y < 0)
                 {
-                    SetSpeed(new Vector2(GetSpeed().X, GetSpeed().Y + 0.2f));
+                    Speed = new Vector2(Speed.X, Speed.Y + 0.2f);
                 }
             }
         }
         public void Shooting(GameBoard gameBoard)
         {
-            if(ammo > 0 && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
+            if(firstWeapon.GetWeaponName() == WeaponNames.handgun)
             {
-                SemiAuto(gameBoard);
-                Auto(gameBoard);
+                if (handgunAmmo > 0)
+                {
+                    if(SemiAuto(gameBoard))
+                        handgunAmmo--;
+                }
+            }
+            if(firstWeapon.GetWeaponName() == WeaponNames.rifle)
+            {
+                if(rifleAmmo > 0)
+                {
+                    if (Auto(gameBoard))
+                        rifleAmmo--;
+                }
             }
         }
-        public void SemiAuto(GameBoard gameBoard)
+        public bool SemiAuto(GameBoard gameBoard)
         {
             if (KeyMouseReader.LeftClick() && firstWeapon.GetWeaponType() == WeaponTypes.semiAuto)
             {
@@ -164,11 +169,12 @@ namespace CyberShooter
                     projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     gameBoard.projectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
-                    ammo--;
+                    return true;
                 }
             }
+            return false;
         }
-        public void Auto(GameBoard gameBoard)
+        public bool Auto(GameBoard gameBoard)
         {
             if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed && firstWeapon.GetWeaponType() == WeaponTypes.auto)
             {
@@ -177,9 +183,10 @@ namespace CyberShooter
                     projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     gameBoard.projectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
-                    ammo--;
+                    return true;
                 }
             }
+            return false;
         }
         public void WeaponSwap()
         {
@@ -190,13 +197,13 @@ namespace CyberShooter
         }
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            if (GetIsDead())
+            if (IsDead)
             {
-                spriteBatch.Draw(texture, GetHitRect(), Color.Gray);
+                spriteBatch.Draw(texture, HitRect, Color.Gray);
             }
-            else if (GetDamageCooldown() > 0)
+            else if (DamageCooldown > 0)
             {
-                spriteBatch.Draw(texture, GetHitRect(), Color.LightYellow);
+                spriteBatch.Draw(texture, HitRect, Color.LightYellow);
             }
             else
             {

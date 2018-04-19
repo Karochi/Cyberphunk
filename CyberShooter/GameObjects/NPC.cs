@@ -10,12 +10,11 @@ namespace CyberShooter
 {
     public class NPC : MovingGameObject
     {
-        Vector2 playerPos, direction, stop;
+        Vector2 playerPos, direction;
         int directionX, directionY, maxDirectionX, maxDirectionY, minDirectionX, minDirectionY, radius, range, damage, projectileSpeed;
         float velocity, retreatDistance, stoppingDistance;
         float movementCooldown, directionChangeCooldown, shootingCooldown;
         bool hostile;
-        Rectangle leftRect, rightRect, topRect, bottomRect;
 
         public void SetDirectionX(int directionX)
         {
@@ -83,11 +82,11 @@ namespace CyberShooter
         }
         public NPC(Vector2 position, bool hostile) : base()
         {
-            SetPosition(position);
-            SetTexHeight(40);
-            SetTexWidth(30);
-            SetMaxHealth(50);
-            SetCurrHealth(GetMaxHealth());
+            Position = position;
+            TexWidth = 30;
+            TexHeight = 40;
+            MaxHealth = 50;
+            CurrHealth = MaxHealth;
 
             radius = 220;
             projectileSpeed = 1;
@@ -96,7 +95,6 @@ namespace CyberShooter
 
             stoppingDistance = 220;
             retreatDistance = 150;
-            stop = Vector2.Zero;
             this.hostile = hostile;
 
             minDirectionX = -180;
@@ -110,16 +108,11 @@ namespace CyberShooter
             directionChangeCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             shootingCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            if(GetDamageCooldown() <= 0)
+            if(DamageCooldown <= 0)
             {
-                SetIsDamaged(false);
+                IsDamaged = false;
             }
             Movement();
-
-            leftRect = new Rectangle((int)GetPosition().X - 10, (int)GetPosition().Y, 10, GetTexHeight());
-            rightRect = new Rectangle((int)GetPosition().X + GetTexWidth(), (int)GetPosition().Y, 10, GetTexHeight());
-            topRect = new Rectangle((int)GetPosition().X, (int)GetPosition().Y - 10, GetTexWidth(), 10);
-            bottomRect = new Rectangle((int)GetPosition().X, (int)GetPosition().Y + GetTexHeight(), GetTexWidth(), 10);
 
             base.Update(gameTime);
         }
@@ -130,53 +123,33 @@ namespace CyberShooter
         }
         private void Movement()
         {
-            SetSpeed(direction * velocity);
+            Speed = direction * velocity;
+            MovementUpdate();
             if (movementCooldown <= 0)
             {
-                SetSpeed(stop);
+                Speed = Vector2.Zero;
             }
-            //    if (Vector2.Distance(GetPosition(), playerPos) > stoppingDistance)
-            //    {
-            //        direction = playerPos - GetPosition();
-            //        velocity = 0.01f;
-            //        SetSpeed(direction * velocity);
-            //    }
-            //    else if (Vector2.Distance(GetPosition(), playerPos) < stoppingDistance && Vector2.Distance(GetPosition(), playerPos) > retreatDistance)
-            //    {
-            //        SetSpeed(stop);
-            //    }
-            //    else if (Vector2.Distance(GetPosition(), playerPos) < retreatDistance)
-            //    {
-            //        direction = playerPos - GetPosition();
-            //        velocity = -0.02f;
-            //        SetSpeed(direction * velocity);
-            //    }
-
         }
         public void GetPlayerPos(Player p)
         {
-            playerPos = p.GetPosition();
+            playerPos = p.Position;
         }
         public void CollisionCheck(Rectangle collisionRect)
         {
             if (topRect.Intersects(collisionRect))
             {
-                //velocity = 0f;
                 minDirectionY = 0;
             }
             if (bottomRect.Intersects(collisionRect))
             {
-                //velocity = 0f;
                 maxDirectionY = 0;
             }
             if (leftRect.Intersects(collisionRect))
             {
-                //velocity = 0f;
                 minDirectionX = 0;
             }
             if (rightRect.Intersects(collisionRect))
             {
-                //velocity = 0f;
                 maxDirectionX = 0;
             }
             else
@@ -189,22 +162,18 @@ namespace CyberShooter
         }
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            if (GetIsDead())
+            if (IsDead)
             {
-                spriteBatch.Draw(texture, GetHitRect(), Color.Gray);
+                spriteBatch.Draw(texture, HitRect, Color.Gray);
             }
-            else if (GetIsDamaged())
+            else if (IsDamaged)
             {
-                spriteBatch.Draw(texture, GetHitRect(), Color.Red);
+                spriteBatch.Draw(texture, HitRect, Color.Red);
             }
             else
             {
                 base.Draw(spriteBatch, texture);
             }
-            //spriteBatch.Draw(texture, leftRect, Color.Red);
-            //spriteBatch.Draw(texture, rightRect, Color.Red);
-            //spriteBatch.Draw(texture, topRect, Color.Red);
-            //spriteBatch.Draw(texture, bottomRect, Color.Red);
         }
     }
 }

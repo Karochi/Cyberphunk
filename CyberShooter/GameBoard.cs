@@ -11,7 +11,7 @@ namespace CyberShooter
 {
     public class GameBoard
     {
-        Player player;
+        public Player Player { get; set; }
         int screenWidth, screenHeight;
         public static Map map;
 
@@ -36,10 +36,6 @@ namespace CyberShooter
 
         Random rnd = new Random();
 
-        public Player GetPlayer()
-        {
-            return player;
-        }
         public List<WeaponPickup> GetWeaponPickUpList()
         {
             return weaponPickUpList;
@@ -52,7 +48,7 @@ namespace CyberShooter
         {
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
-            player = new Player(new Vector2(100, 100));
+            Player = new Player(new Vector2(100, 100));
 
             //Should be spawned through the map/other system later.
             weaponPickUpList = new List<WeaponPickup>();
@@ -64,7 +60,7 @@ namespace CyberShooter
             weaponPickUpList.Add(weaponPickUp);
 
             resourcePickUpList = new List<ResourcePickup>();
-            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickUpTypes.ammo);
+            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickUpTypes.rifleAmmo);
             resourcePickUpList.Add(resourcePickUp);
             resourcePickUp = new ResourcePickup(new Vector2(500, 400), PickUpTypes.health);
             resourcePickUpList.Add(resourcePickUp);
@@ -90,7 +86,7 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 target)
         {
-            player.Update(gameTime, target, this);
+            Player.Update(gameTime, target, this);
             PlayerNPCCollision(gameTime);
             WeaponPickUpSelection();
             WeaponPickupCollection();
@@ -99,7 +95,7 @@ namespace CyberShooter
             ProjectileUpdate(enemyProjectileList);
             ProjectileNPCCollision();
             NPC(gameTime);
-            NPCCollision();
+            WallCollision();
             NPCShooting();
             EnemyProjectilePlayerCollision();
         }
@@ -107,9 +103,9 @@ namespace CyberShooter
         {
             for (int i = 0; i < map.NPCs.Count(); i++)
             {
-                if (!map.NPCs[i].GetIsDead())
+                if (!map.NPCs[i].IsDead)
                 {
-                    //map.NPCs[i].GetPlayerPos(player);
+                    //map.NPCs[i].GetPlayerPos(Player);
                     if (map.NPCs[i].GetDirectionChangeCooldown() <= 0)
                     {
                         map.NPCs[i].SetDirectionX(rnd.Next(map.NPCs[i].GetMinDirectionX(), map.NPCs[i].GetMaxDirectionX()));
@@ -123,24 +119,32 @@ namespace CyberShooter
                 }
             }
         }
-        public void NPCCollision()
+        public void WallCollision()
         {
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
                 for (int j = 0; j < map.NPCs.Count(); j++)
                 {
                     map.NPCs[j].CollisionCheck(map.collisionRects[i]);
-                    if (map.NPCs[j].GetHitRect().Intersects(map.collisionRects[i]))
+                    if (map.NPCs[j].HitRect.Intersects(map.collisionRects[i]))
                     {
                         map.NPCs[j].SetVelocity(0);
-                        map.NPCs[j].SetPosition(map.NPCs[j].GetOldPosition());
+                        map.NPCs[j].Position = map.NPCs[j].OldPosition;
                     }
                 }
-                if (player.GetHitRect().Intersects(map.collisionRects[i]))
+                if (Player.HitRect.Intersects(map.collisionRects[i]))
                 {
-                    player.SetPosition(player.GetOldPosition());
-                    player.SetSpeed(Vector2.Zero);
+                    Player.Position = Player.OldPosition;
+                    Player.Speed = Vector2.Zero;
                 }
+                if (Player.leftRect.Intersects(map.collisionRects[i]))
+                    Player.leftRectCollision = true;
+                if (Player.rightRect.Intersects(map.collisionRects[i]))
+                    Player.rightRectCollision = true;
+                if (Player.topRect.Intersects(map.collisionRects[i]))
+                    Player.topRectCollision = true;
+                if (Player.bottomRect.Intersects(map.collisionRects[i]))
+                    Player.bottomRectCollision = true;
                 ProjectileWallCollision(i, projectileList);
                 ProjectileWallCollision(i, enemyProjectileList);
             }
@@ -149,9 +153,9 @@ namespace CyberShooter
         {
             for (int i = 0; i < map.NPCs.Count(); i++)
             {
-                if (Vector2.Distance(GetPlayer().GetPosition(), map.NPCs[i].GetPosition()) <= map.NPCs[i].GetRadius() && map.NPCs[i].GetShootingCooldown() <= 0)
+                if (Vector2.Distance(Player.Position, map.NPCs[i].Position) <= map.NPCs[i].GetRadius() && map.NPCs[i].GetShootingCooldown() <= 0)
                 {
-                    Projectile projectile = new Projectile(map.NPCs[i].GetPosition(), GetPlayer().GetPlayerCenter(), map.NPCs[i].GetDamage(), map.NPCs[i].GetRange(), map.NPCs[i].GetProjectileSpeed());
+                    Projectile projectile = new Projectile(map.NPCs[i].Position, Player.GetPlayerCenter(), map.NPCs[i].GetDamage(), map.NPCs[i].GetRange(), map.NPCs[i].GetProjectileSpeed());
                     map.NPCs[i].SetShootingCooldown(1000);
                     enemyProjectileList.Add(projectile);
                 }
@@ -164,7 +168,7 @@ namespace CyberShooter
 
             foreach (Projectile projectile in projectileList)
             {
-                if (Vector2.Distance(projectile.GetOriginPosition(), projectile.GetPosition()) >= projectile.GetRange())
+                if (Vector2.Distance(projectile.GetOriginPosition(), projectile.Position) >= projectile.GetRange())
                 {
                     projectileList.Remove(projectile);
                     return;
@@ -175,7 +179,7 @@ namespace CyberShooter
         {
             foreach(Projectile projectile in projectileList)
             {
-                if (projectile.GetHitRect().Intersects(map.collisionRects[i]))
+                if (projectile.HitRect.Intersects(map.collisionRects[i]))
                 {
                     projectileList.Remove(projectile);
                     return;
@@ -188,11 +192,11 @@ namespace CyberShooter
             {
                 foreach(NPC npc in map.NPCs)
                 {
-                    if (projectile.GetHitRect().Intersects(npc.GetHitRect()))
+                    if (projectile.HitRect.Intersects(npc.HitRect))
                     {
-                        npc.SetCurrHealth(npc.GetCurrHealth() - projectile.GetDamage());
-                        npc.SetIsDamaged(true);
-                        npc.SetDamageCooldown(100);
+                        npc.CurrHealth -= projectile.GetDamage();
+                        npc.IsDamaged = true;
+                        npc.DamageCooldown = 100;
                         projectileList.Remove(projectile);
                         return;
                     }
@@ -203,11 +207,11 @@ namespace CyberShooter
         {
             foreach(Projectile projectile in enemyProjectileList)
             {
-                if (projectile.GetHitRect().Intersects(GetPlayer().GetHitRect()))
+                if (projectile.HitRect.Intersects(Player.HitRect))
                 {
-                    if (GetPlayer().Damage())
+                    if (Player.Damage())
                     {
-                        GetPlayer().SetCurrHealth(GetPlayer().GetCurrHealth() - projectile.GetDamage());
+                        Player.CurrHealth = (Player.CurrHealth - projectile.GetDamage());
                     }
                     enemyProjectileList.Remove(projectile);
                     return;
@@ -218,12 +222,9 @@ namespace CyberShooter
         {
             foreach(NPC npc in map.NPCs)
             {
-                if (player.GetHitRect().Intersects(npc.GetHitRect()) && !player.GetIsDamaged() && !npc.GetIsDead())
+                if (Player.HitRect.Intersects(npc.HitRect) && !Player.IsDamaged && !npc.IsDead)
                 {
-                    player.Damage();
-                    //player.SetPosition(player.GetOldPosition());
-                    //player.SetSpeed(new Vector2(0, 0));
-                    //npc.SetSpeed(new Vector2(0, 0));
+                    Player.Damage();
                 }
             }
         }
@@ -234,7 +235,7 @@ namespace CyberShooter
             for (int i = 0; i < weaponPickUpList.Count(); i++)
             {
                 weaponPickUpList[i].SetIsInteractable(false);
-                playerPickUpDistance = Vector2.Distance(player.GetPlayerCenter(), weaponPickUpList[i].GetPickUpCenter());
+                playerPickUpDistance = Vector2.Distance(Player.GetPlayerCenter(), weaponPickUpList[i].GetPickUpCenter());
                 if (playerPickUpDistance < weaponPickUpList[i].GetRadius())
                 {
                     if (playerPickUpDistance < shortestPickUpDistance)
@@ -259,7 +260,7 @@ namespace CyberShooter
                     {
                         WeaponDrop();
                     }
-                    pickUp.PickedUp(player);
+                    pickUp.PickedUp(Player);
                     weaponPickUpList.Remove(weaponPickUpList[pickUpIndex]);
                     return;
                 }
@@ -269,28 +270,37 @@ namespace CyberShooter
         {
             foreach (ResourcePickup pickUp in resourcePickUpList)
             {
-                if (pickUp.GetHitRect().Intersects(player.GetHitRect()))
+                if (pickUp.HitRect.Intersects(Player.HitRect))
                 {
-                    pickUp.PickedUp(player);
-                    resourcePickUpList.Remove(pickUp);
-                    return;
+                    if (pickUp.PickedUp(Player))
+                    {
+                        resourcePickUpList.Remove(pickUp);
+                        return;
+                    }
                 }
             }
         }
         public bool WeaponFullCheck()
         {
-            if (player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
+            if (Player.GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && Player.GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
                 return true;
             else return false;
         }
         public void WeaponDrop()
         {
-            weaponPickUpList.Add(new WeaponPickup(GetPlayer().GetPosition(), GetPlayer().GetFirstWeapon().GetPickUpType()));
-            GetPlayer().GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
+            weaponPickUpList.Add(new WeaponPickup(Player.Position, Player.GetFirstWeapon().GetPickUpType()));
+            Player.GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            map.DrawMap(player, projectileList , enemyProjectileList, weaponPickUpList, resourcePickUpList);
+            map.DrawMap(Player, projectileList , enemyProjectileList, weaponPickUpList, resourcePickUpList);
+            foreach (WeaponPickup pickUp in GetWeaponPickUpList())
+            {
+                if (pickUp.GetIsInteractable())
+                {
+                    spriteBatch.DrawString(Game1.spriteFont, "E", new Vector2(pickUp.Position.X + pickUp.TexWidth / 2, pickUp.Position.Y - 10), Color.Black);
+                }
+            }
         }
     }
 }

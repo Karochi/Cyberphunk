@@ -31,9 +31,9 @@ namespace CyberShooter
             this.target = target;
             this.range = range;
             this.speed = speed;
-            SetPosition(position);
-            SetTexWidth(10);
-            SetTexHeight(10);
+            Position = position;
+            TexWidth = 10;
+            TexHeight = 10;
             originPosition = position;
             direction = target - position;
             updatedDirection = Vector2.Normalize(direction);
@@ -41,7 +41,7 @@ namespace CyberShooter
 
         public override void Update()
         {
-            SetPosition(GetPosition() + updatedDirection * speed);
+            Position += updatedDirection * speed;
             base.Update();
         }
     }
