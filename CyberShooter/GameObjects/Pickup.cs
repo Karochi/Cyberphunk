@@ -12,7 +12,7 @@ namespace CyberShooter
     abstract public class Pickup : AnimatedGameObject
     {
         Vector2 pickUpCenter;
-        protected PickUpTypes pickUpType;
+        protected PickUpTypes pickupType;
         protected float radius;
         bool isInteractable;
 
@@ -36,7 +36,7 @@ namespace CyberShooter
         public Pickup(Vector2 position, PickUpTypes type) : base()
         {
             Position = position;
-            pickUpType = type;
+            pickupType = type;
             isInteractable = false;
             TexWidth = 10;
             TexHeight = 10;

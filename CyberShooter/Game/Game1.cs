@@ -79,9 +79,7 @@ namespace CyberShooter
             if (gameState == GameStates.start)
             {
                 if (KeyMouseReader.KeyPressed(Keys.Enter))
-                {
                     gameState = GameStates.gameOn;
-                }
             }
             if (gameBoard.Player.IsDead)
             {
@@ -115,7 +113,6 @@ namespace CyberShooter
                 if (target_rect.Intersects(dialoghitbox_rect))
                 {
                     spriteBatch.DrawString(spriteFont, "HEY THERE!", new Vector2(50, 50), Color.Black);
-
                 }
                 spriteBatch.End();
                 spriteBatch.Begin();

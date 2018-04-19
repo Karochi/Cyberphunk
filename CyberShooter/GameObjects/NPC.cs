@@ -102,7 +102,7 @@ namespace CyberShooter
             minDirectionY = -180;
             maxDirectionY = 180;
         }
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Player player, List<Rectangle> collisionRects)
         {
             movementCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             directionChangeCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -113,8 +113,9 @@ namespace CyberShooter
                 IsDamaged = false;
             }
             Movement();
-
-            base.Update(gameTime);
+            Shooting(player);
+            ProjectilePlayerCollision(player);
+            base.Update(gameTime, collisionRects);
         }
         public void NormalizeDirection()
         {
@@ -133,6 +134,15 @@ namespace CyberShooter
         public void GetPlayerPos(Player p)
         {
             playerPos = p.Position;
+        }
+        public void Shooting(Player Player)
+        {
+            if (Vector2.Distance(Player.Position, Position) <= GetRadius() && GetShootingCooldown() <= 0)
+            {
+                Projectile projectile = new Projectile(Position, Player.GetPlayerCenter(), GetDamage(), GetRange(), GetProjectileSpeed());
+                SetShootingCooldown(1000);
+                ProjectileList.Add(projectile);
+            }
         }
         public void CollisionCheck(Rectangle collisionRect)
         {
@@ -158,6 +168,21 @@ namespace CyberShooter
                 maxDirectionX = 180;
                 minDirectionY = -180;
                 maxDirectionY = 180;
+            }
+        }
+        public void ProjectilePlayerCollision(Player player)
+        {
+            foreach (Projectile projectile in ProjectileList)
+            {
+                if (projectile.HitRect.Intersects(player.HitRect))
+                {
+                    if (player.Damage())
+                    {
+                        player.CurrHealth = (player.CurrHealth - projectile.GetDamage());
+                    }
+                    ProjectileList.Remove(projectile);
+                    return;
+                }
             }
         }
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)

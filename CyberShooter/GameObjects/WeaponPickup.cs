@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,14 @@ namespace CyberShooter
     {
         public WeaponPickup(Vector2 position, PickUpTypes type) : base(position, type)
         {
-            pickUpType = type;
+            pickupType = type;
             radius = 60;
         }
         public void PickedUp(Player player)
         {
-            if (pickUpType == PickUpTypes.handgun)
+            if (pickupType == PickUpTypes.handgun)
                 WeaponManage(player, WeaponNames.handgun);
-            if (pickUpType == PickUpTypes.rifle)
+            if (pickupType == PickUpTypes.rifle)
                 WeaponManage(player, WeaponNames.rifle);
         }
         public void WeaponManage(Player player, WeaponNames weaponName)

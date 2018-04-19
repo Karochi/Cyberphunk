@@ -68,7 +68,7 @@ namespace CyberShooter
             if (weaponName == WeaponNames.rifle)
                 RifleDefinition();
         }
-        public void Update(GameTime gameTime, GameBoard gameBoard)
+        public void Update(GameTime gameTime)
         {
             cooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
         }

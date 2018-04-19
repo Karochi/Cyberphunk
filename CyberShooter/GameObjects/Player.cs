@@ -57,16 +57,17 @@ namespace CyberShooter
             MaxHealth = 8;
             CurrHealth = MaxHealth;
         }
-        public void Update(GameTime gameTime, Vector2 target, GameBoard gameBoard)
+        public void Update(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs)
         {
-            base.Update(gameTime);
+            base.Update(gameTime, collisionRects);
             this.target = target;
             playerCenter = new Vector2(Position.X + TexWidth / 2, Position.Y + TexHeight / 2);
 
-            firstWeapon.Update(gameTime, gameBoard);
-            secondWeapon.Update(gameTime, gameBoard);
+            firstWeapon.Update(gameTime);
+            secondWeapon.Update(gameTime);
 
-            Shooting(gameBoard);
+            Shooting();
+            ProjectileNPCCollision(NPCs);
 
             Moving();
             StoppingX();
@@ -74,7 +75,26 @@ namespace CyberShooter
             if (KeyMouseReader.KeyPressed(Keys.Space))
                 WeaponSwap();
             if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
-                gameBoard.WeaponDrop();
+                WeaponDrop(weaponPickupList);
+        }
+        public bool WeaponFullCheck()
+        {
+            if (GetFirstWeapon().GetWeaponName() != WeaponNames.unarmed && GetSecondWeapon().GetWeaponName() != WeaponNames.unarmed)
+                return true;
+            else return false;
+        }
+        public void WeaponDrop(List<WeaponPickup> weaponPickupList)
+        {
+            weaponPickupList.Add(new WeaponPickup(Position, GetFirstWeapon().GetPickUpType()));
+            GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
+
+        }
+        public void WeaponSwap()
+        {
+            Weapon swapWeapon;
+            swapWeapon = firstWeapon;
+            firstWeapon = secondWeapon;
+            secondWeapon = swapWeapon;
         }
         public bool Damage()
         {
@@ -141,13 +161,13 @@ namespace CyberShooter
                 }
             }
         }
-        public void Shooting(GameBoard gameBoard)
+        public void Shooting()
         {
             if(firstWeapon.GetWeaponName() == WeaponNames.handgun)
             {
                 if (handgunAmmo > 0)
                 {
-                    if(SemiAuto(gameBoard))
+                    if(SemiAuto())
                         handgunAmmo--;
                 }
             }
@@ -155,46 +175,57 @@ namespace CyberShooter
             {
                 if(rifleAmmo > 0)
                 {
-                    if (Auto(gameBoard))
+                    if (Auto())
                         rifleAmmo--;
                 }
             }
         }
-        public bool SemiAuto(GameBoard gameBoard)
+        public void ProjectileNPCCollision(List<NPC> NPCs)
+        {
+            foreach (Projectile projectile in ProjectileList)
+            {
+                foreach (NPC npc in NPCs)
+                {
+                    if (projectile.HitRect.Intersects(npc.HitRect))
+                    {
+                        npc.CurrHealth -= projectile.GetDamage();
+                        npc.IsDamaged = true;
+                        npc.DamageCooldown = 100;
+                        ProjectileList.Remove(projectile);
+                        return;
+                    }
+                }
+            }
+        }
+        public bool SemiAuto()
         {
             if (KeyMouseReader.LeftClick() && firstWeapon.GetWeaponType() == WeaponTypes.semiAuto)
             {
                 if (firstWeapon.GetCooldown() <= 0)
                 {
                     projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
-                    gameBoard.projectileList.Add(projectile);
+                    ProjectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     return true;
                 }
             }
             return false;
         }
-        public bool Auto(GameBoard gameBoard)
+        public bool Auto()
         {
             if (KeyMouseReader.mouseState.LeftButton == ButtonState.Pressed && firstWeapon.GetWeaponType() == WeaponTypes.auto)
             {
                 if (firstWeapon.GetCooldown() <= 0)
                 {
                     projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
-                    gameBoard.projectileList.Add(projectile);
+                    ProjectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     return true;
                 }
             }
             return false;
         }
-        public void WeaponSwap()
-        {
-            Weapon swapWeapon;
-            swapWeapon = firstWeapon;
-            firstWeapon = secondWeapon;
-            secondWeapon = swapWeapon;
-        }
+
         public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
             if (IsDead)

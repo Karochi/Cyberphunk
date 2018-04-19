@@ -18,19 +18,19 @@ namespace CyberShooter
         }
         public bool PickedUp(Player player)
         {
-            if (pickUpType == PickUpTypes.handgunAmmo)
+            if (pickupType == PickUpTypes.handgunAmmo)
             {
                 ammoPickUpAmount = 20;
                 player.handgunAmmo += ammoPickUpAmount;
                 return true;
             }
-            if(pickUpType == PickUpTypes.rifleAmmo)
+            if(pickupType == PickUpTypes.rifleAmmo)
             {
                 ammoPickUpAmount = 10;
                 player.rifleAmmo += ammoPickUpAmount;
                 return true;
             }
-            if(pickUpType == PickUpTypes.health)
+            if(pickupType == PickUpTypes.health)
             {
                 if(player.CurrHealth < player.MaxHealth)
                 {
