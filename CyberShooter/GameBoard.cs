@@ -112,6 +112,7 @@ namespace CyberShooter
                     }
                     map.NPCs[i].Update(gameTime, Player, map.collisionRects);
                 }
+                map.NPCs[i].ProjectileUpdate(map.NPCs[i].ProjectileList);
             }
         }
         public void WallCollision()
