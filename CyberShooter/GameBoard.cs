@@ -26,11 +26,11 @@ namespace CyberShooter
 
         public static int mapHeight = 20;
         public static int mapWidth = 20;
-        public static int tileHeight = 32;
-        public static int tileWidth = 32;
+        public static int tileHeight = 16;
+        public static int tileWidth = 16;
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
-        string loadFileName = "Text Files\\allHumanTest.txt";
+        string loadFileName = "Text Files\\shityTest.txt";
         Vector2 collisionDist = Vector2.Zero;
         Vector2 normal;
 

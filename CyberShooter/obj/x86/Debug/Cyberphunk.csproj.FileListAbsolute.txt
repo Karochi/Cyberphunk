@@ -224,3 +224,49 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\fadeImage.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe.config
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.bmp
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Load\SplashScreen.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\allHumanTest.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\humanTest.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\epro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\floortileset.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashScreen.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.pdb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.RawInput.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.dll
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.RawInput.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt

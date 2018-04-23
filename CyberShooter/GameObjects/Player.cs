@@ -50,8 +50,8 @@ namespace CyberShooter
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
             this.Position = (position);
-            TexWidth = 30;
-            TexHeight = 40;
+            TexWidth = 16;
+            TexHeight = 20;
             handgunAmmo = 60;
             rifleAmmo = 30;
             MaxHealth = 8;

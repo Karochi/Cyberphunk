@@ -31,8 +31,8 @@ namespace CyberShooter
                 lockedMousePosition.Y = view.Height;
             if (KeyMouseReader.mousePosition.Y < 0)
                 lockedMousePosition.Y = 0;
-            transform = Matrix.CreateTranslation(-position.X + view.Width / 2 - lockedMousePosition.X / 4 + view.Width / 8,
-                -position.Y + (view.Height / 2) - lockedMousePosition.Y / 4 + view.Height / 8, 0);
+            transform = Matrix.CreateTranslation(-(int)position.X + view.Width / 2 - (int)lockedMousePosition.X / 4 + view.Width / 8,
+                -(int)position.Y + (view.Height / 2) - (int)lockedMousePosition.Y / 4 + view.Height / 8, 0);
         }
         public Vector2 GetPosition()
         {

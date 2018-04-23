@@ -83,8 +83,8 @@ namespace CyberShooter
         public NPC(Vector2 position, bool hostile) : base()
         {
             Position = position;
-            TexWidth = 30;
-            TexHeight = 40;
+            TexWidth = 16;
+            TexHeight = 20;
             MaxHealth = 50;
             CurrHealth = MaxHealth;
 

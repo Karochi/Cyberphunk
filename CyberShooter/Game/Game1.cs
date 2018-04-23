@@ -41,7 +41,7 @@ namespace CyberShooter
             ScreenManager.Instance.spriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
             square = Content.Load<Texture2D>("plattform");
-            tileSheet = Content.Load<Texture2D>("32tilesheet");
+            tileSheet = Content.Load<Texture2D>("useLvl1sheet");
             spriteFont = Content.Load<SpriteFont>("spriteFont");
             crosshairTex = Content.Load<Texture2D>("crosshair");
             healthBarTex = Content.Load<Texture2D>("healthbartex");

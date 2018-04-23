@@ -41,44 +41,44 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BackLayerButton.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="CollisionLayerButton.cs" />
-    <Compile Include="Content\NewMapForm.cs">
+    <Compile Include="Buttons\BackLayerButton.cs" />
+    <Compile Include="Buttons\Button.cs" />
+    <Compile Include="Buttons\CollisionLayerButton.cs" />
+    <Compile Include="Forms\NewMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Content\NewMapForm.Designer.cs">
+    <Compile Include="Forms\NewMapForm.Designer.cs">
       <DependentUpon>NewMapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FriendlyHumanLayerButton.cs" />
-    <Compile Include="FrontLayerButton.cs" />
+    <Compile Include="Buttons\FriendlyHumanLayerButton.cs" />
+    <Compile Include="Buttons\FrontLayerButton.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="HostileHumanLayerButton.cs" />
+    <Compile Include="Buttons\HostileHumanLayerButton.cs" />
     <Compile Include="HUD.cs" />
-    <Compile Include="Layer.cs" />
-    <Compile Include="LoadMapButton.cs" />
-    <Compile Include="LoadMapForm.cs">
+    <Compile Include="Map\Layer.cs" />
+    <Compile Include="Buttons\LoadMapButton.cs" />
+    <Compile Include="Forms\LoadMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadMapForm.Designer.cs">
+    <Compile Include="Forms\LoadMapForm.Designer.cs">
       <DependentUpon>LoadMapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadTileButton.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="NewMapButton.cs" />
-    <Compile Include="NewTileSheet.cs">
+    <Compile Include="Buttons\LoadTileButton.cs" />
+    <Compile Include="Map\Map.cs" />
+    <Compile Include="Buttons\NewMapButton.cs" />
+    <Compile Include="Forms\NewTileSheet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewTileSheet.Designer.cs">
+    <Compile Include="Forms\NewTileSheet.Designer.cs">
       <DependentUpon>NewTileSheet.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveMapButton.cs" />
-    <Compile Include="SaveMapForm.cs">
+    <Compile Include="Buttons\SaveMapButton.cs" />
+    <Compile Include="Forms\SaveMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveMapForm.Designer.cs">
+    <Compile Include="Forms\SaveMapForm.Designer.cs">
       <DependentUpon>SaveMapForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -100,16 +100,16 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\NewMapForm.resx">
+    <EmbeddedResource Include="Forms\NewMapForm.resx">
       <DependentUpon>NewMapForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadMapForm.resx">
+    <EmbeddedResource Include="Forms\LoadMapForm.resx">
       <DependentUpon>LoadMapForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewTileSheet.resx">
+    <EmbeddedResource Include="Forms\NewTileSheet.resx">
       <DependentUpon>NewTileSheet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveMapForm.resx">
+    <EmbeddedResource Include="Forms\SaveMapForm.resx">
       <DependentUpon>SaveMapForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
