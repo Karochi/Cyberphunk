@@ -271,3 +271,5 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.RawInput.xm
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
