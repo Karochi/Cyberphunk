@@ -11,7 +11,7 @@ namespace CyberShooter
 {
     public class GameBoard
     {
-        public Player Player { get; private set; }
+        public Player Player { get; set; }
         int screenWidth, screenHeight;
         public static Map map;
 

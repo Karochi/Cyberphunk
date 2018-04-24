@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
-  <SourceTime>2018-03-28T17:45:24.9547851+02:00</SourceTime>
-  <DestFile>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
-  <DestTime>2018-04-24T15:53:52.2586502+02:00</DestTime>
+  <SourceFile>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
+  <SourceTime>2018-03-29T09:22:18.7916833+02:00</SourceTime>
+  <DestFile>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
+  <DestTime>2018-04-24T16:01:01.0370082+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2015-04-29T19:14:44+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>
