@@ -12,7 +12,7 @@ namespace CyberShooter
 
         public enum GameStates { start, loadingLevel, gameOn, gameOver };
         GameStates gameState;
-        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, dialoghitbox, friendlyProTex,enemyProTex;
+        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, dialoghitbox, friendlyProTex,enemyProTex, charTex;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Rectangle target_rect, dialoghitbox_rect;
@@ -46,6 +46,7 @@ namespace CyberShooter
             crosshairTex = Content.Load<Texture2D>("crosshair");
             healthBarTex = Content.Load<Texture2D>("healthbartex");
             rifleTex = Content.Load<Texture2D>("rifleTex");
+            charTex = Content.Load<Texture2D>("Texture_Pack_Characters");
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
             dialoghitbox = Content.Load<Texture2D>("dialoghitbox");
