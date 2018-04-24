@@ -93,7 +93,7 @@ namespace MapEditor
             KeyboardState keyState = Keyboard.GetState();
             if(selectedTileNumb < map.tileSet.Count - 1)
             {
-                if (keyState.IsKeyDown(Keys.Up) && !prevState.IsKeyDown(Keys.Down))
+                if (keyState.IsKeyDown(Keys.Up) && !prevState.IsKeyDown(Keys.Up))
                     selectedTileNumb++;
             }
             if(selectedTileNumb > 0)
@@ -109,10 +109,12 @@ namespace MapEditor
                 else if (drawableLayer == 1)
                     map.tileLayer2.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 2)
-                    map.solidLayer.SetTiles(1);
+                    map.shadowLayer.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 3)
-                    map.hostileHumanLayer.SetTiles(1);
+                    map.solidLayer.SetTiles(1);
                 else if (drawableLayer == 4)
+                    map.hostileHumanLayer.SetTiles(1);
+                else if (drawableLayer == 5)
                     map.friendlyHumanLayer.SetTiles(1);
             }
 
@@ -136,7 +138,7 @@ namespace MapEditor
             map.DrawMap();
             hud.Draw();
 
-            if (tileSheet != null && drawableLayer < 2)
+            if (tileSheet != null && drawableLayer < 3)
                 spriteBatch.Draw(tileSheet, new Vector2(curState.X - tileWidth / 2, curState.Y - tileHeight / 2), map.tileSet[selectedTileNumb], Color.White);
 
             string layerText = "";
@@ -146,10 +148,12 @@ namespace MapEditor
             else if (drawableLayer == 1)
                 layerText = "Layer 2";
             else if (drawableLayer == 2)
-                layerText = "Collision Layer";
+                layerText = "Shadow Layer";
             else if (drawableLayer == 3)
-                layerText = "Hostile Human";
+                layerText = "Collision Layer";
             else if (drawableLayer == 4)
+                layerText = "Hostile Human";
+            else if (drawableLayer == 5)
                 layerText = "Friendly Human";
 
             spriteBatch.DrawString(basic, layerText, new Vector2(5, 5), Color.White);

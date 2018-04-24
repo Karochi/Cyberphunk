@@ -11,16 +11,8 @@ namespace MapEditor
 {
     public class HUD
     {
-        Texture2D panel;
-        Texture2D newMap; 
-        Texture2D saveMap; 
-        Texture2D loadMap; 
-        Texture2D loadTiles; 
-        Texture2D backLayer;
-        Texture2D frontLayer; 
-        Texture2D collisionLayer;
-        Texture2D hostileHumanLayer;
-        Texture2D friendlyHumanLayer;
+        Texture2D panel, newMap, saveMap, loadMap, loadTiles, backLayer, 
+            frontLayer, collisionLayer, hostileHumanLayer, friendlyHumanLayer, shadowLayer;
 
         Vector2 position;
         Rectangle horizontalPanelRect;
@@ -43,6 +35,7 @@ namespace MapEditor
             collisionLayer = content.Load<Texture2D>("collisionLayerButton");
             hostileHumanLayer = content.Load<Texture2D>("hostileHButton");
             friendlyHumanLayer = content.Load<Texture2D>("friendlyHButton");
+            shadowLayer = content.Load<Texture2D>("shadowbutton");
 
             position = new Vector2(0, (int)Game1.clientBounds.Y - panel.Height);
 
@@ -56,8 +49,10 @@ namespace MapEditor
             buttons.Add(new BackLayerButton(backLayer, new Vector2(position.X + 460, position.Y - 25)));
             buttons.Add(new FrontLayerButton(frontLayer, new Vector2(position.X + 575, position.Y - 25)));
             buttons.Add(new CollisionLayerButton(collisionLayer, new Vector2(position.X + 690, position.Y - 25)));
-            buttons.Add(new HostileHumanLayerButton(hostileHumanLayer, new Vector2(Game1.clientBounds.X - 55,5)));
-            buttons.Add(new FriendlyHumanLayerButton(friendlyHumanLayer, new Vector2(Game1.clientBounds.X - 55, 60)));
+            buttons.Add(new ShadowLayerButton(shadowLayer, new Vector2(Game1.clientBounds.X - 55, 5)));
+            buttons.Add(new HostileHumanLayerButton(hostileHumanLayer, new Vector2(Game1.clientBounds.X - 55,60)));
+            buttons.Add(new FriendlyHumanLayerButton(friendlyHumanLayer, new Vector2(Game1.clientBounds.X - 55, 115)));
+
         }
         public void Update()
         {

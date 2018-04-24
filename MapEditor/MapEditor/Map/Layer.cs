@@ -29,7 +29,6 @@ namespace MapEditor
             Vector2 mouse;
             double mouseMapX;
             double mouseMapY;
-
             MouseState currMouseState = Mouse.GetState();
 
             try
