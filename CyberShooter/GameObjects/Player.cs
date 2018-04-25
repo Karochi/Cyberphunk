@@ -13,8 +13,15 @@ namespace CyberShooter
 
     public class Player : MovingGameObject
     {
+        enum Direction {Left,Up,Down,Right}
+        Direction currentDirection;
+        Rectangle srDown = new Rectangle(0, 38 * 4, 30, 38);
+        Rectangle srUp = new Rectangle(0, 38 * 7, 30, 38);
+        Rectangle srLeft = new Rectangle(0, 38 * 5, 30, 38);
+        Rectangle srRight = new Rectangle(0, 38 * 6, 30, 38);
         Weapon firstWeapon, secondWeapon;
         Vector2 target, playerCenter;
+        Texture2D charTex;
         public int handgunAmmo { get; set; }
         public int rifleAmmo { get; set; }
 
@@ -47,6 +54,7 @@ namespace CyberShooter
 
         public Player(Vector2 position) : base()
         {
+            charTex = Game1.charTex;
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
             this.Position = (position);
@@ -57,7 +65,13 @@ namespace CyberShooter
             MaxHealth = 8;
             CurrHealth = MaxHealth;
         }
-        public void Update(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs)
+        public override void Update()
+        {
+
+
+            base.Update();
+        }
+        public void Update2(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs)
         {
             base.Update(gameTime, collisionRects);
             this.target = target;
@@ -111,18 +125,23 @@ namespace CyberShooter
             if (Speed.X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
                 Speed = new Vector2(Speed.X - 0.2f, Speed.Y);
+                currentDirection = Direction.Left;
             }
             else if (Speed.X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
                 Speed = new Vector2(Speed.X + 0.2f, Speed.Y);
+                currentDirection = Direction.Right;
+                
             }
             else if (Speed.Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
                 Speed = new Vector2(Speed.X, Speed.Y - 0.2f);
+                currentDirection = Direction.Up;
             }
             else if (Speed.Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
                 Speed = new Vector2(Speed.X, Speed.Y + 0.2f);
+                currentDirection = Direction.Down;
             }
         }
         public void StoppingX()
@@ -230,15 +249,63 @@ namespace CyberShooter
         {
             if (IsDead)
             {
-                spriteBatch.Draw(texture, HitRect, Color.Gray);
+                switch (currentDirection)
+                {
+
+                    case Direction.Down:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srDown.X + 38 * frame, srDown.Y, srDown.Width, srDown.Height), Color.Gray);
+                        break;
+                    case Direction.Up:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srUp.X + 38 * frame, srUp.Y, srUp.Width, srUp.Height), Color.Gray);
+                        break;
+                    case Direction.Left:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srLeft.X + 38 * frame, srLeft.Y, srLeft.Width, srLeft.Height), Color.Gray);
+                        break;
+                    case Direction.Right:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srRight.X + 38 * frame, srRight.Y, srRight.Width, srRight.Height), Color.Gray);
+                        break;
+                }
+                //spriteBatch.Draw(texture, HitRect, Color.Gray);
             }
             else if (DamageCooldown > 0)
             {
-                spriteBatch.Draw(texture, HitRect, Color.LightYellow);
+                switch (currentDirection)
+                {
+
+                    case Direction.Down:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srDown.X + 38 * frame, srDown.Y, srDown.Width, srDown.Height), Color.LightYellow);
+                        break;
+                    case Direction.Up:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srUp.X + 38 * frame, srUp.Y, srUp.Width, srUp.Height), Color.LightYellow);
+                        break;
+                    case Direction.Left:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srLeft.X + 38 * frame, srLeft.Y, srLeft.Width, srLeft.Height), Color.LightYellow);
+                        break;
+                    case Direction.Right:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srRight.X + 38 * frame, srRight.Y, srRight.Width, srRight.Height), Color.LightYellow);
+                        break;
+                }
+                //spriteBatch.Draw(texture, HitRect, Color.LightYellow);
             }
             else
             {
-                base.Draw(spriteBatch, texture);
+                switch (currentDirection)
+                {
+
+                    case Direction.Down:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srDown.X + 38 * frame, srDown.Y, srDown.Width, srDown.Height), Color.White);
+                        break;
+                    case Direction.Up:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srUp.X + 38 * frame, srUp.Y, srUp.Width, srUp.Height), Color.White);
+                        break;
+                    case Direction.Left:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srLeft.X + 38 * frame, srLeft.Y, srLeft.Width, srLeft.Height), Color.White);
+                        break;
+                    case Direction.Right:
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(srRight.X + 38 * frame, srRight.Y, srRight.Width, srRight.Height), Color.White);
+                        break;
+                }
+                //base.Draw(spriteBatch, texture);
             }
         }
     }

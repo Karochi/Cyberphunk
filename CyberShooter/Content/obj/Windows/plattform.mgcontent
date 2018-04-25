@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
+  <SourceFile>C:/Users/Susanne/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
   <SourceTime>2018-04-17T12:40:33.5008545+02:00</SourceTime>
-  <DestFile>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
-  <DestTime>2018-04-24T19:29:59.7984805+02:00</DestTime>
+  <DestFile>C:/Users/Susanne/Desktop/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
+  <DestTime>2018-04-25T10:14:20.1013365+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
@@ -26,6 +26,10 @@
   </Parameters>
   <Parameters>
     <Key>ResizeToPowerOfTwo</Key>
+    <Value>False</Value>
+  </Parameters>
+  <Parameters>
+    <Key>MakeSquare</Key>
     <Value>False</Value>
   </Parameters>
   <Parameters>

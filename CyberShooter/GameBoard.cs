@@ -70,7 +70,8 @@ namespace CyberShooter
         }
         public void Update(GameTime gameTime, Vector2 crosshairPos)
         {
-            Player.Update(gameTime, crosshairPos, map.collisionRects, WeaponPickupList, map.NPCs);
+            Player.Update();
+            Player.Update2(gameTime, crosshairPos, map.collisionRects, WeaponPickupList, map.NPCs);
             NPC(gameTime);
             WeaponPickUpSelection();
             WeaponPickupCollection();

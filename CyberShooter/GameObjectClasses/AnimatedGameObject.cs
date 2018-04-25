@@ -10,29 +10,15 @@ namespace CyberShooter
 {
     public class AnimatedGameObject : GameObject
     {
+
+        protected int frame;
+        int timer;
+
+
         public void Animation() {
 
           
-            if (KeyMouseReader.KeyHeld(Keys.A) == true)
-            {
-
-
-            }
-            if (KeyMouseReader.KeyHeld(Keys.S) == true)
-            {
-
-
-            }
-            if (KeyMouseReader.KeyHeld(Keys.D) == true)
-            {
-
-
-            }
-            if (KeyMouseReader.KeyHeld(Keys.W) == true)
-            {
-
-
-            }
+           
 
 
 
@@ -40,8 +26,27 @@ namespace CyberShooter
         public AnimatedGameObject() : base()
 
         {
-            
+            timer = 0;
+            frame = 0;
+        }
+        public override void Update()
+        {
+            if (timer >= 60) {
+                
+                if (frame == 2)
+                {
+                    frame = 0;
 
+                }
+                else {
+                    frame++;
+                }
+
+                timer = 0;
+            }
+            timer++;
+
+            base.Update();
         }
     }
 }
