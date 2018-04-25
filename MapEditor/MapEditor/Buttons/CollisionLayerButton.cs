@@ -22,7 +22,7 @@ namespace MapEditor
         }
         public override void Effect()
         {
-            Game1.drawableLayer = 2;
+            Game1.drawableLayer = 3;
             base.prevClicked = false;
 
             base.Effect();

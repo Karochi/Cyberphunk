@@ -81,6 +81,7 @@
     <Compile Include="Forms\SaveMapForm.Designer.cs">
       <DependentUpon>SaveMapForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buttons\ShadowLayerButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

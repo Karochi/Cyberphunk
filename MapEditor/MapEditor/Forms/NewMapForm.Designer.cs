@@ -121,6 +121,11 @@
             // mapHeightBox
             // 
             this.mapHeightBox.Location = new System.Drawing.Point(112, 86);
+            this.mapHeightBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.mapHeightBox.Name = "mapHeightBox";
             this.mapHeightBox.Size = new System.Drawing.Size(66, 20);
             this.mapHeightBox.TabIndex = 8;
@@ -133,6 +138,11 @@
             // mapWidthBox
             // 
             this.mapWidthBox.Location = new System.Drawing.Point(263, 86);
+            this.mapWidthBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.mapWidthBox.Name = "mapWidthBox";
             this.mapWidthBox.Size = new System.Drawing.Size(62, 20);
             this.mapWidthBox.TabIndex = 9;
@@ -149,7 +159,7 @@
             this.tileHeightBox.Size = new System.Drawing.Size(66, 20);
             this.tileHeightBox.TabIndex = 10;
             this.tileHeightBox.Value = new decimal(new int[] {
-            32,
+            16,
             0,
             0,
             0});
@@ -161,7 +171,7 @@
             this.tileWidthBox.Size = new System.Drawing.Size(62, 20);
             this.tileWidthBox.TabIndex = 11;
             this.tileWidthBox.Value = new decimal(new int[] {
-            32,
+            16,
             0,
             0,
             0});
