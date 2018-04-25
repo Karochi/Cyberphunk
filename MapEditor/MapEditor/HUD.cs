@@ -12,7 +12,8 @@ namespace MapEditor
     public class HUD
     {
         Texture2D panel, newMap, saveMap, loadMap, loadTiles, backLayer, 
-            frontLayer, collisionLayer, hostileHumanLayer, friendlyHumanLayer, shadowLayer;
+            frontLayer, collisionLayer, hostileHumanLayer, friendlyHumanLayer, shadowLayer, friendlyRobotLayer, hostileRobotLayer,
+            lootLayer, questLayer, wallArtLayer;
 
         Vector2 position;
         Rectangle horizontalPanelRect;
@@ -35,6 +36,11 @@ namespace MapEditor
             collisionLayer = content.Load<Texture2D>("collisionLayerButton");
             hostileHumanLayer = content.Load<Texture2D>("hostileHButton");
             friendlyHumanLayer = content.Load<Texture2D>("friendlyHButton");
+            friendlyRobotLayer = content.Load<Texture2D>("friendlyRButton");
+            hostileRobotLayer = content.Load<Texture2D>("hostileRButton");
+            lootLayer = content.Load<Texture2D>("lootButton");
+            questLayer = content.Load<Texture2D>("questButton");
+            wallArtLayer = content.Load<Texture2D>("wallArtButton");
             shadowLayer = content.Load<Texture2D>("shadowbutton");
 
             position = new Vector2(0, (int)Game1.clientBounds.Y - panel.Height);
@@ -52,6 +58,11 @@ namespace MapEditor
             buttons.Add(new ShadowLayerButton(shadowLayer, new Vector2(Game1.clientBounds.X - 55, 5)));
             buttons.Add(new HostileHumanLayerButton(hostileHumanLayer, new Vector2(Game1.clientBounds.X - 55,60)));
             buttons.Add(new FriendlyHumanLayerButton(friendlyHumanLayer, new Vector2(Game1.clientBounds.X - 55, 115)));
+            buttons.Add(new FriendlyRobotButton(hostileRobotLayer, new Vector2(Game1.clientBounds.X - 55, 165)));
+            buttons.Add(new HostileRobotButton(friendlyRobotLayer, new Vector2(Game1.clientBounds.X - 55, 215)));
+            buttons.Add(new LootButton(lootLayer, new Vector2(Game1.clientBounds.X - 55, 265)));
+            buttons.Add(new WallArtButton(wallArtLayer, new Vector2(Game1.clientBounds.X - 55, 315)));
+            buttons.Add(new QuestButton(questLayer, new Vector2(Game1.clientBounds.X - 55, 365)));
 
         }
         public void Update()

@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace MapEditor
 {
-    public class CollisionLayerButton : Button
+    public class FriendlyRobotButton : Button
     {
         public bool clicked = false;
 
-        public CollisionLayerButton(Texture2D tex, Vector2 pos) : base(tex, pos)
+        public FriendlyRobotButton(Texture2D tex, Vector2 pos) : base(tex, pos)
         {
+            height = 50;
+            width = 50;
         }
         public override void Update()
         {
@@ -22,7 +24,7 @@ namespace MapEditor
         }
         public override void Effect()
         {
-            Game1.drawableLayer = 3;
+            Game1.drawableLayer = 10;
             base.prevClicked = false;
 
             base.Effect();

@@ -41,24 +41,24 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Buttons\BackLayerButton.cs" />
+    <Compile Include="Buttons\TextureButtons\BackLayerButton.cs" />
     <Compile Include="Buttons\Button.cs" />
-    <Compile Include="Buttons\CollisionLayerButton.cs" />
-    <Compile Include="Buttons\FriendlyRobotButton.cs" />
-    <Compile Include="Buttons\HostileRobotButton.cs" />
-    <Compile Include="Buttons\LootButton.cs" />
-    <Compile Include="Buttons\QuestButton.cs" />
-    <Compile Include="Buttons\WallArtButton.cs" />
+    <Compile Include="Buttons\TextureButtons\CollisionLayerButton.cs" />
+    <Compile Include="Buttons\PeopleButtons\FriendlyRobotButton.cs" />
+    <Compile Include="Buttons\PeopleButtons\HostileRobotButton.cs" />
+    <Compile Include="Buttons\ItemButtons\LootButton.cs" />
+    <Compile Include="Buttons\ItemButtons\QuestButton.cs" />
+    <Compile Include="Buttons\ItemButtons\WallArtButton.cs" />
     <Compile Include="Forms\NewMapForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\NewMapForm.Designer.cs">
       <DependentUpon>NewMapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buttons\FriendlyHumanLayerButton.cs" />
-    <Compile Include="Buttons\FrontLayerButton.cs" />
+    <Compile Include="Buttons\PeopleButtons\FriendlyHumanLayerButton.cs" />
+    <Compile Include="Buttons\TextureButtons\FrontLayerButton.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Buttons\HostileHumanLayerButton.cs" />
+    <Compile Include="Buttons\PeopleButtons\HostileHumanLayerButton.cs" />
     <Compile Include="HUD.cs" />
     <Compile Include="Map\Layer.cs" />
     <Compile Include="Buttons\LoadMapButton.cs" />
@@ -86,7 +86,7 @@
     <Compile Include="Forms\SaveMapForm.Designer.cs">
       <DependentUpon>SaveMapForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buttons\ShadowLayerButton.cs" />
+    <Compile Include="Buttons\TextureButtons\ShadowLayerButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

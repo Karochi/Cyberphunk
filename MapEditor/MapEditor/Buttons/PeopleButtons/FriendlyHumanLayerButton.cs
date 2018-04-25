@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapEditor.Buttons
+namespace MapEditor
 {
-    public class FriendlyRobotButton : Button
+    public class FriendlyHumanLayerButton : Button
     {
         public bool clicked = false;
 
-        public FriendlyRobotButton(Texture2D tex, Vector2 pos) : base(tex, pos)
+        public FriendlyHumanLayerButton(Texture2D tex, Vector2 pos) : base(tex, pos)
         {
             height = 50;
             width = 50;
@@ -24,7 +24,7 @@ namespace MapEditor.Buttons
         }
         public override void Effect()
         {
-            Game1.drawableLayer = 7;
+            Game1.drawableLayer = 8;
             base.prevClicked = false;
 
             base.Effect();

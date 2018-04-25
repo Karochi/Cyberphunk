@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MapEditor
 {
-    public class HostileHumanLayerButton : Button
+    public class HostileRobotButton : Button
     {
         public bool clicked = false;
 
-        public HostileHumanLayerButton(Texture2D tex, Vector2 pos) : base(tex, pos)
+        public HostileRobotButton(Texture2D tex, Vector2 pos) : base(tex, pos)
         {
             height = 50;
             width = 50;
@@ -24,7 +24,7 @@ namespace MapEditor
         }
         public override void Effect()
         {
-            Game1.drawableLayer = 4;
+            Game1.drawableLayer = 9;
             base.prevClicked = false;
 
             base.Effect();

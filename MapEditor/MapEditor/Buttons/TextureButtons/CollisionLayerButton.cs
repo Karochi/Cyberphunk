@@ -6,16 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapEditor.Buttons
+namespace MapEditor
 {
-    public class WallArtButton : Button
+    public class CollisionLayerButton : Button
     {
         public bool clicked = false;
 
-        public WallArtButton(Texture2D tex, Vector2 pos) : base(tex, pos)
+        public CollisionLayerButton(Texture2D tex, Vector2 pos) : base(tex, pos)
         {
-            height = 50;
-            width = 50;
         }
         public override void Update()
         {
@@ -24,7 +22,7 @@ namespace MapEditor.Buttons
         }
         public override void Effect()
         {
-            Game1.drawableLayer = 5;
+            Game1.drawableLayer = 6;
             base.prevClicked = false;
 
             base.Effect();

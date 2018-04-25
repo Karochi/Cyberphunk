@@ -93,12 +93,12 @@ namespace MapEditor
             KeyboardState keyState = Keyboard.GetState();
             if(selectedTileNumb < map.tileSet.Count - 1)
             {
-                if (keyState.IsKeyDown(Keys.Up) && !prevState.IsKeyDown(Keys.Up))
+                if (keyState.IsKeyDown(Keys.E) && !prevState.IsKeyDown(Keys.E))
                     selectedTileNumb++;
             }
             if(selectedTileNumb > 0)
             {
-                if (keyState.IsKeyDown(Keys.Down) && !prevState.IsKeyDown(Keys.Down))
+                if (keyState.IsKeyDown(Keys.Q) && !prevState.IsKeyDown(Keys.Q))
                     selectedTileNumb--;
             }
 
@@ -111,11 +111,21 @@ namespace MapEditor
                 else if (drawableLayer == 2)
                     map.shadowLayer.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 3)
-                    map.solidLayer.SetTiles(1);
+                    map.lootLayer.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 4)
-                    map.hostileHumanLayer.SetTiles(1);
+                    map.questLayer.SetTiles(selectedTileNumb + 1);
                 else if (drawableLayer == 5)
+                    map.wallArtLayer.SetTiles(selectedTileNumb + 1);
+                else if (drawableLayer == 6)
+                    map.solidLayer.SetTiles(1);
+                else if (drawableLayer == 7)
+                    map.hostileHumanLayer.SetTiles(1);
+                else if (drawableLayer == 8)
                     map.friendlyHumanLayer.SetTiles(1);
+                else if (drawableLayer == 9)
+                    map.hostileRobotLayer.SetTiles(1);
+                else if (drawableLayer == 10)
+                    map.friendlyRobotLayer.SetTiles(1);
             }
 
             curState = Mouse.GetState();
@@ -138,7 +148,7 @@ namespace MapEditor
             map.DrawMap();
             hud.Draw();
 
-            if (tileSheet != null && drawableLayer < 3)
+            if (tileSheet != null && drawableLayer < 6)
                 spriteBatch.Draw(tileSheet, new Vector2(curState.X - tileWidth / 2, curState.Y - tileHeight / 2), map.tileSet[selectedTileNumb], Color.White);
 
             string layerText = "";
@@ -150,11 +160,21 @@ namespace MapEditor
             else if (drawableLayer == 2)
                 layerText = "Shadow Layer";
             else if (drawableLayer == 3)
-                layerText = "Collision Layer";
+                layerText = "Loot";
             else if (drawableLayer == 4)
-                layerText = "Hostile Human";
+                layerText = "Quest-item";
             else if (drawableLayer == 5)
+                layerText = "Wall-Art";
+            else if (drawableLayer == 6)
+                layerText = "Collision Layer";
+            else if (drawableLayer == 7)
+                layerText = "Hostile Human";
+            else if (drawableLayer == 8)
                 layerText = "Friendly Human";
+            else if (drawableLayer == 9)
+                layerText = "Hostile Robot";
+            else if (drawableLayer == 10)
+                layerText = "Friendly Robot";
 
             spriteBatch.DrawString(basic, layerText, new Vector2(5, 5), Color.White);
 

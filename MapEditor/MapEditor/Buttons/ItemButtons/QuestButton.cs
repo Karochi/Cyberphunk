@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapEditor.Buttons
+namespace MapEditor
 {
     public class QuestButton : Button
     {

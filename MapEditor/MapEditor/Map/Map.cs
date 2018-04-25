@@ -20,6 +20,11 @@ namespace MapEditor
         public Layer tileLayer1;
         public Layer hostileHumanLayer;
         public Layer friendlyHumanLayer;
+        public Layer hostileRobotLayer;
+        public Layer friendlyRobotLayer;
+        public Layer lootLayer;
+        public Layer questLayer;
+        public Layer wallArtLayer;
         public Layer shadowLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
@@ -38,6 +43,11 @@ namespace MapEditor
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            hostileRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            friendlyRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            lootLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            questLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            wallArtLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             shadowLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
@@ -91,6 +101,11 @@ namespace MapEditor
                 tileLayer1.SaveLayer(objWriter);
                 hostileHumanLayer.SaveLayer(objWriter);
                 friendlyHumanLayer.SaveLayer(objWriter);
+                hostileRobotLayer.SaveLayer(objWriter);
+                friendlyRobotLayer.SaveLayer(objWriter);
+                lootLayer.SaveLayer(objWriter);
+                questLayer.SaveLayer(objWriter);
+                wallArtLayer.SaveLayer(objWriter);
                 shadowLayer.SaveLayer(objWriter);
                 tileLayer2.SaveLayer(objWriter);
                 solidLayer.SaveLayer(objWriter);
@@ -118,6 +133,11 @@ namespace MapEditor
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                hostileRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                friendlyRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                lootLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                questLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                wallArtLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 shadowLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
@@ -125,6 +145,11 @@ namespace MapEditor
                 tileLayer1.LoadLayer(objReader);
                 hostileHumanLayer.LoadLayer(objReader);
                 friendlyHumanLayer.LoadLayer(objReader);
+                hostileRobotLayer.LoadLayer(objReader);
+                friendlyRobotLayer.LoadLayer(objReader);
+                lootLayer.LoadLayer(objReader);
+                questLayer.LoadLayer(objReader);
+                wallArtLayer.LoadLayer(objReader);
                 shadowLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
@@ -151,6 +176,24 @@ namespace MapEditor
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), bounds, Color.White);
                         }
+                        if (lootLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[lootLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
+                        if (questLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[questLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
+                        if (wallArtLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[wallArtLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
                         if (hostileHumanLayer.layer[y, x] != 0)
                         {
                             Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(255, 0, 0, 100));
@@ -161,7 +204,17 @@ namespace MapEditor
                             Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(0, 255, 0, 100));
                             Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
                         }
-                        if(shadowLayer.layer[y, x] != 0)
+                        if (hostileRobotLayer.layer[y, x] != 0)
+                        {
+                            Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(0, 255, 0, 100));
+                            Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
+                        }
+                        if (friendlyRobotLayer.layer[y, x] != 0)
+                        {
+                            Game1.spriteBatch.Draw(Game1.solid, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), new Color(0, 255, 0, 100));
+                            Game1.spriteBatch.Draw(Game1.humanTex, new Vector2(((y - Game1.drawOffset.X) * tileWidth), ((x - Game1.drawOffset.Y) * tileHeight)), new Rectangle(0, 0, tileWidth, tileHeight), Color.White);
+                        }
+                        if (shadowLayer.layer[y, x] != 0)
                         {
                             bounds = tileSet[shadowLayer.layer[y, x] - 1];
 
