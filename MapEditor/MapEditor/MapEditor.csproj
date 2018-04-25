@@ -44,6 +44,11 @@
     <Compile Include="Buttons\BackLayerButton.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="Buttons\CollisionLayerButton.cs" />
+    <Compile Include="Buttons\FriendlyRobotButton.cs" />
+    <Compile Include="Buttons\HostileRobotButton.cs" />
+    <Compile Include="Buttons\LootButton.cs" />
+    <Compile Include="Buttons\QuestButton.cs" />
+    <Compile Include="Buttons\WallArtButton.cs" />
     <Compile Include="Forms\NewMapForm.cs">
       <SubType>Form</SubType>
     </Compile>

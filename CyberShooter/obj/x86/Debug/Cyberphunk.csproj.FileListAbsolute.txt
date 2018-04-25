@@ -372,3 +372,5 @@ C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj
 C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CopyComplete
 C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
