@@ -11,26 +11,26 @@ namespace CyberShooter
     {
         int ammoPickUpAmount, healthPickUpAmount;
 
-        public ResourcePickup(Vector2 position, PickUpTypes type) : base(position, type)
+        public ResourcePickup(Vector2 position, PickupTypes type) : base(position, type)
         {
             healthPickUpAmount = 2;
             radius = 20;
         }
         public bool PickedUp(Player player)
         {
-            if (pickupType == PickUpTypes.handgunAmmo)
+            if (pickupType == PickupTypes.handgunAmmo)
             {
                 ammoPickUpAmount = 20;
                 player.handgunAmmo += ammoPickUpAmount;
                 return true;
             }
-            if(pickupType == PickUpTypes.rifleAmmo)
+            if(pickupType == PickupTypes.rifleAmmo)
             {
                 ammoPickUpAmount = 10;
                 player.rifleAmmo += ammoPickUpAmount;
                 return true;
             }
-            if(pickupType == PickUpTypes.health)
+            if(pickupType == PickupTypes.health)
             {
                 if(player.CurrHealth < player.MaxHealth)
                 {

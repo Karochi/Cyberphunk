@@ -25,7 +25,7 @@ namespace CyberShooter
         }
         public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            spriteBatch.Draw(texture, Position, new Rectangle((int)Position.X, (int)Position.Y, TexWidth, TexHeight), Color.White);
+            spriteBatch.Draw(texture, HitRect, Color.White);
         }
     }
 }

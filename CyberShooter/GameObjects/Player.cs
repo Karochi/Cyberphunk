@@ -67,8 +67,6 @@ namespace CyberShooter
         }
         public override void Update()
         {
-
-
             base.Update();
         }
         public void Update2(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs)
@@ -99,9 +97,10 @@ namespace CyberShooter
         }
         public void WeaponDrop(List<WeaponPickup> weaponPickupList)
         {
-            weaponPickupList.Add(new WeaponPickup(Position, GetFirstWeapon().GetPickUpType()));
+            WeaponPickup pickup = new WeaponPickup(Position, GetFirstWeapon().GetPickUpType());
+            pickup.isDropped = true;
+            weaponPickupList.Add(pickup);
             GetFirstWeapon().SetWeaponName(WeaponNames.unarmed);
-
         }
         public void WeaponSwap()
         {

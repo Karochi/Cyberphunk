@@ -17,7 +17,7 @@ namespace CyberShooter
         float range;
         WeaponTypes weaponType;
         WeaponNames weaponName;
-        PickUpTypes pickUpType;
+        PickupTypes pickUpType;
 
         public int GetDamage()
         {
@@ -55,7 +55,7 @@ namespace CyberShooter
         {
             this.weaponName = weaponName;
         }
-        public PickUpTypes GetPickUpType()
+        public PickupTypes GetPickUpType()
         {
             return pickUpType;
         }
@@ -79,7 +79,7 @@ namespace CyberShooter
             range = 500;
             projectileSpeed = 10;
             originCooldown = 500;
-            pickUpType = PickUpTypes.handgun;
+            pickUpType = PickupTypes.handgun;
         }
         public void RifleDefinition()
         {
@@ -88,7 +88,7 @@ namespace CyberShooter
             range = 200;
             projectileSpeed = 15;
             originCooldown = 200;
-            pickUpType = PickUpTypes.rifle;
+            pickUpType = PickupTypes.rifle;
         }
         public void ShotgunDefinition()
         {

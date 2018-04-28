@@ -15,7 +15,7 @@ namespace CyberShooter
         int screenWidth, screenHeight;
         public static Map map;
 
-        WeaponPickup weaponPickUp;
+        WeaponPickup weaponPickup;
         ResourcePickup resourcePickUp;
         public List<WeaponPickup> WeaponPickupList { get; private set; }
         public List<ResourcePickup> ResourcePickupList { get; private set; }
@@ -39,17 +39,17 @@ namespace CyberShooter
 
             //Should be spawned through the map/other system later.
             WeaponPickupList = new List<WeaponPickup>();
-            weaponPickUp = new WeaponPickup(new Vector2(100, 500), PickUpTypes.handgun);
-            WeaponPickupList.Add(weaponPickUp);
-            weaponPickUp = new WeaponPickup(new Vector2(100, 475), PickUpTypes.handgun);
-            WeaponPickupList.Add(weaponPickUp);
-            weaponPickUp = new WeaponPickup(new Vector2(155, 510), PickUpTypes.rifle);
-            WeaponPickupList.Add(weaponPickUp);
+            weaponPickup = new WeaponPickup(new Vector2(100, 500), PickupTypes.handgun);
+            WeaponPickupList.Add(weaponPickup);
+            weaponPickup = new WeaponPickup(new Vector2(100, 475), PickupTypes.handgun);
+            WeaponPickupList.Add(weaponPickup);
+            weaponPickup = new WeaponPickup(new Vector2(155, 510), PickupTypes.rifle);
+            WeaponPickupList.Add(weaponPickup);
 
             ResourcePickupList = new List<ResourcePickup>();
-            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickUpTypes.rifleAmmo);
+            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickupTypes.rifleAmmo);
             ResourcePickupList.Add(resourcePickUp);
-            resourcePickUp = new ResourcePickup(new Vector2(500, 400), PickUpTypes.health);
+            resourcePickUp = new ResourcePickup(new Vector2(500, 400), PickupTypes.health);
             ResourcePickupList.Add(resourcePickUp);
 
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
@@ -117,15 +117,14 @@ namespace CyberShooter
                     Player.Position = Player.OldPosition;
                     Player.Speed = Vector2.Zero;
                 }
-                // kan tas bort, väntar på klartecken.
-                if (Player.leftRect.Intersects(map.collisionRects[i]))
-                    Player.leftRectCollision = true;
-                if (Player.rightRect.Intersects(map.collisionRects[i]))
-                    Player.rightRectCollision = true;
-                if (Player.topRect.Intersects(map.collisionRects[i]))
-                    Player.topRectCollision = true;
-                if (Player.bottomRect.Intersects(map.collisionRects[i]))
-                    Player.bottomRectCollision = true;
+                foreach(WeaponPickup pickup in WeaponPickupList)
+                {
+                    if (Player.HitRect.Intersects(pickup.HitRect) && !pickup.isDropped)
+                    {
+                        Player.Position = Player.OldPosition;
+                        Player.Speed = Vector2.Zero;
+                    }
+                }
             }
         }
         public void WeaponPickUpSelection()
