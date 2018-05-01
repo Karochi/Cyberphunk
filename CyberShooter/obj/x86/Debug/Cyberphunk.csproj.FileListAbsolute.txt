@@ -379,3 +379,11 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTe
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\loadGameButton.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\newGameButton.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb

@@ -1,17 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace CyberShooter
 {
+    public enum GameStates { splash, startMenu, loadingLevel, gameOn, gameOver };
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
-
-        public enum GameStates { start, loadingLevel, gameOn, gameOver };
-        GameStates gameState;
+        public GameStates currentGameState;
         public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
@@ -19,6 +19,8 @@ namespace CyberShooter
         HUD hud; 
         int screenWidth, screenHeight, crosshairWidth, crosshairHeight;
         GameBoard gameBoard;
+        StartMenu startMenu;
+        SoundEffect clickedSound;
 
         public Game1()
         {
@@ -28,6 +30,7 @@ namespace CyberShooter
             screenHeight = (int)ScreenManager.Instance.dimensions.Y;
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
+
         }
         protected override void Initialize()
         {
@@ -36,6 +39,7 @@ namespace CyberShooter
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            startMenu = new StartMenu(Content);
             ScreenManager.Instance.graphicsDevice = GraphicsDevice;
             ScreenManager.Instance.spriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
@@ -49,11 +53,12 @@ namespace CyberShooter
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
             friendlyProTex = Content.Load<Texture2D>("fpro");
+            clickedSound = Content.Load<SoundEffect>("threeTone2");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
-            gameState = GameStates.start;
+            currentGameState = GameStates.splash;
             gameBoard = new GameBoard(screenWidth, screenHeight);
-            hud = new HUD(gameBoard.Player);
+            hud = new HUD(gameBoard.Player);      
         }
         protected override void UnloadContent()
         {
@@ -61,7 +66,7 @@ namespace CyberShooter
         }
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)|| startMenu.quitGame.clicked)
                 Exit();
             KeyMouseReader.Update();
             ScreenManager.Instance.Update(gameTime);
@@ -72,23 +77,33 @@ namespace CyberShooter
         }
         protected void GameStateUpdate(GameTime gameTime)
         {
-            if (gameState == GameStates.start)
+            if (currentGameState == GameStates.splash)
             {
                 if (KeyMouseReader.KeyPressed(Keys.Enter))
-                    gameState = GameStates.gameOn;
+                {
+                    clickedSound.Play();
+                    currentGameState = GameStates.startMenu;
+                }
+            }
+            if(currentGameState == GameStates.startMenu)
+            {
+                startMenu.Update(gameTime, currentGameState);
+
+                if (startMenu.newGame.clicked)
+                    currentGameState = GameStates.gameOn;
             }
             if (gameBoard.Player.IsDead)
             {
-                gameState = GameStates.gameOver;
+                currentGameState = GameStates.gameOver;
             }
-            if (gameState == GameStates.gameOn)
+            if (currentGameState == GameStates.gameOn)
             {
                 gameBoard.Update(gameTime, target);
             }
         }
         protected void CameraUpdate()
         {
-            if (gameState == GameStates.gameOn)
+            if (currentGameState == GameStates.gameOn)
             {
                 camera.SetPosition(gameBoard.Player.Position);
                 camera.GetPosition();
@@ -98,7 +113,7 @@ namespace CyberShooter
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-            if (gameState == GameStates.gameOn)
+            if (currentGameState == GameStates.gameOn)
             {
                 Crosshair();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetTransform());
@@ -108,12 +123,15 @@ namespace CyberShooter
                 spriteBatch.Begin();
                 hud.Draw(gameBoard.Player);
             }
-            if (gameState == GameStates.start)
+            if (currentGameState == GameStates.splash)
             {
                 ScreenManager.Instance.Draw(spriteBatch);
-                spriteBatch.DrawString(spriteFont, "PRESS ENTER", new Vector2(screenWidth / 2 - 100, screenHeight / 2), Color.Purple);
             }
-            if (gameState == GameStates.gameOver)
+            if (currentGameState == GameStates.startMenu)
+            {
+               startMenu.Draw();
+            }
+            if (currentGameState == GameStates.gameOver)
             {
                 spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
             }

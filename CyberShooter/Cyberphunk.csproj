@@ -42,6 +42,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button.cs" />
     <Compile Include="GameObjectClasses\AnimatedGameObject.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="FadeEffect.cs" />
@@ -84,6 +85,7 @@
     <Content Include="Icon.ico" />
     <Content Include="Load\SplashScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Text Files\allHumanTest.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

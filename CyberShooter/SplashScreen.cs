@@ -38,6 +38,7 @@ namespace CyberShooter
         public override void Draw(SpriteBatch spriteBatch)
         {
             image.Draw(spriteBatch);
+            spriteBatch.DrawString(Game1.spriteFont, "PRESS ENTER", new Vector2(800 / 2 - 100, 600 / 2), Color.Purple);
         }
     }
 }
