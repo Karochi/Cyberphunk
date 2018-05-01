@@ -19,14 +19,25 @@ namespace CyberShooter
         public Layer tileLayer1;
         public Layer hostileHumanLayer;
         public Layer friendlyHumanLayer;
+        public Layer hostileRobotLayer;
+        public Layer friendlyRobotLayer;
+        public Layer lootLayer;
+        public Layer questLayer;
+        public Layer wallArtLayer;
+        public Layer shadowLayer;
         public Layer tileLayer2;
         public Layer solidLayer;
 
         public List<Rectangle> tileSet = new List<Rectangle>();
         public List<Rectangle> collisionRects = new List<Rectangle>();
-        public List<NPC> NPCs = new List<NPC>(); 
+        public List<NPC> NPCs = new List<NPC>();
+        public List<WeaponPickup> weaponBoxes = new List<WeaponPickup>();
+        public List<GameObject> questItems = new List<GameObject>();
+        public List<GameObject> wallArts = new List<GameObject>();
 
         Rectangle bounds;
+        Random rnd = new Random();
+        int gunType;
 
         public Map(int mapWidth, int mapHeight, int tileWidth, int tileHeight)
         {
@@ -38,6 +49,12 @@ namespace CyberShooter
             tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            hostileRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            friendlyRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            lootLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            questLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            wallArtLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+            shadowLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
             solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
         }
@@ -56,12 +73,24 @@ namespace CyberShooter
                 tileLayer1 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 hostileHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 friendlyHumanLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                hostileRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                friendlyRobotLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                lootLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                questLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                wallArtLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
+                shadowLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 tileLayer2 = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
                 solidLayer = new Layer(mapWidth, mapHeight, tileWidth, tileHeight);
 
                 tileLayer1.LoadLayer(objReader);
                 hostileHumanLayer.LoadLayer(objReader);
                 friendlyHumanLayer.LoadLayer(objReader);
+                hostileRobotLayer.LoadLayer(objReader);
+                friendlyRobotLayer.LoadLayer(objReader);
+                lootLayer.LoadLayer(objReader);
+                questLayer.LoadLayer(objReader);
+                wallArtLayer.LoadLayer(objReader);
+                shadowLayer.LoadLayer(objReader);
                 tileLayer2.LoadLayer(objReader);
                 solidLayer.LoadLayer(objReader);
 
@@ -117,6 +146,12 @@ namespace CyberShooter
                 {
                     for (int y = 0; y < mapHeight; ++y)
                     {
+                        if(shadowLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[shadowLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
                         if (tileLayer2.layer[y, x] != 0)
                         {
                             bounds = tileSet[tileLayer2.layer[y, x] - 1];
@@ -155,8 +190,6 @@ namespace CyberShooter
         }
         public void PopulateCollisionLayer()
         {
-            collisionRects = new List<Rectangle>();
-
             for (int x = 0; x < mapWidth; x++)
             {
                 for (int y = 0; y < mapHeight; y++)
@@ -190,6 +223,78 @@ namespace CyberShooter
                     if (friendlyHumanLayer.layer[x, y] == 1)
                     {
                         NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight), false));
+                    }
+                }
+            }
+        }
+        public void PopulateFriendlyRobotLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (friendlyRobotLayer.layer[x, y] == 1)
+                    {
+                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight), false));
+                    }
+                }
+            }
+        }
+        public void PopulateHostileRobotLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (hostileRobotLayer.layer[x, y] == 1)
+                    {
+                        NPCs.Add(new NPC(new Vector2(x * tileWidth, y * tileHeight), true));
+                    }
+                }
+            }
+        }
+        public void PopulateLootLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (lootLayer.layer[x, y] == 1)
+                    {
+                        gunType = (int)rnd.Next(1, 3);
+
+                        if (gunType == 1)
+                            weaponBoxes.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.handgun));
+                        else if(gunType== 2)
+                            weaponBoxes.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.rifle));
+
+                        collisionRects.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
+                    }
+                }
+            }
+        }
+        public void PopulateQuestLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (questLayer.layer[x, y] == 1)
+                    {
+                        
+                    }
+                }
+            }
+        }
+        public void PopulateWallArtLayer()
+        {
+            for (int x = 0; x < mapWidth; x++)
+            {
+                for (int y = 0; y < mapHeight; y++)
+                {
+                    if (wallArtLayer.layer[x, y] == 1)
+                    {
+                        
                     }
                 }
             }
