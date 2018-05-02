@@ -4,22 +4,22 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/roguelikeSheet_transparent.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/spriteFont.spritefont</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/crosshair.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/32tilesheet.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/healthbartex.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/handgunTex.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/rifleTex.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/unarmedTex.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/dialoghitbox.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/fpro.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/splashFont.spritefont</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/splashScreen.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/Electro Zombies.mp3</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/shadowbutton.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/useLvl1sheet.png</File>
-    <File>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/Texture_Pack_Characters.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/plattform.bmp</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/roguelikeSheet_transparent.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/spriteFont.spritefont</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/crosshair.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/32tilesheet.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/healthbartex.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/handgunTex.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/rifleTex.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/unarmedTex.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/dialoghitbox.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/fpro.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/splashFont.spritefont</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/splashScreen.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/Electro Zombies.mp3</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/shadowbutton.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/useLvl1sheet.png</File>
+    <File>C:/Users/lucky/OneDrive/Documents/GitHub/Cyberphunk/CyberShooter/Content/Texture_Pack_Characters.png</File>
   </SourceFiles>
 </SourceFileCollection>

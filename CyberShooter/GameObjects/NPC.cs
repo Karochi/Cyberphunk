@@ -10,6 +10,13 @@ namespace CyberShooter
 {
     public class NPC : MovingGameObject
     {
+        enum Direction { Left, Up, Down, Right }
+        Direction currentDirection;
+        Texture2D charTex;
+        Rectangle enDown = new Rectangle(0, 38 * 1, 30, 38);
+        Rectangle enUp = new Rectangle(0, 38 * 4, 30, 38);
+        Rectangle enLeft = new Rectangle(0, 38 * 2, 30, 38);
+        Rectangle enRight = new Rectangle(0, 38 * 3, 30, 38);
         Vector2 playerPos, direction;
         int directionX, directionY, maxDirectionX, maxDirectionY, minDirectionX, minDirectionY, radius, range, damage, projectileSpeed;
         float velocity, retreatDistance, stoppingDistance;
@@ -82,6 +89,8 @@ namespace CyberShooter
         }
         public NPC(Vector2 position, bool hostile) : base()
         {
+            charTex = Game1.charTex;
+
             Position = position;
             TexWidth = 16;
             TexHeight = 20;
@@ -189,11 +198,29 @@ namespace CyberShooter
         {
             if (IsDead)
             {
-                spriteBatch.Draw(texture, HitRect, Color.Gray);
+
+                //switch (currentDirection)
+                //{
+
+                //    case Direction.Down:
+                //        spriteBatch.Draw(charTex, HitRect, new Rectangle(enDown.X + 38 * frame, enDown.Y, enDown.Width, enDown.Height), Color.Gray);
+                //        break;
+                //    case Direction.Up:
+                //        spriteBatch.Draw(charTex, HitRect, new Rectangle(enUp.X + 38 * frame, enUp.Y, enUp.Width, enUp.Height), Color.Gray);
+                //        break;
+                //    case Direction.Left:
+                //        spriteBatch.Draw(charTex, HitRect, new Rectangle(enLeft.X + 38 * frame, enLeft.Y, enLeft.Width, enLeft.Height), Color.Gray);
+                //        break;
+                //    case Direction.Right:
+                //        spriteBatch.Draw(charTex, HitRect, new Rectangle(enRight.X + 38 * frame, enRight.Y, enRight.Width, enRight.Height), Color.Gray);
+                //        break;
+                //}
+                 spriteBatch.Draw(charTex, HitRect, new Rectangle(enDown.X + 38 * frame, enDown.Y, enDown.Width, enDown.Height), Color.Gray);
+
             }
             else if (IsDamaged)
             {
-                spriteBatch.Draw(texture, HitRect, Color.Red);
+                spriteBatch.Draw(charTex, HitRect, new Rectangle(enDown.X + 38 * frame, enDown.Y, enDown.Width, enDown.Height), Color.Red);
             }
             else
             {
