@@ -42,7 +42,7 @@ namespace MapEditor
 
         Texture2D pixel;
 
-        MouseState curState;
+        public static MouseState curState;
         KeyboardState prevState;
 
         SpriteFont basic;

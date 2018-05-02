@@ -16,10 +16,10 @@ namespace MapEditor
             lootLayer, questLayer, wallArtLayer;
 
         Vector2 position;
-        Rectangle horizontalPanelRect;
+        public static Rectangle horizontalPanelRect;
         int horizontalPanelHeight = 100;
 
-        Rectangle verticalPanelRect;
+        public static Rectangle verticalPanelRect;
         int verticalPanelWidth = 60;
 
         List<Button> buttons = new List<Button>();

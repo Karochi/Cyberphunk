@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 
 namespace CyberShooter
@@ -12,7 +13,7 @@ namespace CyberShooter
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
         public GameStates currentGameState;
-        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex;
+        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex, crateTex;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Camera camera;
@@ -21,6 +22,7 @@ namespace CyberShooter
         GameBoard gameBoard;
         StartMenu startMenu;
         SoundEffect clickedSound;
+        Song gameSong;
 
         public Game1()
         {
@@ -30,7 +32,6 @@ namespace CyberShooter
             screenHeight = (int)ScreenManager.Instance.dimensions.Y;
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
-
         }
         protected override void Initialize()
         {
@@ -52,8 +53,10 @@ namespace CyberShooter
             charTex = Content.Load<Texture2D>("Texture_Pack_Characters");
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
+            crateTex = Content.Load<Texture2D>("crate");
             friendlyProTex = Content.Load<Texture2D>("fpro");
             clickedSound = Content.Load<SoundEffect>("threeTone2");
+            gameSong = Content.Load<Song>("01 - HomeoBox");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
             currentGameState = GameStates.splash;
@@ -90,7 +93,10 @@ namespace CyberShooter
                 startMenu.Update(gameTime, currentGameState);
 
                 if (startMenu.newGame.clicked)
+                {
                     currentGameState = GameStates.gameOn;
+                    MediaPlayer.Play(gameSong);
+                }
             }
             if (gameBoard.Player.IsDead)
             {

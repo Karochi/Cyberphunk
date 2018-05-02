@@ -229,24 +229,6 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.b
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Load\SplashScreen.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\allHumanTest.txt
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\humanTest.txt
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\epro.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\floortileset.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashScreen.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.pdb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.dll
@@ -270,7 +252,6 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.RawInput.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
 C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.bmp
@@ -373,7 +354,6 @@ C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj
 C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Susanne\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
@@ -387,3 +367,35 @@ C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\crate.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\epro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\floortileset.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\loadGameButton.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\newGameButton.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashScreen.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\test2.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\01 - Homeobox.wma
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\01 - Homeobox.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\lvl1.txt

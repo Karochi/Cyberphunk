@@ -44,17 +44,17 @@ namespace CyberShooter
         {
             if (!isDropped)
             {
-                spriteBatch.Draw(texture, HitRect, Color.Yellow);
+                spriteBatch.Draw(Game1.crateTex, HitRect, Color.White);
             }
             else if (isDropped)
             {
                 if(pickupType == PickupTypes.handgun)
                 {
-                    spriteBatch.Draw(texture, HitRect, Color.Red);
+                    spriteBatch.Draw(Game1.handgunTex , HitRect, Color.White);
                 }
                 else if(pickupType == PickupTypes.rifle)
                 {
-                    spriteBatch.Draw(texture, HitRect, Color.Green);
+                    spriteBatch.Draw(Game1.rifleTex, HitRect, Color.White);
                 }
             }
         }

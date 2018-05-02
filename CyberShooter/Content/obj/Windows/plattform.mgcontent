@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
-  <SourceTime>2018-03-28T17:45:24.9547851+02:00</SourceTime>
-  <DestFile>C:/Users/Cosmos/Desktop/CyberPhunk/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
-  <DestTime>2018-05-01T16:10:06.0851404+02:00</DestTime>
+  <SourceFile>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/plattform.bmp</SourceFile>
+  <SourceTime>2018-04-17T12:40:34+02:00</SourceTime>
+  <DestFile>C:/Users/johnh/Desktop/Cyberphunk/CyberShooter/Content/bin/Windows/plattform.xnb</DestFile>
+  <DestTime>2018-05-02T14:26:54.1137137+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2015-04-29T19:14:44+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>
@@ -26,10 +26,6 @@
   </Parameters>
   <Parameters>
     <Key>ResizeToPowerOfTwo</Key>
-    <Value>False</Value>
-  </Parameters>
-  <Parameters>
-    <Key>MakeSquare</Key>
     <Value>False</Value>
   </Parameters>
   <Parameters>

@@ -31,7 +31,7 @@ namespace CyberShooter
         public List<Rectangle> tileSet = new List<Rectangle>();
         public List<Rectangle> collisionRects = new List<Rectangle>();
         public List<NPC> NPCs = new List<NPC>();
-        public List<WeaponPickup> weaponBoxes = new List<WeaponPickup>();
+        public List<WeaponPickup> weaponPickups = new List<WeaponPickup>();
         public List<GameObject> questItems = new List<GameObject>();
         public List<GameObject> wallArts = new List<GameObject>();
 
@@ -102,7 +102,7 @@ namespace CyberShooter
                 Console.WriteLine("There was an error loading the map, is the file a valid map file?/nError:" + ex);
             }
         }
-        public void DrawMap(Player p, List<WeaponPickup> weaponPickupList, List<ResourcePickup> resourcePickUpList)
+        public void DrawMap(Player p,  List<ResourcePickup> resourcePickUpList)
         {
             try
             {
@@ -116,7 +116,17 @@ namespace CyberShooter
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
                         }
+                        if (lootLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[lootLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
                     }
+                }
+                foreach(WeaponPickup wP in weaponPickups)
+                {
+                    wP.Draw(Game1.spriteBatch, Game1.square);
                 }
                 foreach(NPC npc in NPCs)
                 {
@@ -128,10 +138,6 @@ namespace CyberShooter
                 foreach (Projectile projectile in p.ProjectileList)
                 {
                     projectile.Draw(Game1.spriteBatch, Game1.square);
-                }
-                foreach (WeaponPickup pickup in weaponPickupList)
-                {
-                    pickup.Draw(Game1.spriteBatch, Game1.square);
                 }
                 foreach (ResourcePickup pickup in resourcePickUpList)
                 {
@@ -259,14 +265,14 @@ namespace CyberShooter
             {
                 for (int y = 0; y < mapHeight; y++)
                 {
-                    if (lootLayer.layer[x, y] == 1)
+                    if (lootLayer.layer[x, y] != 0)
                     {
                         gunType = (int)rnd.Next(1, 3);
 
                         if (gunType == 1)
-                            weaponBoxes.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.handgun));
+                            weaponPickups.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.handgun));
                         else if(gunType== 2)
-                            weaponBoxes.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.rifle));
+                            weaponPickups.Add(new WeaponPickup(new Vector2(x * tileWidth, y * tileHeight), PickupTypes.rifle));
 
                         collisionRects.Add(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
                     }

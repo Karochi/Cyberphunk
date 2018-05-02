@@ -15,9 +15,7 @@ namespace CyberShooter
         int screenWidth, screenHeight;
         public static Map map;
 
-        WeaponPickup weaponPickup;
         ResourcePickup resourcePickUp;
-        public List<WeaponPickup> WeaponPickupList { get; private set; }
         public List<ResourcePickup> ResourcePickupList { get; private set; }
         float playerPickUpDistance, shortestPickUpDistance;
         int pickUpIndex;
@@ -28,7 +26,7 @@ namespace CyberShooter
         public static int tileWidth = 16;
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
-        string loadFileName = "Text Files\\shityTest.txt";
+        string loadFileName = "Text Files\\lvl1.txt";
         Random rnd = new Random();
 
         public GameBoard(int screenWidth, int screenHeight)
@@ -36,15 +34,6 @@ namespace CyberShooter
             this.screenHeight = screenHeight;
             this.screenWidth = screenWidth;
             Player = new Player(new Vector2(100, 100));
-
-            //Should be spawned through the map/other system later.
-            WeaponPickupList = new List<WeaponPickup>();
-            weaponPickup = new WeaponPickup(new Vector2(100, 500), PickupTypes.handgun);
-            WeaponPickupList.Add(weaponPickup);
-            weaponPickup = new WeaponPickup(new Vector2(100, 475), PickupTypes.handgun);
-            WeaponPickupList.Add(weaponPickup);
-            weaponPickup = new WeaponPickup(new Vector2(155, 510), PickupTypes.rifle);
-            WeaponPickupList.Add(weaponPickup);
 
             ResourcePickupList = new List<ResourcePickup>();
             resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickupTypes.rifleAmmo);
@@ -64,14 +53,18 @@ namespace CyberShooter
             map.LoadMap(loadFileName);
 
             map.LoadTileSet(Game1.tileSheet);
+            map.PopulateLootLayer();
             map.PopulateHostileHumanLayer();
             map.PopulateFriendlyHumanLayer();
             map.PopulateCollisionLayer();
+            map.PopulateFriendlyRobotLayer();
+            map.PopulateHostileRobotLayer();
+
         }
         public void Update(GameTime gameTime, Vector2 crosshairPos)
         {
             Player.Update();
-            Player.Update2(gameTime, crosshairPos, map.collisionRects, WeaponPickupList, map.NPCs);
+            Player.Update2(gameTime, crosshairPos, map.collisionRects, map.weaponPickups, map.NPCs);
             NPC(gameTime);
             WeaponPickUpSelection();
             WeaponPickupCollection();
@@ -117,7 +110,7 @@ namespace CyberShooter
                     Player.Position = Player.OldPosition;
                     Player.Speed = Vector2.Zero;
                 }
-                foreach(WeaponPickup pickup in WeaponPickupList)
+                foreach(WeaponPickup pickup in map.weaponPickups)
                 {
                     if (Player.HitRect.Intersects(pickup.HitRect) && !pickup.isDropped)
                     {
@@ -131,11 +124,11 @@ namespace CyberShooter
         {
             shortestPickUpDistance = float.MaxValue;
             pickUpIndex = -1;
-            for (int i = 0; i < WeaponPickupList.Count(); i++)
+            for (int i = 0; i < map.weaponPickups.Count(); i++)
             {
-                WeaponPickupList[i].SetIsInteractable(false);
-                playerPickUpDistance = Vector2.Distance(Player.GetPlayerCenter(), WeaponPickupList[i].GetPickUpCenter());
-                if (playerPickUpDistance < WeaponPickupList[i].GetRadius())
+                map.weaponPickups[i].SetIsInteractable(false);
+                playerPickUpDistance = Vector2.Distance(Player.GetPlayerCenter(), map.weaponPickups[i].GetPickUpCenter());
+                if (playerPickUpDistance < map.weaponPickups[i].GetRadius())
                 {
                     if (playerPickUpDistance < shortestPickUpDistance)
                     {
@@ -146,21 +139,21 @@ namespace CyberShooter
             }
             if (pickUpIndex >= 0)
             {
-                WeaponPickupList[pickUpIndex].SetIsInteractable(true);
+                map.weaponPickups[pickUpIndex].SetIsInteractable(true);
             }
         }
         public void WeaponPickupCollection()
         {
-            foreach (WeaponPickup pickUp in WeaponPickupList)
+            foreach (WeaponPickup pickUp in map.weaponPickups)
             {
                 if (pickUp.GetIsInteractable() && KeyMouseReader.KeyPressed(Keys.E))
                 {
                     if (Player.WeaponFullCheck())
                     {
-                        Player.WeaponDrop(WeaponPickupList);
+                        Player.WeaponDrop(map.weaponPickups);
                     }
                     pickUp.PickedUp(Player);
-                    WeaponPickupList.Remove(WeaponPickupList[pickUpIndex]);
+                    map.weaponPickups.Remove(map.weaponPickups[pickUpIndex]);
                     return;
                 }
             }
@@ -181,12 +174,12 @@ namespace CyberShooter
         }
         public void Draw(SpriteBatch spriteBatch, Texture2D texture)
         {
-            map.DrawMap(Player, WeaponPickupList, ResourcePickupList);
-            foreach (WeaponPickup pickUp in WeaponPickupList)
+            map.DrawMap(Player, ResourcePickupList);
+            foreach (WeaponPickup pickUp in map.weaponPickups)
             {
                 if (pickUp.GetIsInteractable())
                 {
-                    spriteBatch.DrawString(Game1.spriteFont, "E", new Vector2(pickUp.Position.X + pickUp.TexWidth / 2, pickUp.Position.Y - 10), Color.Black);
+                    spriteBatch.DrawString(Game1.spriteFont, "E", new Vector2(pickUp.Position.X + pickUp.TexWidth / 2, pickUp.Position.Y - 10), Color.White);
                 }
             }
         }

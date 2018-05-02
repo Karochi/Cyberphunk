@@ -22,7 +22,7 @@ namespace CyberShooter
         SoundEffect hoverSound, clickSound;
         bool played;
 
-        public Rectangle CollisionRect { get => collisionRect; set => collisionRect = value; }
+        public Rectangle CollisionRect; /*{ get => collisionRect; set => collisionRect = value; }*/
 
         public Button(Texture2D tex, Vector2 pos, int height, int width, SoundEffect hoverSound, SoundEffect clickSound)
         {

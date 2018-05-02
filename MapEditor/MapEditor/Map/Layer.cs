@@ -33,7 +33,7 @@ namespace MapEditor
 
             try
             {
-                if(currMouseState.LeftButton == ButtonState.Pressed)
+                if(currMouseState.LeftButton == ButtonState.Pressed && !HUD.verticalPanelRect.Contains(Game1.curState.X, Game1.curState.Y) && !HUD.horizontalPanelRect.Contains(Game1.curState.X, Game1.curState.Y))
                 {
                     mouse = new Vector2(currMouseState.X, currMouseState.Y);
                     mouseMapX = ((int)mouse.X / tileWidth) + Game1.drawOffset.X;
