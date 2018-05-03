@@ -64,16 +64,18 @@ namespace CyberShooter
                 if(lootRoll <= (100 - player.handgunAmmo))
                 {
                     pickup = new ResourcePickup(Position, PickupTypes.handgunAmmo);
+                    resourcePickupList.Add(pickup);
                 }
                 if(lootRoll <= (100 - player.rifleAmmo))
                 {
                     pickup = new ResourcePickup(Position, PickupTypes.rifleAmmo);
+                    resourcePickupList.Add(pickup);
                 }
                 if(lootRoll <= ((player.MaxHealth - player.CurrHealth) * 10))
                 {
                     pickup = new ResourcePickup(Position, PickupTypes.health);
+                    resourcePickupList.Add(pickup);
                 }
-                resourcePickupList.Add(pickup);
                 hasDropped = true;
             }
         }

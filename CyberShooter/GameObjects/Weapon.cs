@@ -75,8 +75,8 @@ namespace CyberShooter
         public void GunDefinition()
         {
             weaponType = WeaponTypes.semiAuto;
-            damage = 10;
-            range = 500;
+            damage = 5;
+            range = 200;
             projectileSpeed = 10;
             originCooldown = 500;
             pickUpType = PickupTypes.handgun;
@@ -84,8 +84,8 @@ namespace CyberShooter
         public void RifleDefinition()
         {
             weaponType = WeaponTypes.auto;
-            damage = 5;
-            range = 200;
+            damage = 10;
+            range = 300;
             projectileSpeed = 15;
             originCooldown = 200;
             pickUpType = PickupTypes.rifle;
