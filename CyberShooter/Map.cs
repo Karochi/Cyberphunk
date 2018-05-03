@@ -139,14 +139,14 @@ namespace CyberShooter
                 {
                     projectile.Draw(Game1.spriteBatch, Game1.square);
                 }
-                foreach (ResourcePickup pickup in resourcePickUpList)
-                {
-                    pickup.Draw(Game1.spriteBatch, Game1.square);
-                }
                 p.Draw(Game1.spriteBatch, Game1.square);
                 foreach (NPC npc in NPCs)
                 {
                     npc.Draw(Game1.spriteBatch, Game1.square);
+                }
+                foreach (ResourcePickup pickup in resourcePickUpList)
+                {
+                    pickup.Draw(Game1.spriteBatch, Game1.square);
                 }
                 for (int x = 0; x < mapWidth; ++x)
                 {

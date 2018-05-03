@@ -204,7 +204,7 @@ namespace CyberShooter
             {
                 foreach (NPC npc in NPCs)
                 {
-                    if (projectile.HitRect.Intersects(npc.HitRect))
+                    if (projectile.HitRect.Intersects(npc.HitRect) && !npc.IsDead)
                     {
                         npc.CurrHealth -= projectile.GetDamage();
                         npc.IsDamaged = true;
