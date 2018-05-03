@@ -77,17 +77,20 @@ namespace CyberShooter
             {
                 if (!map.NPCs[i].IsDead)
                 {
-                    //map.NPCs[i].GetPlayerPos(Player);
-                    if (map.NPCs[i].GetDirectionChangeCooldown() <= 0)
+                    if (map.NPCs[i].DirectionChangeCooldown <= 0)
                     {
-                        map.NPCs[i].SetDirectionX(rnd.Next(map.NPCs[i].GetMinDirectionX(), map.NPCs[i].GetMaxDirectionX()));
-                        map.NPCs[i].SetDirectionY(rnd.Next(map.NPCs[i].GetMinDirectionY(), map.NPCs[i].GetMaxDirectionY()));
+                        map.NPCs[i].DirectionX = (rnd.Next(map.NPCs[i].MinDirectionX, map.NPCs[i].MaxDirectionX));
+                        map.NPCs[i].DirectionY = (rnd.Next(map.NPCs[i].MinDirectionY, map.NPCs[i].MaxDirectionY));
                         map.NPCs[i].NormalizeDirection();
-                        map.NPCs[i].SetDirectionChangeCooldown(rnd.Next(1000, 2000));
-                        map.NPCs[i].SetMovementCooldown(rnd.Next(200, 2000));
-                        map.NPCs[i].SetVelocity(1f);
+                        map.NPCs[i].DirectionChangeCooldown = rnd.Next(1000, 2000);
+                        map.NPCs[i].MovementCooldown = rnd.Next(200, 2000);
+                        map.NPCs[i].Velocity= 1f;
                     }
                     map.NPCs[i].Update(gameTime, Player, map.collisionRects);
+                }
+                else if (map.NPCs[i].IsDead)
+                {
+                    map.NPCs[i].DropCheck(rnd.Next(1, 100), Player, ResourcePickupList);
                 }
                 map.NPCs[i].ProjectileUpdate(map.NPCs[i].ProjectileList);
             }
@@ -101,7 +104,7 @@ namespace CyberShooter
                     map.NPCs[j].CollisionCheck(map.collisionRects[i]);
                     if (map.NPCs[j].HitRect.Intersects(map.collisionRects[i]))
                     {
-                        map.NPCs[j].SetVelocity(0);
+                        map.NPCs[j].Velocity = 0;
                         map.NPCs[j].Position = map.NPCs[j].OldPosition;
                     }
                 }
@@ -109,14 +112,6 @@ namespace CyberShooter
                 {
                     Player.Position = Player.OldPosition;
                     Player.Speed = Vector2.Zero;
-                }
-                foreach(WeaponPickup pickup in map.weaponPickups)
-                {
-                    if (Player.HitRect.Intersects(pickup.HitRect) && !pickup.isDropped)
-                    {
-                        Player.Position = Player.OldPosition;
-                        Player.Speed = Vector2.Zero;
-                    }
                 }
             }
         }
