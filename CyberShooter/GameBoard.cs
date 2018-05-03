@@ -65,11 +65,11 @@ namespace CyberShooter
         {
             Player.Update();
             Player.Update2(gameTime, crosshairPos, map.collisionRects, map.weaponPickups, map.NPCs);
+            WallCollision();
             NPC(gameTime);
             WeaponPickUpSelection();
             WeaponPickupCollection();
             ResourcePickupCollection();
-            WallCollision();
         }
         public void NPC(GameTime gameTime)
         {
@@ -99,13 +99,13 @@ namespace CyberShooter
         {
             for (int i = 0; i < map.collisionRects.Count(); i++)
             {
-                for (int j = 0; j < map.NPCs.Count(); j++)
+                foreach (NPC npc in map.NPCs)
                 {
-                    map.NPCs[j].CollisionCheck(map.collisionRects[i]);
-                    if (map.NPCs[j].HitRect.Intersects(map.collisionRects[i]))
+                    npc.CollisionCheck(map.collisionRects[i]);
+                    if (npc.HitRect.Intersects(map.collisionRects[i]))
                     {
-                        map.NPCs[j].Velocity = 0;
-                        map.NPCs[j].Position = map.NPCs[j].OldPosition;
+                        npc.Velocity = 0;
+                        npc.Position = npc.OldPosition;
                     }
                 }
                 if (Player.HitRect.Intersects(map.collisionRects[i]))

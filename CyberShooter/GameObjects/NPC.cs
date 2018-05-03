@@ -31,19 +31,17 @@ namespace CyberShooter
             Range = 200;
             Damage = 1;
 
-            this.hostile = hostile;
-
             MinDirectionX = -180;
             MaxDirectionX = 180;
             MinDirectionY = -180;
             MaxDirectionY = 180;
+            this.hostile = hostile;
         }
         public void Update(GameTime gameTime, Player player, List<Rectangle> collisionRects)
         {
             MovementCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             DirectionChangeCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             ShootingCooldown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-
             if(DamageCooldown <= 0)
             {
                 IsDamaged = false;
@@ -51,6 +49,7 @@ namespace CyberShooter
             Movement();
             Shooting(player);
             ProjectilePlayerCollision(player);
+            CollisionReset();
             base.Update(gameTime, collisionRects);
         }
         public void NormalizeDirection()
@@ -99,28 +98,20 @@ namespace CyberShooter
         public void CollisionCheck(Rectangle collisionRect)
         {
             if (topRect.Intersects(collisionRect))
-            {
                 MinDirectionY = 0;
-            }
             if (bottomRect.Intersects(collisionRect))
-            {
                 MaxDirectionY = 0;
-            }
             if (leftRect.Intersects(collisionRect))
-            {
                 MinDirectionX = 0;
-            }
             if (rightRect.Intersects(collisionRect))
-            {
                 MaxDirectionX = 0;
-            }
-            else
-            {
-                MinDirectionX = -180;
-                MaxDirectionX = 180;
-                MinDirectionY = -180;
-                MaxDirectionY = 180;
-            }
+        }
+        public void CollisionReset()
+        {
+            MinDirectionX = -180;
+            MaxDirectionX = 180;
+            MinDirectionY = -180;
+            MaxDirectionY = 180;
         }
         public void ProjectilePlayerCollision(Player player)
         {
