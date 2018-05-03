@@ -13,7 +13,8 @@ namespace CyberShooter
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
         public GameStates currentGameState;
-        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex, crateTex;
+        public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex, crateTex,
+            lvl1Screen;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Camera camera;
@@ -53,10 +54,11 @@ namespace CyberShooter
             charTex = Content.Load<Texture2D>("Texture_Pack_Characters");
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
+            lvl1Screen = Content.Load<Texture2D>("lvl1screen");
             crateTex = Content.Load<Texture2D>("crate");
             friendlyProTex = Content.Load<Texture2D>("fpro");
             clickedSound = Content.Load<SoundEffect>("threeTone2");
-            gameSong = Content.Load<Song>("01 - HomeoBox");
+            gameSong = Content.Load<Song>("Gesaffelstein - Viol");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
             currentGameState = GameStates.splash;
@@ -94,6 +96,14 @@ namespace CyberShooter
 
                 if (startMenu.newGame.clicked)
                 {
+                    currentGameState = GameStates.loadingLevel;
+                }
+            }
+            if(currentGameState == GameStates.loadingLevel)
+            {
+                if(KeyMouseReader.KeyPressed(Keys.Enter))
+                {
+                    clickedSound.Play();
                     currentGameState = GameStates.gameOn;
                     MediaPlayer.Play(gameSong);
                 }
@@ -133,6 +143,8 @@ namespace CyberShooter
             {
                 ScreenManager.Instance.Draw(spriteBatch);
             }
+            if (currentGameState == GameStates.loadingLevel)
+                spriteBatch.Draw(lvl1Screen, Vector2.Zero, Color.White);
             if (currentGameState == GameStates.startMenu)
             {
                startMenu.Draw();

@@ -411,3 +411,11 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\newGameBut
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\lvl1.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\test2.txt
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\crate.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\lvl1screen.xnb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.wma
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.xnb
