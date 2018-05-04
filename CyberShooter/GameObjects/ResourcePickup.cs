@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace CyberShooter
                 else return false;
             }
             else return false;
+        }
+        public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+        {
+            if (pickupType == PickupTypes.handgunAmmo || pickupType == PickupTypes.rifleAmmo)
+                spriteBatch.Draw(Game1.ammoTex, HitRect, Color.White);
+            else if(pickupType == PickupTypes.health)
+                spriteBatch.Draw(Game1.healthTex, HitRect, Color.White);
         }
     }
 }

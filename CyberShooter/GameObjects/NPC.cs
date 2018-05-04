@@ -21,8 +21,8 @@ namespace CyberShooter
         public NPC(Vector2 position, bool hostile) : base()
         {
             Position = position;
-            TexWidth = 16;
-            TexHeight = 20;
+            TexWidth = 30;
+            TexHeight = 36;
             MaxHealth = 50;
             CurrHealth = MaxHealth;
 
@@ -92,7 +92,7 @@ namespace CyberShooter
         {
             if (Vector2.Distance(Player.Position, Position) <= Radius && ShootingCooldown <= 0)
             {
-                Projectile projectile = new Projectile(Position, Player.GetPlayerCenter(), Damage, Range, projectileSpeed);
+                Projectile projectile = new Projectile(Game1.redProTex, Position, Player.GetPlayerCenter(), Damage, Range, projectileSpeed);
                 ShootingCooldown = 1000;
                 ProjectileList.Add(projectile);
             }

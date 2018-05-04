@@ -58,8 +58,8 @@ namespace CyberShooter
             firstWeapon = new Weapon(WeaponNames.unarmed);
             secondWeapon = new Weapon(WeaponNames.unarmed);
             this.Position = (position);
-            TexWidth = 16;
-            TexHeight = 20;
+            TexWidth = 30;
+            TexHeight = 36;
             handgunAmmo = 60;
             rifleAmmo = 30;
             MaxHealth = 8;
@@ -221,7 +221,7 @@ namespace CyberShooter
             {
                 if (firstWeapon.GetCooldown() <= 0)
                 {
-                    projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
+                    projectile = new Projectile(Game1.greenProTex, playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     ProjectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     return true;
@@ -235,7 +235,7 @@ namespace CyberShooter
             {
                 if (firstWeapon.GetCooldown() <= 0)
                 {
-                    projectile = new Projectile(playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
+                    projectile = new Projectile(Game1.yellowProTex, playerCenter, target, firstWeapon.GetDamage(), firstWeapon.GetRange(), firstWeapon.GetProjectileSpeed());
                     ProjectileList.Add(projectile);
                     firstWeapon.SetCooldown(firstWeapon.GetOriginCooldown());
                     return true;

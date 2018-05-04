@@ -14,7 +14,7 @@ namespace CyberShooter
         public static SpriteBatch spriteBatch;
         public GameStates currentGameState;
         public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex, crateTex,
-            lvl1Screen;
+            lvl1Screen, ammoTex, healthTex, greenProTex, yellowProTex, redProTex, gameOverScreen;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Camera camera;
@@ -46,18 +46,24 @@ namespace CyberShooter
             ScreenManager.Instance.spriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
             square = Content.Load<Texture2D>("plattform");
-            tileSheet = Content.Load<Texture2D>("useLvl1sheet");
+            tileSheet = Content.Load<Texture2D>("theSprite");
             spriteFont = Content.Load<SpriteFont>("spriteFont");
             crosshairTex = Content.Load<Texture2D>("crosshair");
             healthBarTex = Content.Load<Texture2D>("healthbartex");
             rifleTex = Content.Load<Texture2D>("rifleTex");
             charTex = Content.Load<Texture2D>("Texture_Pack_Characters");
+            healthTex = Content.Load<Texture2D>("health");
+            ammoTex = Content.Load<Texture2D>("ammo");
             handgunTex = Content.Load<Texture2D>("handgunTex");
             unarmedTex = Content.Load<Texture2D>("unarmedTex");
             lvl1Screen = Content.Load<Texture2D>("lvl1screen");
             crateTex = Content.Load<Texture2D>("crate");
             friendlyProTex = Content.Load<Texture2D>("fpro");
             clickedSound = Content.Load<SoundEffect>("threeTone2");
+            yellowProTex = Content.Load<Texture2D>("yellowPro");
+            redProTex = Content.Load<Texture2D>("redPro");
+            greenProTex = Content.Load<Texture2D>("greenPro");
+            gameOverScreen = Content.Load<Texture2D>("gameOverScreen");
             gameSong = Content.Load<Song>("Gesaffelstein - Viol");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
@@ -97,6 +103,7 @@ namespace CyberShooter
                 if (startMenu.newGame.clicked)
                 {
                     currentGameState = GameStates.loadingLevel;
+                    startMenu.newGame.clicked = false;
                 }
             }
             if(currentGameState == GameStates.loadingLevel)
@@ -116,6 +123,9 @@ namespace CyberShooter
             {
                 gameBoard.Update(gameTime, target);
             }
+            if(currentGameState == GameStates.gameOver)
+                if (KeyMouseReader.KeyPressed(Keys.Enter))
+                    currentGameState = GameStates.startMenu;
         }
         protected void CameraUpdate()
         {
@@ -151,7 +161,7 @@ namespace CyberShooter
             }
             if (currentGameState == GameStates.gameOver)
             {
-                spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(screenWidth / 2, screenHeight / 2), Color.Red);
+                spriteBatch.Draw(gameOverScreen, Vector2.Zero, Color.White);
             }
             spriteBatch.End();
             base.Draw(gameTime);

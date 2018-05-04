@@ -22,11 +22,11 @@ namespace CyberShooter
 
         public static int mapHeight = 20;
         public static int mapWidth = 20;
-        public static int tileHeight = 16;
-        public static int tileWidth = 16;
+        public static int tileHeight = 32;
+        public static int tileWidth = 32;
         public static Vector2 drawOffset = Vector2.Zero;
         public static int drawableLayer = 0;
-        string loadFileName = "Text Files\\lvl1.txt";
+        string loadFileName = "Text Files\\Level1.txt";
         Random rnd = new Random();
 
         public GameBoard(int screenWidth, int screenHeight)
@@ -36,10 +36,6 @@ namespace CyberShooter
             Player = new Player(new Vector2(100, 100));
 
             ResourcePickupList = new List<ResourcePickup>();
-            resourcePickUp = new ResourcePickup(new Vector2(500, 50), PickupTypes.rifleAmmo);
-            ResourcePickupList.Add(resourcePickUp);
-            resourcePickUp = new ResourcePickup(new Vector2(500, 400), PickupTypes.health);
-            ResourcePickupList.Add(resourcePickUp);
 
             map = new Map(mapWidth, mapHeight, tileWidth, tileHeight);
             map.LoadMap(loadFileName);

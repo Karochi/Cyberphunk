@@ -38,8 +38,8 @@ namespace CyberShooter
             Position = position;
             pickupType = type;
             isInteractable = false;
-            TexWidth = 16;
-            TexHeight = 16;
+            TexWidth = 32;
+            TexHeight = 32;
             pickupCenter = new Vector2(position.X + TexWidth / 2, position.Y + TexHeight / 2);
             base.Update();
         }

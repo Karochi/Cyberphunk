@@ -106,7 +106,7 @@
             this.TileHeightBox.Size = new System.Drawing.Size(120, 20);
             this.TileHeightBox.TabIndex = 6;
             this.TileHeightBox.Value = new decimal(new int[] {
-            16,
+            32,
             0,
             0,
             0});
@@ -118,7 +118,7 @@
             this.tileWidthBox.Size = new System.Drawing.Size(120, 20);
             this.tileWidthBox.TabIndex = 7;
             this.tileWidthBox.Value = new decimal(new int[] {
-            16,
+            32,
             0,
             0,
             0});
