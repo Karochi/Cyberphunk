@@ -438,3 +438,94 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\lvl1screen
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\redPro.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\theSprite.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\yellowPro.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\Level1.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\lvl1.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\test2.txt
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\ammo.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\crate.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\gameOverScreen.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.wma
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\greenPro.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\health.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\loadGameButton.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\lvl1screen.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\newGameButton.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\redPro.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\theSprite.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb
+C:\Users\lucky\OneDrive\Documents\GitHub\Cyberphunk\CyberShooter\bin\x86\debug\Content\yellowPro.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.bmp
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Load\SplashScreen.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\allHumanTest.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\humanTest.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\Level1.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\lvl1.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\shityTest.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\test2.txt
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Textures\useLvl1sheet.png
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\32tilesheet.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\ammo.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\crate.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\gameOverScreen.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.wma
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\greenPro.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\health.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\loadGameButton.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\lvl1screen.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\newGameButton.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\plattform.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\quitGameButton.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\redPro.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\rifleTex.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\roguelikeSheet_transparent.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\shadowbutton.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashFont.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\splashScreen.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\spriteFont.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\Texture_Pack_Characters.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\theSprite.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\threeTone2.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\tone1.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\unarmedTex.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1sheet.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\Content\yellowPro.xnb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe.config
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.exe
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\CyberShooter.pdb
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.dll
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\MonoGame.Framework.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.MediaFoundation.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XAudio2.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.DXGI.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D11.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct2D1.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.XInput.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\bin\x86\debug\SharpDX.Direct3D9.xml
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
+C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb

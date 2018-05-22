@@ -31,7 +31,7 @@ namespace CyberShooter
         }
         public override void Update()
         {
-            if (timer >= 60) {
+            if (timer >= 30) {
                 
                 if (frame == 2)
                 {

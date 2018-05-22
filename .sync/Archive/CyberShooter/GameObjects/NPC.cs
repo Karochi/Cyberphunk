@@ -12,10 +12,10 @@ namespace CyberShooter
     {
         enum Direction { Left, Up, Down, Right }
         Direction currentDirection;
-        Rectangle nrDown = new Rectangle(0, 0, 30, 38);
-        Rectangle nrUp = new Rectangle(0, 38 * 3, 30, 38);
-        Rectangle nrLeft = new Rectangle(0, 38 * 1, 30, 38);
-        Rectangle nrRight = new Rectangle(0, 38 * 2, 30, 38);
+        Rectangle nrDown = new Rectangle(0, 38 * 1, 30, 38);
+        Rectangle nrUp = new Rectangle(0, 38 * 4, 30, 38);
+        Rectangle nrLeft = new Rectangle(0, 38 * 2, 30, 38);
+        Rectangle nrRight = new Rectangle(0, 38 * 3, 30, 38);
         Texture2D charTex;
         Vector2 direction;
         ResourcePickup pickup;
@@ -99,22 +99,6 @@ namespace CyberShooter
             if (MovementCooldown <= 0)
             {
                 Speed = Vector2.Zero;
-            }
-            if (DirectionX < 0)
-            {
-                currentDirection = Direction.Left;
-            }
-            else if (DirectionX > 0) 
-            {
-                currentDirection = Direction.Right;
-            }
-            else if(DirectionY < 0)
-            {
-                currentDirection = Direction.Up;
-            }
-            else if(DirectionY > 0)
-            {
-                currentDirection = Direction.Down;
             }
         }
         public void Shooting(Player Player)
@@ -207,16 +191,16 @@ namespace CyberShooter
                 {
 
                     case Direction.Down:
-                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrDown.X + 38 * frame, nrDown.Y, nrDown.Width, nrDown.Height), Color.White);
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrDown.X + 38 * frame, nrDown.Y, nrDown.Width, nrDown.Height), Color.Gray);
                         break;
                     case Direction.Up:
-                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrUp.X + 38 * frame, nrUp.Y, nrUp.Width, nrUp.Height), Color.White);
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrUp.X + 38 * frame, nrUp.Y, nrUp.Width, nrUp.Height), Color.Gray);
                         break;
                     case Direction.Left:
-                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrLeft.X + 38 * frame, nrLeft.Y, nrLeft.Width, nrLeft.Height), Color.White);
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrLeft.X + 38 * frame, nrLeft.Y, nrLeft.Width, nrLeft.Height), Color.Gray);
                         break;
                     case Direction.Right:
-                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrRight.X + 38 * frame, nrRight.Y, nrRight.Width, nrRight.Height), Color.White);
+                        spriteBatch.Draw(charTex, HitRect, new Rectangle(nrRight.X + 38 * frame, nrRight.Y, nrRight.Width, nrRight.Height), Color.Gray);
                         break;
                 }
            //     base.Draw(spriteBatch, texture);
