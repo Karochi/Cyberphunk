@@ -27,7 +27,6 @@ C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\Windows\Debug\SharpDX.Direct
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
-C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojResolveAssemblyReference.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CopyComplete
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
@@ -529,3 +528,5 @@ C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csp
 C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csproj.CoreCompileInputs.cache
 C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.exe
 C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojAssemblyReference.cache
+C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb

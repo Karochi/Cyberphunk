@@ -36,6 +36,7 @@ namespace CyberShooter
         public List<GameObject> wallArts = new List<GameObject>();
 
         Rectangle bounds;
+        public Rectangle goalRec;
         Random rnd = new Random();
         int gunType;
 
@@ -119,6 +120,18 @@ namespace CyberShooter
                         if (lootLayer.layer[y, x] != 0)
                         {
                             bounds = tileSet[lootLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
+                        if (questLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[questLayer.layer[y, x] - 1];
+
+                            Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
+                        }
+                        if (wallArtLayer.layer[y, x] != 0)
+                        {
+                            bounds = tileSet[wallArtLayer.layer[y, x] - 1];
 
                             Game1.spriteBatch.Draw(Game1.tileSheet, new Vector2(((y - GameBoard.drawOffset.X) * tileWidth), ((x - GameBoard.drawOffset.Y) * tileHeight)), bounds, Color.White);
                         }
@@ -285,9 +298,9 @@ namespace CyberShooter
             {
                 for (int y = 0; y < mapHeight; y++)
                 {
-                    if (questLayer.layer[x, y] == 1)
+                    if (questLayer.layer[x, y] != 0)
                     {
-                        
+                        goalRec = new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
                     }
                 }
             }
@@ -298,9 +311,9 @@ namespace CyberShooter
             {
                 for (int y = 0; y < mapHeight; y++)
                 {
-                    if (wallArtLayer.layer[x, y] == 1)
+                    if (wallArtLayer.layer[x, y] != 0)
                     {
-                        
+
                     }
                 }
             }

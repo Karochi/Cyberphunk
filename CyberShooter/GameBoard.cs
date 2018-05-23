@@ -55,13 +55,14 @@ namespace CyberShooter
             map.PopulateCollisionLayer();
             map.PopulateFriendlyRobotLayer();
             map.PopulateHostileRobotLayer();
-
+            map.PopulateWallArtLayer();
+            map.PopulateQuestLayer();
         }
         public void Update(GameTime gameTime, Vector2 crosshairPos)
         {
             ResourcePickupCollection();
             Player.Update();
-            Player.Update2(gameTime, crosshairPos, map.collisionRects, map.weaponPickups, map.NPCs);
+            Player.Update2(gameTime, crosshairPos, map.collisionRects, map.weaponPickups, map.NPCs, map.goalRec);
             WallCollision();
             NPC(gameTime);
             WeaponPickUpSelection();

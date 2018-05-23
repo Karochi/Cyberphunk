@@ -7,14 +7,14 @@ using System;
 
 namespace CyberShooter
 {
-    public enum GameStates { splash, startMenu, loadingLevel, gameOn, gameOver };
+    public enum GameStates { splash, startMenu, loadingLevel, gameOn, gameOver, levelWon };
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
         public GameStates currentGameState;
         public static Texture2D square, crosshairTex,tileSheet, healthBarTex, handgunTex, rifleTex, unarmedTex, friendlyProTex,enemyProTex, charTex, crateTex,
-            lvl1Screen, ammoTex, healthTex, greenProTex, yellowProTex, redProTex, gameOverScreen;
+            lvl1Screen, ammoTex, healthTex, greenProTex, yellowProTex, redProTex, gameOverScreen, lvl1Won;
         public static SpriteFont spriteFont;
         Vector2 target, crosshairPos;
         Camera camera;
@@ -64,6 +64,7 @@ namespace CyberShooter
             redProTex = Content.Load<Texture2D>("redPro");
             greenProTex = Content.Load<Texture2D>("greenPro");
             gameOverScreen = Content.Load<Texture2D>("gameOverScreen");
+            lvl1Won = Content.Load<Texture2D>("Level1won");
             gameSong = Content.Load<Song>("Gesaffelstein - Viol");
             Viewport view = GraphicsDevice.Viewport;
             camera = new Camera(view);
@@ -119,6 +120,8 @@ namespace CyberShooter
             {
                 currentGameState = GameStates.gameOver;
             }
+            if (gameBoard.Player.levelFinish)
+                currentGameState = GameStates.levelWon;
             if (currentGameState == GameStates.gameOn)
             {
                 gameBoard.Update(gameTime, target);
@@ -158,6 +161,10 @@ namespace CyberShooter
             if (currentGameState == GameStates.startMenu)
             {
                startMenu.Draw();
+            }
+            if(currentGameState == GameStates.levelWon)
+            {
+                spriteBatch.Draw(lvl1Won, Vector2.Zero, Color.White);
             }
             if (currentGameState == GameStates.gameOver)
             {

@@ -24,6 +24,7 @@ namespace CyberShooter
         Texture2D charTex;
         public int handgunAmmo { get; set; }
         public int rifleAmmo { get; set; }
+        public bool levelFinish = false;
 
         Projectile projectile;
 
@@ -69,7 +70,7 @@ namespace CyberShooter
         {
             base.Update();
         }
-        public void Update2(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs)
+        public void Update2(GameTime gameTime, Vector2 target, List<Rectangle> collisionRects, List<WeaponPickup> weaponPickupList, List<NPC> NPCs, Rectangle goalRec)
         {
             base.Update(gameTime, collisionRects);
             this.target = target;
@@ -88,6 +89,8 @@ namespace CyberShooter
                 WeaponSwap();
             if (KeyMouseReader.KeyPressed(Keys.X) && firstWeapon.GetWeaponName() != WeaponNames.unarmed)
                 WeaponDrop(weaponPickupList);
+            if (HitRect.Intersects(goalRec))
+                levelFinish = true;
         }
         public bool WeaponFullCheck()
         {
