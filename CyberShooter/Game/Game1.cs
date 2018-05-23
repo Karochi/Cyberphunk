@@ -122,13 +122,23 @@ namespace CyberShooter
             }
             if (gameBoard.Player.levelFinish)
                 currentGameState = GameStates.levelWon;
+
+            if (currentGameState == GameStates.levelWon && KeyMouseReader.KeyPressed(Keys.Enter))
+                Reload();
+
             if (currentGameState == GameStates.gameOn)
             {
                 gameBoard.Update(gameTime, target);
             }
-            if(currentGameState == GameStates.gameOver)
-                if (KeyMouseReader.KeyPressed(Keys.Enter))
-                    currentGameState = GameStates.startMenu;
+
+            if(currentGameState == GameStates.gameOver && KeyMouseReader.KeyPressed(Keys.Enter))
+                Reload();
+        }
+        private void Reload()
+        {
+            currentGameState = GameStates.startMenu;
+            startMenu = new StartMenu(Content);
+            gameBoard = new GameBoard(screenWidth, screenHeight);
         }
         protected void CameraUpdate()
         {

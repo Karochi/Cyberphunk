@@ -530,3 +530,4 @@ C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.e
 C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.pdb
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojAssemblyReference.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb
+C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb
