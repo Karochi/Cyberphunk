@@ -372,8 +372,6 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\crosshair.x
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\dialoghitbox.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.wma
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Electro Zombies.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\epro.xnb
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\floortileset.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\fpro.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\handgunTex.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\healthbartex.xnb
@@ -395,8 +393,6 @@ C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\useLvl1shee
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\test2.txt
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\01 - Homeobox.wma
-C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\01 - Homeobox.xnb
 C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\lvl1.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\ga.txt
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\hur.txt
@@ -531,3 +527,15 @@ C:\Users\Anton\Resilio Sync\Cyberphunk\CyberShooter\obj\x86\Debug\CyberShooter.p
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\obj\x86\Debug\Cyberphunk.csprojAssemblyReference.cache
 C:\Users\Cosmos\Desktop\CyberPhunk\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb
 C:\Users\Martin\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Text Files\Level1.txt
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\ammo.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\gameOverScreen.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.wma
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Gesaffelstein - Viol.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\greenPro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\health.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\lvl1screen.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\redPro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\theSprite.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\yellowPro.xnb
+C:\Users\johnh\Desktop\Cyberphunk\CyberShooter\bin\x86\debug\Content\Level1won.xnb

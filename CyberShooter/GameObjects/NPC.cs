@@ -35,9 +35,9 @@ namespace CyberShooter
             CurrHealth = MaxHealth;
 
             Radius = 220;
-            projectileSpeed = 1;
-            Range = 200;
-            Damage = 1;
+            projectileSpeed = 3;
+            Range = 500;
+            Damage = 2;
 
             MinDirectionX = -180;
             MaxDirectionX = 180;

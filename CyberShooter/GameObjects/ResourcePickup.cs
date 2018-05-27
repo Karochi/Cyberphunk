@@ -27,7 +27,7 @@ namespace CyberShooter
             }
             if(pickupType == PickupTypes.rifleAmmo)
             {
-                ammoPickUpAmount = 10;
+                ammoPickUpAmount = 20;
                 player.rifleAmmo += ammoPickUpAmount;
                 return true;
             }

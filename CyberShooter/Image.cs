@@ -60,7 +60,7 @@ namespace CyberShooter
         {
             path = text = effects = String.Empty;
             fontName = "spriteFont";
-            position = Vector2.Zero;
+            position = new Vector2(560,260);
             scale = Vector2.One;
             alpha = 1.0f;
             srcRect = Rectangle.Empty;
@@ -131,7 +131,7 @@ namespace CyberShooter
         {
             origin = new Vector2(srcRect.Width / 2, srcRect.Height / 2);
 
-            spriteBatch.Draw(texture, position + origin, srcRect, Color.White * alpha, 0.0f, origin, scale, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(texture, new Vector2(1920/2,1080/2), srcRect, Color.White * alpha, 0.0f, origin, scale, SpriteEffects.None, 0.0f);
         }
     }
 }

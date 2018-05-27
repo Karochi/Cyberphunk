@@ -61,8 +61,8 @@ namespace CyberShooter
             this.Position = (position);
             TexWidth = 30;
             TexHeight = 36;
-            handgunAmmo = 60;
-            rifleAmmo = 30;
+            handgunAmmo = 120;
+            rifleAmmo = 80;
             MaxHealth = 8;
             CurrHealth = MaxHealth;
         }
@@ -126,23 +126,23 @@ namespace CyberShooter
         {
             if (Speed.X >= (-3) && KeyMouseReader.KeyHeld(Keys.A))
             {
-                Speed = new Vector2(Speed.X - 0.2f, Speed.Y);
+                Speed = new Vector2(Speed.X - 0.6f, Speed.Y);
                 currentDirection = Direction.Left;
             }
             else if (Speed.X <= 3 && KeyMouseReader.KeyHeld(Keys.D))
             {
-                Speed = new Vector2(Speed.X + 0.2f, Speed.Y);
+                Speed = new Vector2(Speed.X + 0.6f, Speed.Y);
                 currentDirection = Direction.Right;
                 
             }
             else if (Speed.Y >= (-3) && KeyMouseReader.KeyHeld(Keys.W))
             {
-                Speed = new Vector2(Speed.X, Speed.Y - 0.2f);
+                Speed = new Vector2(Speed.X, Speed.Y - 0.6f);
                 currentDirection = Direction.Up;
             }
             else if (Speed.Y <= 3 && KeyMouseReader.KeyHeld(Keys.S))
             {
-                Speed = new Vector2(Speed.X, Speed.Y + 0.2f);
+                Speed = new Vector2(Speed.X, Speed.Y + 0.6f);
                 currentDirection = Direction.Down;
             }
         }

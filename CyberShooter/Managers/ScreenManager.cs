@@ -32,7 +32,7 @@ namespace CyberShooter
         }
         public ScreenManager()
         {
-            dimensions = new Vector2(800, 600);
+            dimensions = new Vector2(1920, 1080);
             currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.type = currentScreen.type;

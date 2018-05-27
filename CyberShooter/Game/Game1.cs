@@ -33,6 +33,8 @@ namespace CyberShooter
             screenHeight = (int)ScreenManager.Instance.dimensions.Y;
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
         }
         protected override void Initialize()
         {
@@ -167,18 +169,18 @@ namespace CyberShooter
                 ScreenManager.Instance.Draw(spriteBatch);
             }
             if (currentGameState == GameStates.loadingLevel)
-                spriteBatch.Draw(lvl1Screen, Vector2.Zero, Color.White);
+                spriteBatch.Draw(lvl1Screen, new Vector2(1920/2-400, 1080/2-300), Color.White);
             if (currentGameState == GameStates.startMenu)
             {
                startMenu.Draw();
             }
             if(currentGameState == GameStates.levelWon)
             {
-                spriteBatch.Draw(lvl1Won, Vector2.Zero, Color.White);
+                spriteBatch.Draw(lvl1Won, new Vector2(1920 / 2 - 400, 1080 / 2 - 300), Color.White);
             }
             if (currentGameState == GameStates.gameOver)
             {
-                spriteBatch.Draw(gameOverScreen, Vector2.Zero, Color.White);
+                spriteBatch.Draw(gameOverScreen, new Vector2(1920 / 2 - 400, 1080 / 2 - 300), Color.White);
             }
             spriteBatch.End();
             base.Draw(gameTime);
